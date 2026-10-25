@@ -1,0 +1,30 @@
+{
+  "record_type": "initial_import",
+  "import_date": "2026-10-25",
+  "title": "Some problems in complex variables",
+  "author": "Zhijian Chen",
+  "supplied_pdf_date": "2026-10-25",
+  "supplied_pdf_pages": 35,
+  "files": [
+    {
+      "original_filename": "SCV-Problem list.tex",
+      "repository_path": "papers/src/scv-problem-list.tex",
+      "size_bytes": 129637,
+      "sha256": "946b902200b79d19d4f4e1b2c1db5441a8495ac998fe5fdad4bd5f537cd5d34e"
+    },
+    {
+      "original_filename": "SCV-Problem list.pdf",
+      "repository_path": "papers/scv-problem-list.pdf",
+      "size_bytes": 265382,
+      "sha256": "3848692067b2dc79b8f5df747e8903049696541f296c224a2d4271a9d23919e3"
+    }
+  ],
+  "verification": {
+    "method": "Source structure and PDF text inspected independently; all numbered problems and category counts agree.",
+    "numbered_problems": 139,
+    "closed": 35,
+    "partial_results": 52,
+    "wide_open": 52
+  },
+  "note": "This records the initial supplied files. It is an import record, not a claim that the PDF was rebuilt in this repository."
+}

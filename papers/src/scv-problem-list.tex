@@ -1,0 +1,1544 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\ddbar}{\partial\bar\partial}
+\newcommand{\dbar}{\bar\partial}
+\DeclareMathOperator{\PSH}{PSH}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Id}{Id}
+\title{Some problems in complex variables}
+\author{Zhijian Chen}
+\address{Institute of Mathematics, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, Beijing 100190, China}
+\email{chenzhijian@amss.ac.cn}
+\date{\today}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+\begin{abstract}
+The purpose of this survey is to collect problems in contemporary several complex variables and complex geometry. The problems are drawn from \cite{B95,FS2001,Zhou2019,Siu2025}, consolidated, and organized by subject and degree of resolution. Each section introduces shared notation; proof sketches summarize established results, and attributed remarks record perspectives from the literature.
+\end{abstract}
+\maketitle
+
+\section*{Introduction}
+%\addcontentsline{toc}{section}{Introduction}
+Several complex variables grew from analytic continuation and the geometry of domains of holomorphy. Hartogs extension revealed a fundamental distinction from one variable: if $n\geq2$, $\Omega\subset\mathbb C^n$ is a domain, and $K\Subset\Omega$ is compact with $\Omega\setminus K$ connected, every $f\in\mathcal O(\Omega\setminus K)$ extends to $\Omega$. The Levi problem connected holomorphic convexity with pseudoconvexity. Oka, Cartan, and Grauert placed these questions in the broader setting of Stein spaces, coherent sheaves, and complex manifolds \cite{B95,FS2001,Zhou2019}.
+
+The $L^2$ methods of H\"ormander and Kohn made estimates for $\bar\partial$ central to existence, regularity, and extension. Kodaira's embedding theory connected analytic positivity with algebraic geometry. Pluripotential theory, invariant metrics, and holomorphic dynamics now link these foundations to hyperbolicity, algebraic cycles, and period maps \cite{Zhou2019,Siu2025}.
+
+Our starting points are the problem lists of Buzzard--Forn\ae ss--Gavosto--Krantz \cite{B95} and Forn\ae ss--Sibony \cite{FS2001}, Zhou's survey \cite{Zhou2019}, and Siu's conference report \cite{Siu2025}. We combine overlapping questions and retain classical problems whose solutions clarify the hypotheses or methods of unresolved ones.
+
+We classify the problems into three categories: wide-open problems, partially resolved problems, and closed problems. By a closed problem, we mean one that has been completely resolved, either affirmatively or negatively. By a partially resolved problem, we mean one for which significant special cases or weaker forms are known, while the full statement remains open. By a wide-open problem, we mean one whose central question remains largely unresolved, although related results and proposed approaches may be available. The classification concerns the precise formulations stated here and reflects the cited literature.
+
+\medskip
+\noindent\textbf{Reading guide.}
+Each subject is divided into closed problems with complete solutions, open problems with partial results, and wide-open problems, in that order. Problem $i.j$ is the $j$th problem of Section~$i$, independently of its subsection. Proofs may be sketches; partial proofs specify the hypotheses of the known results, and remarks are attributed to their sources. Dates refer to cited publications unless otherwise stated, and recent preprint claims are identified explicitly.
+
+Throughout, $\Delta=\{z\in\mathbb C:|z|<1\}$, $\mathbb B^n=\{z\in\mathbb C^n:\|z\|<1\}$, and $\mathbb P^n$ is complex projective space. The notation $A\Subset B$ means that $\overline A$ is compact and contained in $B$, and $\mathcal O(X)$ denotes the holomorphic functions on $X$. Smooth means $C^\infty$ unless otherwise specified. In algebraic parameter spaces, generic means outside a proper Zariski-closed subset; very general means outside a countable union of such subsets. Other notions of genericity are specified where used.
+
+\tableofcontents
+\clearpage
+
+
+\section{Stein geometry and holomorphic embeddings}
+
+The Levi problem relates local pseudoconvexity to global holomorphic convexity. Its extensions to singular spaces, increasing unions, and embeddings remain central to Stein geometry. Here $\mathcal O(X)$ is the ring of holomorphic functions on $X$, and $\Omega_X^p$ is the sheaf of holomorphic $p$-forms. For compact $K\subset X$,
+\[
+ \widehat K_X=\{x\in X:|f(x)|\leq\sup_K|f|\ \text{for every }f\in\mathcal O(X)\}.
+\]
+For a subset of $\mathbb C^N$, an unsubscripted $\widehat K$ denotes its polynomial hull. We write $\kappa_X$ for the infinitesimal Kobayashi pseudometric and $X\cong Y$ for biholomorphic equivalence. A domain $U\subset X$ is \emph{locally Stein at the boundary} if every point of $\partial U$ has a neighborhood $V$ for which $U\cap V$ is Stein. An inclusion $U\subset V$ of Stein spaces is \emph{Runge} if $\mathcal O(V)|_U$ is dense in $\mathcal O(U)$ in the compact-open topology. A \emph{long $\mathbb C^n$} is an increasing union of open subsets biholomorphic to $\mathbb C^n$.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Levi problem]\label{Z-Levi}
+Is every pseudoconvex domain $D\subset\mathbb C^n$ Stein? More generally, is a complex manifold $X$ Stein if and only if it admits a smooth strictly plurisubharmonic exhaustion $\rho:X\to\mathbb R$?
+\end{problem}
+\begin{proof}
+Oka (1953) proved the domain assertion \cite{SM-Oka53}, and Grauert (1958) proved the characterization by a smooth strictly plurisubharmonic exhaustion \cite{Z-Grauert}. If $F:X\hookrightarrow\mathbb C^N$ is a proper holomorphic embedding of a Stein manifold, then $\rho=\|F\|^2$ is such an exhaustion. Conversely, Grauert's construction uses strongly pseudoconvex sublevel sets to establish holomorphic convexity and construct holomorphic functions separating points and giving local coordinates. Hence $X$ is Stein.
+\end{proof}
+
+\begin{problem}[Cousin problems]\label{Z-Cousin}
+Let $X$ be a Stein space. Is every additive Cousin datum globally solvable? Which Cartier divisors on $X$ are principal?
+\end{problem}
+\begin{proof}
+Cartan's Theorem B (1952), in the Stein-space formulation presented by Grauert and Remmert (1979), gives $H^q(X,\mathcal O_X)=0$ for $q>0$ \cite{SM-Cartan52,Z-GR}. Thus every additive Cousin cocycle is a coboundary. The exponential sequence gives
+\[
+ \operatorname{Pic}(X)=H^1(X,\mathcal O_X^*)\cong H^2(X,\mathbb Z).
+\]
+A Cartier divisor is principal exactly when its associated line bundle is holomorphically trivial; the displayed isomorphism makes this equivalent to topological triviality.
+\end{proof}
+
+\begin{problem}\label{b95-4-3-2}\label{FS-2.6}
+Let $X=\bigcup_{j\geq1}X_j$ be a complex surface, where $X_j\subset X_{j+1}$ and $X_j\cong\mathbb B^2$. Must $X$ be biholomorphic to $\mathbb B^2$, $\Delta\times\mathbb C$, or $\mathbb C^2$? Must every long $\mathbb C^2$ be biholomorphic to $\mathbb C^2$?
+\end{problem}
+\begin{proof}
+Wold (2010) constructed a non-Stein long $\mathbb C^2$, also exhaustible by balls \cite{B95-Wold10}. Iterated non-Runge embeddings force the holomorphic hull of a compact set to escape every compact stage. Since $\mathbb B^2$, $\Delta\times\mathbb C$, and $\mathbb C^2$ are Stein, this gives negative answers to both questions. Boc Thaler and Forstneri\v c (2016) further constructed long $\mathbb C^2$'s without nonconstant holomorphic or plurisubharmonic functions \cite{FS-BTF}.
+\end{proof}
+
+\begin{problem}\label{FS-2.5a}
+Let $n\geq2$ and let $X=\bigcup_{j\geq1}X_j$ be a complex manifold, where the $X_j$ are open, $X_j\subset X_{j+1}$, and $X_j\cong\mathbb B^n$. If $\kappa_X\equiv0$, must $X\cong\mathbb C^n$?
+\end{problem}
+\begin{proof}
+Forn\ae ss (2004) constructed short $\mathbb C^n$ as non-autonomous basins exhausted by balls, with identically vanishing Kobayashi pseudometric and a bounded nonconstant plurisubharmonic function \cite{FS-Short}. Such a function cannot exist on $\mathbb C^n$, since its restriction to every complex line is constant by the subharmonic Liouville theorem. Consequently these basins are counterexamples. Forn\ae ss and Pal (2021 preprint) discuss further properties of the construction \cite{FS-ShortNotes}.
+\end{proof}
+
+\begin{problem}\label{b95-7-1-1}
+Does there exist a pseudoconvex domain $D\subset\mathbb C^2$ homotopy equivalent to $S^2$, written $D\simeq S^2$?
+\end{problem}
+\begin{proof}
+Gompf (2013) constructed domains with the required homotopy type, including examples with smooth compact boundary \cite{B95-Gompf}. He constructs a suitable smoothly embedded handlebody and applies his isotopy criterion to make its interior Stein while preserving its homotopy type.
+\end{proof}
+
+\begin{problem}\label{b95-11-2-1}
+Let $\pi:\mathbb C^2\to\mathbb C$ be the first-coordinate projection and let $Y\subset\mathbb C^2$ be compact, with $\pi(Y)\subset\partial\Delta$. Must every open neighborhood $U\supset\widehat Y$ contain a Riemann surface $S$ such that $\pi|_S:S\to\Delta$ is a finite branched covering?
+\end{problem}
+\begin{proof}
+Alexander and Wermer posed the unrestricted formulation in the 1995 problem list \cite[Problem~11.2.1]{B95}. It has the following elementary counterexample: take $Y=\{(1,0)\}$, so $\widehat Y=Y$, and take a small ball $U$ about $(1,0)$ whose first-coordinate projection misses $0$. No surface contained in $U$ can project surjectively onto $\Delta$.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}[Levi problem on singular spaces]\label{b95-4-1-1}\label{FS-3.8}
+Let $X$ be a Stein space and $U\subset X$ open. If $U$ is locally Stein at every point of $\partial U$, must $U$ be Stein?
+\end{problem}
+\begin{proof}[Partial proof]
+Docquier and Grauert (1960) proved the assertion for Stein manifolds by retracting a Stein neighborhood of the ambient manifold in Euclidean space. Andreotti and Narasimhan (1964) proved it for Stein spaces with isolated singularities by patching boundary-distance functions to construct a strictly plurisubharmonic exhaustion; Col\c toiu (2009) surveys these results and methods \cite{FS-Coltoiu}. Zhang (2021) proves the case $U=X\setminus A$ with $A$ a closed analytic subspace, assuming that this complement is locally Stein \cite{B95-Zhang}.
+\end{proof}
+
+\begin{problem}[Union problem]\label{b95-4-3-1}
+Let $X$ be a Stein space and $U_1\subset U_2\subset\cdots\subset X$ Stein open subsets. Must $\bigcup_{j\geq1}U_j$ be Stein?
+\end{problem}
+\begin{proof}[Partial proof]
+Behnke and Stein (1939) proved the increasing-union theorem for domains of holomorphy in $\mathbb C^n$. Together with the Stein-manifold Levi theorem of Docquier and Grauert (1960), it gives the nonsingular case described by Col\c toiu (2009) \cite{FS-Coltoiu}. Indeed, in a coordinate ball about a boundary point of $U=\bigcup_jU_j$, the increasing intersections with $U_j$ are pseudoconvex, and their union is pseudoconvex. Hence $U$ is locally Stein, and the Docquier--Grauert theorem makes $U$ Stein.
+\end{proof}
+
+\begin{problem}\label{b95-9-5-1}
+Let $X$ be a Stein $n$-fold with $TX\cong X\times\mathbb C^n$ holomorphically. Does there exist a holomorphic map $F:X\to\mathbb C^n$ such that $\operatorname{rank}dF_x=n$ for every $x\in X$?
+\end{problem}
+\begin{proof}[Partial proof]
+Gunning and Narasimhan (1967) proved the case $n=1$ by constructing a noncritical holomorphic function on every open Riemann surface \cite{SM-GN67}. Forstneri\v c (2003) proved a submersion h-principle for maps from a Stein $n$-fold to $\mathbb C^q$ when $q<n$ \cite{B95-Forstneric}. A trivial holomorphic tangent bundle provides the formal epimorphism required by that theorem, so a parallelizable Stein $n$-fold has a holomorphic submersion to $\mathbb C^{n-1}$ for $n>1$.
+\end{proof}
+
+\begin{problem}\label{Z-embedding}\label{FS-3.16}
+Does every open Riemann surface admit a proper holomorphic embedding into $\mathbb C^2$?
+\end{problem}
+\begin{proof}[Partial proof]
+Forstneri\v c and Wold (2009) proved proper embeddability for a bordered Riemann surface whose closure admits an injective immersion into $\mathbb C^2$ holomorphic in its interior \cite{Z-FW2009}. They expose boundary points and apply automorphisms to push successive boundary pieces to infinity. Forstneri\v c and Wold (2013) proved proper embeddability for every circled domain in the Riemann sphere \cite{Z-FW2013}. Alarc\'on and Forstneri\v c (2024) obtained further interpolation results and, in every compact Riemann surface, a Cantor set whose complement embeds properly in $\mathbb C^2$ \cite{Z-AF2024}.
+\end{proof}
+
+\begin{problem}\label{b95-4-1-2}\label{FS-3.14}
+Characterize compact complex manifolds $X$ for which every proper domain $D\subsetneq X$ that is locally Stein at the boundary is Stein. If $X$ is smooth projective, $D$ is locally Stein at the boundary, and $\partial D$ has a strongly pseudoconvex point, must $D$ be holomorphically convex?
+\end{problem}
+\begin{proof}[Partial proof]
+Takeuchi (1964) proved that every proper pseudoconvex domain in $\mathbb P^n$ is Stein \cite{SM-Takeuchi64}. The Fubini--Study metric supplies strict plurisubharmonicity for a suitable boundary-distance exhaustion, and the Levi theorem then yields Steinness. Thus $X=\mathbb P^n$ satisfies the first assertion, and the domain in the second assertion is Stein, hence holomorphically convex, in this ambient case. Siu (1978) discusses this projective Levi theory \cite{FS-SiuLevi}.
+\end{proof}
+
+\begin{problem}\label{FS-3.9}
+Let $D\subsetneq X$ be a domain with connected smooth boundary in a compact complex manifold. Find geometric hypotheses under which every function holomorphic near $\partial D$, or every $C^1$ CR function on $\partial D$, extends holomorphically to $D$ or $X\setminus\overline D$.
+\end{problem}
+\begin{proof}[Partial proof]
+Sarkis (2003), following his 2000 preprint, proved a one-sided Hartogs--Bochner theorem for a connected $C^2$ hypersurface $M\subset\mathbb P^n$, $n\geq2$, separating projective space into two connected domains and having at most one open CR orbit \cite{SM-Sarkis03}. There is one side to which every $C^1$ CR function on $M$ extends holomorphically. The proof combines propagation along CR orbits with holomorphic extension and complex Plateau methods. The CR-orbit hypothesis is part of the published theorem.
+\end{proof}
+
+\begin{problem}\label{FS-3.13}
+Let $M\subset\mathbb C^n$ be a smooth compact totally real submanifold with $\dim_{\mathbb R}M=n$. Does there exist a compact bordered Riemann surface $\overline R$ and a nonconstant map $f\in C^\infty(\overline R,\mathbb C^n)$, holomorphic on $R$, such that $f(\partial R)\subset M$?
+\end{problem}
+\begin{proof}[Partial proof]
+Gromov (1985) proved the existence of nonconstant attached holomorphic discs for compact Lagrangian submanifolds of standard symplectic $\mathbb C^n$ \cite{FS-Gromov}. His method deforms a Cauchy--Riemann equation; compactness fails through disc bubbling, producing a disc with boundary on the Lagrangian submanifold. Boundary regularity gives smooth attachment when the submanifold is smooth.
+\end{proof}
+
+\begin{problem}[Oka--Grauert principle]\label{Siu-1.3}
+Develop quantitative and singular versions of the Oka--Grauert principle: specify hypotheses on a holomorphic family $\pi:Z\to X$ over a Stein space under which continuous sections can be deformed through sections to holomorphic sections with prescribed growth, boundary regularity, or singularity conditions.
+\end{problem}
+\begin{proof}[Partial proof]
+Forstneri\v c (2010) proved the parametric Oka principle with approximation and jet interpolation for sections of stratified holomorphic fibre bundles over reduced Stein spaces whose fibres satisfy the convex approximation property \cite{SIU-For10}. Forstneri\v c (2026, final preprint accepted for publication) proved that, on a smoothly bounded strongly pseudoconvex Stein domain, a continuous section of a bundle of H\"older--Zygmund class $\Lambda^r$, $r>0$, with Oka fibre is homotopic to a section of that class holomorphic in the interior \cite{SIU-For26}. These theorems address approximation and boundary regularity within the broader research program.
+\end{proof}
+
+\begin{problem}\label{Z-Serre}
+Let $X$ be a complex manifold satisfying
+\[
+ H^q(X,\Omega_X^p)=0\qquad(p\geq0,\ q>0).
+\]
+Must $X$ be Stein?
+\end{problem}
+\begin{proof}[Partial proof]
+Berg (1985) proved that a relatively compact open subset of a Stein space is a domain of holomorphy if $H^q(X,\mathcal O_X)=0$ for all $q>0$ \cite{Z-Berg}. In particular, when $X\Subset\mathbb C^n$, the displayed hypothesis with $p=0$ makes $X$ a domain of holomorphy and hence Stein.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}\label{b95-3-3-1}
+Let $D\Subset\mathbb C^n$ be a smoothly bounded domain with envelope of holomorphy $\pi:\widetilde D\to\mathbb C^n$. Is $\pi$ finitely sheeted? Is
+\[
+ \operatorname{Vol}(\widetilde D):=\int_{\widetilde D}\pi^*(dV)<\infty,
+\]
+where $dV$ is Euclidean volume on $\mathbb C^n$?
+\end{problem}
+
+\begin{problem}\label{b95-3-3-2}
+Let $D\subset\mathbb C^2$ be strictly pseudoconvex and diffeomorphic to $\mathbb R^4$. Let $A$ be an embedded analytic disc and $M$ an embedded smooth disc such that
+\[
+ A\setminus\partial A\subset\mathbb C^2\setminus D,\qquad
+ M\setminus\partial M\subset D,\qquad
+ \partial A=\partial M\subset\partial D.
+\]
+If $M$ is totally real except at one elliptic complex point, must its envelope of holomorphy contain $A$?
+\end{problem}
+
+\begin{problem}\label{b95-4-2-1}\label{FS-3.7}
+Let $X\subset\mathbb B^N$ be an analytic subvariety with an isolated singularity at $0$. Let $(\Omega_t)_{0\leq t\leq1}$ be a continuously increasing family of Stein open subsets of $X$, with $0\in\partial\Omega_{1/2}$ and $0\in\Omega_t$ for $t>1/2$. Is $\Omega_s$ Runge in $\Omega_t$ whenever $s<t$?
+\end{problem}
+\begin{remark}
+Buzzard, Forn\ae ss, Gavosto, and Krantz (1995) record an equivalent polynomial-hull formulation: if $K\subset X\setminus\{0\}$ is compact and $0\in\widehat K$, must every $L\subset X$ with $K\subset\operatorname{int}_X L$ satisfy $0\in\operatorname{int}_X(\widehat L\cap X)$? Both hulls are taken in the ambient $\mathbb C^N$, and the interiors are relative to $X$ \cite[Problems~4.2.1--4.2.2]{B95}.
+\end{remark}
+
+\begin{problem}\label{b95-7-6-1}
+Let $\Omega\Subset\mathbb C^n$ be smoothly bounded and pseudoconvex. For compact $K\subset\overline\Omega$, define
+\[
+ \widehat K^{\mathrm{psh}}
+ =\bigcap_{u\in\operatorname{PSH}(\Omega)\cap C(\overline\Omega)}
+ \{z\in\overline\Omega:u(z)\leq\sup_Ku\}.
+\]
+If $\widehat K^{\mathrm{psh}}\cap\partial\Omega=K\cap\partial\Omega$ for every such $K$, must $\overline\Omega$ have a Stein neighborhood basis?
+\end{problem}
+
+\begin{problem}\label{b95-11-1-1}
+Does every compact reduced complex space $X$ admit a holomorphic embedding $X\hookrightarrow M$ into a complex manifold? Can $M$ always be chosen compact?
+\end{problem}
+
+\begin{problem}\label{FS-3.11}
+Does there exist a smoothly bounded strictly pseudoconvex domain in a complex surface in $\mathbb P^3$ that meets every compact complex curve in $\mathbb P^3$? If $V\subset\mathbb P^3$ is an algebraic hypersurface and $M\subset V$ is strictly pseudoconvex, must there exist a compact complex curve $S\subset\mathbb P^3$ with $S\cap V\subset V\setminus M$?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) remark that B.~Fabre constructed a real three-dimensional subset of $\mathbb P^3$ meeting every compact Riemann surface in $\mathbb P^3$; they refer to page~88 of Fabre's 2000 thesis \cite[Question~3.11]{FS2001}.
+\end{remark}
+
+\section{\texorpdfstring{$L^2$ theory and CR geometry}{L2 theory and CR geometry}}
+
+The $\bar\partial$ equation connects holomorphic extension, boundary regularity, and positivity. Unless otherwise stated, $D\subset\mathbb C^n$ is a domain, data are $(0,1)$-forms closed in the distributional sense, and unweighted norms use Euclidean volume and the Euclidean metric. We write $N_q$ for the $L^2$ $\bar\partial$-Neumann operator on $(0,q)$-forms and $\Box_b$ for the tangential Kohn Laplacian. The spaces $H^s$ and $\Lambda^\alpha$ denote Sobolev and H\"older--Zygmund spaces; for $0<\alpha<1$, $\Lambda^\alpha$ is the usual H\"older space. Solution estimates have constants independent of the datum. On a smooth bounded pseudoconvex domain, $N_q$ is the inverse of $\Box_q=\bar\partial\bar\partial^*+\bar\partial^*\bar\partial$ on $(\ker\Box_q)^\perp$, with the $L^2$ adjoint and its natural operator domain. Finite type means D'Angelo finite type when no other notion is specified. For a plurisubharmonic function $\varphi$, its multiplier ideal is
+\[
+ \mathcal I(\varphi)=\{f\in\mathcal O:|f|^2e^{-2\varphi}\in L^1_{\mathrm{loc}}\}.
+\]
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Ohsawa--Takegoshi extension problem]\label{Z-extension}
+Let $D\subset\mathbb C^{n-1}\times\Delta$ be pseudoconvex, let $H=D\cap\{z_n=0\}\ne\varnothing$, and let $\varphi\in\PSH(D)$ satisfy $\varphi|_{H_0}\not\equiv-\infty$ on each component $H_0$ of $H$. Does every $f\in\mathcal O(H)$ with $\int_H|f|^2e^{-\varphi}<\infty$ admit $F\in\mathcal O(D)$ such that $F|_H=f$ and
+\[
+ \int_D|F|^2e^{-\varphi}\,dV_{2n}
+ \leq\pi\int_H|f|^2e^{-\varphi}\,dV_{2n-2}?
+\]
+\end{problem}
+\begin{proof}
+Guan and Zhou (2015) prove the estimate with the optimal constant $\pi$ \cite{Z-GZextension}. They choose auxiliary weights and twisting factors through an ordinary differential equation and apply the twisted Bochner--Kodaira identity. Zhou and Zhu (2018) extend the optimal extension method to weakly pseudoconvex K\"ahler manifolds under curvature hypotheses \cite{Z-ZZ2018}.
+\end{proof}
+
+\begin{problem}[Strong openness conjecture]\label{Z-openness}
+Does every plurisubharmonic germ $\varphi$ satisfy
+\[
+ \mathcal I(\varphi)=\bigcup_{\varepsilon>0}\mathcal I((1+\varepsilon)\varphi)?
+\]
+\end{problem}
+\begin{proof}
+Guan and Zhou (2015) prove the equality \cite{Z-GZopen}. Their proof combines induction and curve selection with $L^2$ extension from moving slices and a one-variable lower norm estimate, yielding a strict margin of integrability.
+\end{proof}
+
+\begin{problem}\label{Z-BFJ}
+Let $u,v$ be plurisubharmonic germs at a point $x$ of a complex manifold. Is $\mathcal I(tu)=\mathcal I(tv)$ for every $t>0$ equivalent to
+$\nu(u\circ\pi,y)=\nu(v\circ\pi,y)$ for every proper modification $\pi:\widetilde X\to X$ with $\widetilde X$ smooth and every $y\in\pi^{-1}(x)$, where $\nu$ denotes the Lelong number?
+\end{problem}
+\begin{proof}
+Boucksom, Favre and Jonsson (2008) establish the valuative characterization for regularized multiplier ideals \cite{Z-BFJ2008}. Guan and Zhou (2015), Corollary~3.3, use strong openness to identify these with the usual multiplier ideals, giving the stated equivalence \cite{Z-GZopen}.
+\end{proof}
+
+\begin{problem}\label{Z-DEL}
+Let $L$ be a big line bundle on a smooth projective variety, and let $h_{\min}$ be a semipositively curved singular metric with minimal singularities. Is
+\[
+ \mathcal I(\|mL\|)=\mathcal I(h_{\min}^{m})\qquad(m\geq1),
+\]
+where the left side is the asymptotic multiplier ideal and $\mathcal I(h_{\min}^m)=\mathcal I(m\varphi_{\min})$ in a local trivialization $h_{\min}=e^{-2\varphi_{\min}}$?
+\end{problem}
+\begin{proof}
+Guan and Zhou (2015) derive this equality from strong openness and the comparison with asymptotic multiplier ideals \cite[\S3.4.1]{Z-GZopen}. Increasing the singularity coefficient slightly supplies the reverse inclusion; the other inclusion is the standard comparison with a metric of minimal singularities.
+\end{proof}
+
+\begin{problem}\label{Z-metrics}
+Let $\pi:X\to Y$ be a proper surjective holomorphic map from a K\"ahler manifold to a complex manifold, and let $(L,h)$ be a line bundle with a semipositively curved singular metric. Fix $m\geq1$. On smooth fibres, form the relative $m$-Bergman kernel using sections of $mK_{X_y}+L|_{X_y}$ with fibre $L^{2/m}$ integral at most one. Assume this kernel is not identically zero, and extend its inverse as a semipositively curved metric on $mK_{X/Y}+L$. On a smooth exceptional fibre, does this extended metric equal the inverse extremal kernel obtained using only sections that extend to a neighbourhood of the fibre? Here exceptional means that not every fibre section extends locally. The fibre integral is computed with $h$ and any smooth volume form; the canonical-bundle factors make it independent of that volume form.
+\end{problem}
+\begin{proof}
+Zhou and Zhu prove equality in their paper published online in 2018 and in print in 2020 \cite{Z-ZZ2020}. Optimal $L^{2/m}$ extension and generalized Siu lemmas give the required lower-limit estimate for nearby fibre norms. Their 2023 survey explains why the extremal metric uses extendable sections \cite{Z-ZZsurvey}.
+\end{proof}
+
+\begin{problem}\label{Z-contract}
+If $D\subset\mathbb C^n$ is contractible, must every smooth $\bar\partial$-closed $(p,q)$-form on $D$, $0\leq p\leq n$ and $1\leq q\leq n$, be $\bar\partial$-exact?
+\end{problem}
+\begin{proof}
+The answer is negative by the following elementary example. The Hartogs cross
+$D=(\Delta\times\frac12\Delta)\cup(\frac12\Delta\times\Delta)$
+is star-shaped and hence contractible, but Hartogs extension shows that it is not Stein. Berg's cohomological criterion (1985) implies that not all positive-degree $\mathcal O$-cohomology groups of $D$ vanish \cite{Z-Berg}; the Dolbeault identification then gives a closed form without a global primitive. See also Grauert and Remmert (1979) \cite{Z-GR}.
+\end{proof}
+
+\begin{problem}\label{b95-12-3-1}
+Must a Carnot--Carath\'eodory conformal homeomorphism between strictly pseudoconvex CR three-manifolds be CR?
+\end{problem}
+\begin{proof}
+Tang's formulation in the 1995 problem list has an elementary counterexample \cite[Problem~12.3.1]{B95}: complex conjugation on $S^3\subset\mathbb C^2$ preserves the standard Carnot--Carath\'eodory metric but is anti-CR. Thus the stated implication is false without a convention distinguishing CR maps from anti-CR maps.
+\end{proof}
+
+\begin{problem}[Cartan--Kuranishi prolongation problem]\label{Siu-2.1-analytic}
+Under the regularity hypotheses of the analytic prolongation theorem, does finite prolongation of an analytic differential system produce an involutive system or detect incompatibility?
+\end{problem}
+\begin{proof}
+Kuranishi (1957) proves finite prolongation under the regularity hypotheses of the analytic theory \cite{SIU-Kur57}. Compatibility conditions and symbols stabilize, after which analytic existence theorems apply at ordinary data. Goldschmidt (1968) develops the precise prolongation framework for linear systems \cite{SIU-Gol68}.
+\end{proof}
+
+\begin{problem}[Nirenberg--Tr\`eves conjecture]\label{Siu-2.9}
+For a scalar classical pseudodifferential operator of principal type, is microlocal solvability equivalent to condition $(\Psi)$ on its homogeneous principal symbol $p$: for every nonvanishing smooth factor $a$, $\operatorname{Im}(ap)$ never changes from negative to positive along an oriented null bicharacteristic of $\operatorname{Re}(ap)$? Does this give local solvability at $x_0$ when $p=0$ implies $\partial_\xi p\ne0$ near $T^*_{x_0}M\setminus0$?
+\end{problem}
+\begin{proof}
+Dencker (2006) proves microlocal sufficiency of $(\Psi)$ and local solvability under the stated nontrapping hypothesis \cite{SIU-Den06}. A phase-space metric and a signed-distance weight yield an estimate for the adjoint with loss of two derivatives; duality gives local solvability.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}\label{b95-6-1-1}
+Fix $s\geq0$, $1\leq q\leq n$, and a Sobolev inner product on $H^s(D)$. Develop existence and regularity criteria for the $\bar\partial$-Neumann problem defined using the adjoint of the maximal distributional $\bar\partial$ in this inner product. Separately, characterize smooth bounded pseudoconvex domains for which the usual $L^2$ operator $N_q$ extends boundedly on $H^s_{0,q}(D)$.
+\end{problem}
+\begin{proof}[Partial proof]
+Christ (1996) constructs worm domains for which the usual $\bar\partial$-Neumann problem fails global $C^\infty$ regularity \cite{B95-Christ}. This excludes a theorem asserting boundedness on every Sobolev scale for every smooth pseudoconvex domain.
+\end{proof}
+
+\begin{problem}\label{b95-6-2-1}
+For every bounded pseudoconvex domain $D$ with real-analytic boundary, do there exist $0<\alpha<1$ and $C_D>0$ such that every closed $f\in L^\infty_{0,1}(D)$ admits $\bar\partial u=f$ with
+$\|u\|_{\Lambda^\alpha(\overline D)}\leq C_D\|f\|_{L^\infty(D)}$?
+\end{problem}
+\begin{proof}[Partial proof]
+Range (1990) constructs integral solution operators with a positive H\"older gain on smooth pseudoconvex finite-type domains in $\mathbb C^2$ \cite{AN-Range90}. Diederich, Fischer and Forn\ae ss (1999) obtain sharp H\"older estimates on convex finite-type domains by constructing Cauchy--Fantappi\`e kernels from holomorphic supporting functions \cite{AN-DFF99}. For comparison, Forn\ae ss, Lee and Zhang (2011) and Khanh (2012 preprint) obtain estimates on specified infinite-type convex classes \cite{B95-FLZ,B95-Khanh}.
+\end{proof}
+
+\begin{problem}\label{b95-6-3-2}
+For every smooth bounded convex domain $D$ and $1<p<\infty$, does every closed $f\in L^p_{0,1}(D)$ admit $\bar\partial u=f$ with $\|u\|_{L^p(D)}\leq C_{D,p}\|f\|_{L^p(D)}$? If $D\subset\mathbb C^2$, does the analogous estimate hold for $p=\infty$?
+\end{problem}
+\begin{proof}[Partial proof]
+Diederich, Fischer and Forn\ae ss (1999) prove sup-norm-to-H\"older estimates on smooth convex finite-type domains \cite{AN-DFF99}. Forn\ae ss, Lee and Zhang (2011) prove sup-norm estimates for explicit infinite-type convex domains in $\mathbb C^2$, and Khanh's 2012 preprint gives sup-norm and $f$-H\"older estimates under quantitative hypotheses on boundary flatness \cite{B95-FLZ,B95-Khanh}. These constructions estimate integral kernels adapted to the defining function.
+\end{proof}
+
+\begin{problem}\label{b95-14-2}
+Does finite D'Angelo type at a point of a smooth pseudoconvex boundary imply termination there of Kohn's multiplier algorithm for subellipticity on $(0,1)$-forms?
+\end{problem}
+\begin{proof}[Partial proof]
+Nicoara (2025) proves termination for suitable Denjoy--Carleman quasianalytic classes \cite{B95-Nicoara}, and Siu (2025) obtains an effective Kohn algorithm for special domains \cite{B95-Siu}. The arguments use additional control of multiplier ideals and their successive radicals. Nicoara's earlier 2007 preprint claiming the general smooth equivalence was subsequently withdrawn \cite{B95-NicoaraWithdrawn}.
+\end{proof}
+
+\begin{problem}\label{FS-3.2}
+Let $\Omega\subset\mathbb P^n$, $n\geq2$, be smoothly bounded and pseudoconvex. Does every closed $f\in C^\infty_{0,1}(\overline\Omega)$ admit $u\in C^\infty(\overline\Omega)$ with $\bar\partial u=f$?
+\end{problem}
+\begin{proof}[Partial proof]
+Cao, Shaw and Wang (2004) obtain small-order Sobolev estimates in projective space; Shaw's 2023 account presents the estimate in Theorem~3.8 \cite[\S3.3]{FS-Shaw}. A bounded strictly plurisubharmonic exhaustion supplies a positive exponent $t_0$, and weighted $L^2$ estimates give bounded solution operators on $H^s$ for $0<s<t_0/2$.
+\end{proof}
+
+\begin{problem}\label{FS-3.5}
+Let $X\subset\mathbb C^{n+p}$ be a closed pure $p$-dimensional analytic set, and give $X_{\mathrm{reg}}$ the induced metric. Describe the obstructions to $\bar\partial u=f$ in $L^2$ for closed data of bidegree $(0,q)$ in the maximal realization and $(p,q)$ in the minimal realization, $1\leq q\leq p$. The maximal domain consists of $L^2$ forms whose distributional $\bar\partial$ is $L^2$; the minimal domain is the graph closure of compactly supported smooth forms on $X_{\mathrm{reg}}$.
+\end{problem}
+\begin{proof}[Partial proof]
+\O vrelid and Vassiliadou, in their 2011 preprint, express the $L^2$ $(0,q)$-cohomology of sufficiently small deleted neighbourhoods of isolated singularities in terms of a resolution \cite{FS-OR}. \O vrelid and Ruppenthal, in their 2012 preprint, transfer closed-range and compactness properties between the regular part and a resolution, outside specified middle degrees \cite{FS-OR2}.
+\end{proof}
+
+\begin{problem}\label{FS-3.1}
+Let $X$ be a normal pure-dimensional closed analytic subset of a ball $B\subset\mathbb C^n$. If $f\in C^\infty_{0,1}(B)$ restricts to a $\bar\partial$-closed form on $X_{\mathrm{reg}}$, is there $u\in C^\infty(B)$ such that $\bar\partial(u|_{X_{\mathrm{reg}}})=f|_{X_{\mathrm{reg}}}$?
+\end{problem}
+\begin{proof}[Partial proof]
+Andersson and Samuelsson (2012) construct a Dolbeault resolution on singular complex spaces using fine sheaves of currents and Koppelman formulas \cite{FS-AS}. This produces generalized primitives; the sheaves agree with smooth forms on the regular locus, while ambient smoothness across the singular set is a stronger requirement.
+\end{proof}
+
+\begin{problem}\label{b95-3-1-1}
+Let $M=\{r=0\}\subset\mathbb C^n$ be a smooth real hypersurface, with $dr\ne0$ on $M$. Characterize the points $p\in M$ at which every germ of a smooth CR function extends holomorphically to the prescribed side $\{r>0\}$ near $p$.
+\end{problem}
+\begin{proof}[Partial proof]
+Tr\'epreau (1986) proves that minimality of a real hypersurface gives local holomorphic extension of CR functions to one side \cite{B95-Trepreau}. The proof uses families of attached analytic discs and propagation of extension. The theorem supplies some side, without prescribing the sign of a chosen defining function.
+\end{proof}
+
+\begin{problem}\label{b95-6-1-4}
+Is the $\bar\partial$-Neumann problem on $(0,1)$-forms globally real-analytic hypoelliptic up to the boundary of every bounded real-analytic pseudoconvex domain? Is $\Box_b$ globally real-analytic hypoelliptic on $(0,1)$-forms on every compact real-analytic pseudoconvex CR hypersurface-type manifold of real dimension at least five? In the second question, this means that $\Box_bu$ real analytic on the whole manifold forces a distributional solution $u$ to be real analytic there.
+\end{problem}
+\begin{proof}[Partial proof]
+Derridj and Tartakoff (1976) prove global real-analytic regularity for the $\bar\partial$-Neumann problem in the strongly pseudoconvex setting \cite{AN-DT76}. Tartakoff (1976) proves the corresponding global result for $\Box_b$ on compact manifolds under strong pseudoconvexity \cite{AN-Tartakoff76}. Their estimates control iterated derivatives with analytic, factorial growth; Christ (1999) discusses the distinction between global and local analytic regularity \cite{B95-ChristSurvey}.
+\end{proof}
+
+\begin{problem}\label{FS-3.15}
+Let $D\subset\mathbb C^n$, $n\geq2$, have smooth boundary and let $f\in\mathcal O(D)\cap C^\infty(\overline D)$. If every derivative of $f$ vanishes along a smooth nonconstant boundary curve transverse to the complex tangent spaces, must $f\equiv0$?
+\end{problem}
+\begin{proof}[Partial proof]
+Nirenberg (1974) proves uniqueness when the transverse boundary curve is real analytic \cite{FS-Nirenberg}. Forn\ae ss and Sibony (2001) explicitly record this case in their formulation of the smooth-curve problem \cite[Question~3.15]{FS2001}.
+\end{proof}
+
+\begin{problem}\label{FS-3.24}
+Let $H\subset\mathbb B^n$ be a smooth finite-type real hypersurface through $0$. Can relatively closed analytic subvarieties $X_j\subset\mathbb B^n$, with $\dim_0X_j\geq1$, have $\limsup_{j\to\infty}X_j\subset H$? Here the limit superior consists of limits in $\mathbb B^n$ of sequences $x_\nu\in X_{j_\nu}$ with $j_\nu\to\infty$.
+\end{problem}
+\begin{proof}[Partial proof]
+Sibony (1987) constructs plurisubharmonic barriers for pseudoconvex finite-type boundary points \cite{FS-SibonyBarrier}. Applying the maximum principle to these barriers excludes an analytic cluster set contained in the hypersurface. Forn\ae ss and Sibony (2001) record this argument for the pseudoconvex case \cite[Question~3.24]{FS2001}.
+\end{proof}
+
+\begin{problem}\label{Siu-2.10}
+For which classes of smooth differential systems does a finite procedure involving prolongation and compatibility conditions characterize local solvability?
+\end{problem}
+\begin{proof}[Partial proof]
+Kuranishi (1957) obtains finite prolongation in the regular analytic setting \cite{SIU-Kur57}, while Dencker (2006) characterizes local solvability for scalar principal-type pseudodifferential operators by $(\Psi)$ \cite{SIU-Den06}. Lewy's counterexample (1957) shows that formal compatibility of a smooth system alone is insufficient \cite{SIU-Lew57}.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}\label{b95-6-1-2}
+Characterize positive measures $\mu$ for which $\bar\partial$ on smooth forms admits a densely defined closed realization in $L^2(d\mu)$ with a well-posed $\bar\partial$-Neumann problem. Determine existence and regularity estimates, beginning with the unit disc. The choice of realization is part of the problem when $\mu$ is singular.
+\end{problem}
+
+
+\begin{problem}\label{b95-6-1-3}
+Let $D\subset\mathbb C$ be smooth and bounded, and let $T:L^2(D)\to L^2(D)$ satisfy $\partial(Tf)/\partial\bar z=f$ and $Tf\perp A^2(D)$. For $h\in H^\infty(D)$, set $S_hf=\overline h\,Tf$. Does $\int_\gamma h\,dz\ne0$ for some closed curve $\gamma\subset D$ imply that the compact operator $S_h$ has a nonzero eigenvalue?
+\end{problem}
+\begin{remark}
+D. Barrett remarks that $S_h$ has no nonzero eigenvalue when $h$ has a single-valued holomorphic primitive, and that the converse holds for annuli \cite[Problem~6.1.3, 1995]{B95}. In the first case, multiplication by the exponential of the conjugate primitive reduces an eigenvector equation to a holomorphic function orthogonal to holomorphic functions.
+\end{remark}
+
+\begin{problem}\label{b95-6-3-1}
+For every bounded pseudoconvex $D$ and $1<p<2$, does each closed $(0,1)$-form $f\in L^p(D)$ admit $\bar\partial u=f$ with $\|u\|_{L^p(D)}\leq C_{D,p}\|f\|_{L^p(D)}$, without a boundary regularity assumption?
+\end{problem}
+
+
+\begin{problem}\label{b95-6-4-2}
+For domains admitting a sup-norm $\bar\partial$ estimate on closed $(0,1)$-forms, bound the optimal constant
+\[
+ C_D=\sup_{\substack{\bar\partial f=0\\\|f\|_\infty\leq1}}
+       \inf_{\bar\partial u=f}\|u\|_\infty
+\]
+in terms of the geometry of $D$.
+\end{problem}
+\begin{remark}
+Buzzard, Forn\ae ss, Gavosto and Krantz remark that the constants in $L^2$ estimates depend on the diameter and dimension, offering these as a comparison for the uniform-estimate question \cite[Problem~6.4.2, 1995]{B95}.
+\end{remark}
+
+\begin{problem}\label{b95-6-4-3}
+Let $D$ be a smooth bounded pseudoconvex domain and $0<\alpha<\beta$. Set
+\[
+ \mathcal D_{\alpha,\beta}
+ =\{u\in\Lambda^\alpha(\overline D):
+       \bar\partial u\in\Lambda^\beta_{0,1}(\overline D)\},
+\]
+with its graph norm. Does
+$\bar\partial:\mathcal D_{\alpha,\beta}\to\Lambda^\beta_{0,1}(\overline D)$ have closed range?
+\end{problem}
+
+
+\begin{problem}\label{b95-6-4-4}
+Does every bounded domain biholomorphic to $\mathbb B^n$ admit a sup-norm estimate for $\bar\partial$, without any boundary regularity assumption?
+\end{problem}
+
+
+\begin{problem}\label{b95-12-1-1}
+Is every smooth strictly pseudoconvex abstract CR manifold of real dimension five locally CR-embeddable?
+\end{problem}
+\begin{remark}
+Webster (1989) gives a proof of local embeddability for smooth strictly pseudoconvex CR manifolds of real dimension at least seven \cite{B95-Webster}.
+\end{remark}
+
+\begin{problem}[Complex Plateau problem]\label{b95-12-2-1}
+Characterize compact oriented maximally complex submanifolds $M^{2p-1}\subset\mathbb P^n$, $1\leq p\leq n$, that bound a positive holomorphic $p$-chain. Precisely, does there exist a locally finite positive integral combination $T$ of $p$-dimensional analytic subvarieties of $\mathbb P^n\setminus M$, of finite mass, whose boundary as a current is $dT=[M]$?
+\end{problem}
+
+
+\begin{problem}\label{b95-12-3-2}
+Fix a contact quasiconformal diffeomorphism between strictly pseudoconvex CR $(2n+1)$-manifolds, $n>1$. Can compatible Hermitian metrics on the contact bundles minimize its distortion, measured by the ratio of the largest to the smallest singular value of the contact differential? The admissible metrics and whether minimization is pointwise or global remain to be specified in the source's research program.
+\end{problem}
+
+
+\begin{problem}\label{FS-3.3}
+For $D_N=\{z\in\mathbb C^N:\sum_{j=1}^N|z_j|<1\}$, does every bounded continuous closed $(0,1)$-form $f$ admit $\bar\partial u=f$ with $\|u\|_\infty\leq C\|f\|_\infty$, where $C$ is independent of $N$? Does the same hold on $\mathbb B^N$? Here forms carry the dual norm of the ambient $\ell^1$ norm on $D_N$, and of the Euclidean norm on $\mathbb B^N$, following the Banach-space convention in \cite[\S2]{FS-Lempert}.
+\end{problem}
+
+
+\begin{problem}\label{FS-3.4}
+Let $\phi$ be a bounded smooth strictly plurisubharmonic function on a ball $B\subset\mathbb C^n$, and set $\omega=i\partial\bar\partial\phi$. Does every smooth closed $(0,1)$-form $f$ satisfying
+\[
+ \sup_B\bigl(|f|_\omega^2+|\partial f|_\omega\bigr)<\infty
+\]
+admit a bounded solution of $\bar\partial u=f$? Here both pointwise norms are induced by the K\"ahler metric $\omega$.
+\end{problem}
+\begin{remark}
+Forn\ae ss and Sibony (2001) remark that Berndtsson's question is related to the corona theorem in several variables, referring to Berndtsson's weighted uniform estimates (1997) \cite[Question~3.4]{FS2001}\cite{FS-Berndtsson}.
+\end{remark}
+
+\section{Function theory and pluripotential theory}
+
+This category concerns holomorphic function spaces, invariant metrics, and the relation between plurisubharmonic functions and complex geometry. For a bounded domain $D$, set $A^k(\overline D)=\mathcal O(D)\cap C^k(\overline D)$ and $A(D)=A^0(\overline D)$; $H^\infty(D)$ denotes bounded holomorphic functions. Write $K_D(z,w)$ for the Bergman kernel, $c_D,k_D$ for the Carath\'eodory and Kobayashi distances, and $\gamma_D,\kappa_D$ for their infinitesimal metrics. Completeness of a hyperbolic manifold refers to its Kobayashi distance. For a smooth bounded $D=\{r<0\}$ with $dr\ne0$ on $\partial D$, $H^p(D)$ consists of holomorphic $f$ for which $\sup_{0<\epsilon<\epsilon_0}\int_{\{r=-\epsilon\}}|f|^p\,d\sigma<\infty$. A peak set for $A(D)$ is a closed $E\subset\partial D$ admitting $f\in A(D)$ with $f=1$ on $E$ and $|f|<1$ on $\overline D\setminus E$. We use $dd^c=(i/\pi)\partial\bar\partial$ and write $\PSH(D)$ for the plurisubharmonic functions.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}\label{b95-7-5-5}
+Does there exist a complete hyperbolic manifold $D$ with $c_D=k_D$ that is not biholomorphic to a convex domain?
+\end{problem}
+\begin{proof}
+Agler and Young (2004) compute complex geodesics of the symmetrized bidisc and show that its Carath\'eodory and Kobayashi distances coincide and are complete \cite{B95-AY}. Costara (2004) proves that this domain is not biholomorphic to a convex domain \cite{B95-Costara}.
+\end{proof}
+
+\begin{problem}\label{b95-7-2-1}
+Is every bounded pseudoconvex domain with Lipschitz boundary complete for the Bergman metric?
+\end{problem}
+\begin{proof}
+B{\l}ocki and Pflug (1998) prove that every bounded hyperconvex domain is Bergman complete \cite{B95-BP}. Bounded pseudoconvex domains with Lipschitz boundary are hyperconvex, so their theorem applies. The proof combines sublevel estimates for pluricomplex Green functions with a Bergman completeness criterion.
+\end{proof}
+
+\begin{problem}[Suita conjecture]\label{Z-Suita}
+Let $\Omega$ be an open Riemann surface with negative Green function $G_\Omega(\cdot,z)$, and choose a local coordinate $w$ with $w(z)=0$. Set
+\[
+ c_\beta(z)=\exp\lim_{\xi\to z}
+ \bigl(G_\Omega(\xi,z)-\log|w(\xi)|\bigr).
+\]
+Is $c_\beta(z)^2\leq\pi K_\Omega(z)$, where $K_\Omega(z)|dw|^2$ is the diagonal Bergman kernel of holomorphic one-forms with squared norm $\frac{i}{2}\int_\Omega\eta\wedge\overline\eta$? When does equality hold?
+\end{problem}
+\begin{proof}
+B{\l}ocki (2013) proves the inequality by sharp $L^2$ extension \cite{Z-Blocki}. Guan and Zhou (2015) prove that equality at one point holds precisely for a disc with a relatively closed polar set removed \cite{Z-GZextension}. Comparing the optimal extension norm with logarithmic capacity yields the inequality and identifies the equality case.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}\label{b95-5-4-1}\label{b95-5-4-2}
+For a smooth bounded pseudoconvex finite-type domain $D\subset\mathbb C^n$, characterize the peak sets for $A(D)$. In particular, is every singleton $\{p\}$, $p\in\partial D$, a peak set?
+\end{problem}
+\begin{proof}[Partial proof]
+Bedford and Forn\ae ss (1978) construct peak functions at finite-type boundary points in $\mathbb C^2$ \cite{B95-BF}. Their construction produces a holomorphic function with controlled argument near the point and then converts it into a peak function.
+\end{proof}
+
+\begin{problem}\label{b95-7-3-1}
+Are $c_D$ and $k_D$ complete on every smooth bounded pseudoconvex domain $D$?
+\end{problem}
+\begin{proof}[Partial proof]
+Edigarian's preprint of 20 October 2026 announces a smoothly bounded pseudoconvex domain in $\mathbb C^3$ on which both distances are incomplete, together with Kobayashi completeness for finite D'Angelo type \cite[Theorems~1.1--1.2]{B95-Edigarian26}. The proposed counterexample uses analytic-disc chains of summable length approaching the boundary; the positive assertion uses a metric lower bound.
+\end{proof}
+
+\begin{problem}[Lu Qi-Keng problem]\label{b95-7-2-2}
+Characterize bounded domains $D$ for which $K_D(z,w)\ne0$ for every $z,w\in D$.
+\end{problem}
+\begin{proof}[Partial proof]
+Boas, Fu and Straube (1999) compute Bergman kernels explicitly and exhibit convex domains in $\mathbb C^3$ whose kernels have zeros \cite{B95-BFS}. The computation disproves universal nonvanishing even within the convex class.
+\end{proof}
+
+\begin{problem}\label{b95-7-5-2}\label{b95-7-5-6}
+Determine sharp boundary asymptotics of $\kappa_D(z;v)$ on smooth bounded pseudoconvex finite-type domains. After fixing local holomorphic coordinates and a defining function, which normalized asymptotic terms determine derivatives of its Levi form at a weakly pseudoconvex boundary point?
+\end{problem}
+\begin{proof}[Partial proof]
+Herbort (1993), with an erratum in 1994, obtains sharp estimates for invariant differential metrics near finite-type pseudoconvex points of Levi corank one \cite{B95-Herbort}. Normal forms and anisotropic scales relate the metric estimates to boundary geometry.
+\end{proof}
+
+\begin{problem}\label{b95-7-5-3}
+Let $D\subset\mathbb C^n$ be a bounded pseudoconvex balanced domain, so that $\lambda D\subset D$ for $|\lambda|\leq1$. Set $h(z)=\inf\{t>0:z/t\in D\}$, its Minkowski functional; thus $D=\{h<1\}$ and $h(\lambda z)=|\lambda|h(z)$. Characterize completeness of each of the Carath\'eodory, Bergman, and Kobayashi metrics in terms of $h$.
+\end{problem}
+\begin{proof}[Partial proof]
+If $h$ is continuous, $h-1$ is a negative plurisubharmonic exhaustion, so B{\l}ocki and Pflug's hyperconvexity theorem (1998) gives Bergman completeness \cite{B95-BP}. Edigarian's preprint of 7 September 2026 announces a bounded balanced domain in $\mathbb C^2$ with continuous Minkowski functional and incomplete Kobayashi distance \cite{B95-EdigarianBalanced26}.
+\end{proof}
+
+\begin{problem}\label{b95-8-1-1}
+Characterize classes $\mathcal F\subset\PSH(D)$ on which the complex Monge--Amp\`ere measure is well defined, and convergence notions on $\mathcal F$ for which
+\[
+ u_j\longrightarrow u
+ \quad\Longrightarrow\quad
+ (dd^cu_j)^n\rightharpoonup(dd^cu)^n.
+\]
+Here $D\subset\mathbb C^n$ and the measures converge weakly on compact subsets of $D$.
+\end{problem}
+\begin{proof}[Partial proof]
+Bedford and Taylor (1982) prove continuity for decreasing sequences of locally bounded plurisubharmonic functions with a locally bounded limit \cite{B95-BT}. Their construction defines wedge products inductively and uses integration by parts and capacity estimates to pass to the limit.
+\end{proof}
+
+\begin{problem}\label{b95-13-0-3}
+Let $D$ be bounded and Kobayashi complete, and fix $p>0$. Do constants $C,r_0>0$ exist such that
+\[
+ |f(z)|^p\leq
+ \frac{C}{\operatorname{Vol}(B_{k_D}(z,r))}
+ \int_{B_{k_D}(z,r)}|f|^p\,dV
+\]
+for all $f\in\mathcal O(D)$, $z\in D$, and $0<r<r_0$? Here $B_{k_D}(z,r)=\{w\in D:k_D(z,w)<r\}$ and $\operatorname{Vol}$ is Euclidean volume.
+\end{problem}
+\begin{proof}[Partial proof]
+Krantz (1995) records the strongly pseudoconvex case in every dimension and the finite-type case in $\mathbb C^2$ \cite[Problem~13.0.3]{B95}. In these settings, comparison of Kobayashi balls with anisotropic polydiscs reduces the estimate to the submean inequality on polydiscs.
+\end{proof}
+
+\begin{problem}\label{FS-3.6}
+Let $T$ be a positive closed current of bidimension $(p,p)$ on $\mathbb C^n$, $1\leq p<n-1$. Do there exist closed pure $p$-dimensional analytic varieties $V_j\subset\mathbb C^n$ and $c_j>0$ with $c_j[V_j]\rightharpoonup T$ as currents? Can these be chosen so that $\operatorname{supp}[V_j]$ converges locally in the Hausdorff sense to $\operatorname{supp}T$?
+\end{problem}
+\begin{proof}[Partial proof]
+Forn\ae ss and Sibony (2001) record the hypersurface case, of bidimension $(n-1,n-1)$, as classical and cite Demailly (1999) for refinements \cite[Question~3.6]{FS2001}\cite{FS-Demailly}. In that case, approximation of plurisubharmonic potentials and the Poincar\'e--Lelong formula give approximation by normalized divisors.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}[Corona problem]\label{b95-5-2-1}
+Let $D=\mathbb B^n$ or $\Delta^n$, $n\geq2$. If $f_1,\ldots,f_m\in H^\infty(D)$ and $\sum_{j=1}^m|f_j|\geq\delta>0$, do there exist $g_1,\ldots,g_m\in H^\infty(D)$ with $\sum_{j=1}^m f_jg_j=1$?
+\end{problem}
+\begin{remark}
+Costea, Sawyer and Wick (2010) obtain solutions in $\mathrm{BMOA}$ for bounded corona data on the unit ball \cite{B95-CSW}.
+\end{remark}
+
+\begin{problem}\label{b95-5-1-1}\label{b95-5-1-2}
+For a smooth bounded pseudoconvex domain $D$, is $A^\infty(\overline D)$ dense in $A^k(\overline D)$ in the $C^k$ norm for every finite $k\geq1$? If $\overline D$ has a Stein neighbourhood basis, is every $f\in A^\infty(\overline D)$ uniformly approximable by functions holomorphic on neighbourhoods of $\overline D$?
+\end{problem}
+
+
+\begin{problem}\label{b95-5-3-1}
+Fix an identification $\mathbb H\simeq\mathbb C^2$ and a domain $\Omega\subset\mathbb H$. For a real orthonormal quaternionic frame $\Phi=(\Phi_0,\ldots,\Phi_3)$, let
+$D_\Phi f=\sum_{j=0}^3\Phi_j\partial_{x_j}f$
+on $C^1(\Omega,\mathbb H)$, with left quaternionic multiplication. Describe the nonholomorphic elements of $\ker D_\Phi$ and the ordinary holomorphic subspaces it contains, including their dependence on $\Omega$ and $\Phi$.
+\end{problem}
+\begin{remark}
+H. Shapiro and N. Vasilievsky remark that $\operatorname{Hol}(\Omega;\mathbb C^2)\subset\ker D_{\widehat\Phi}$ for $\widehat\Phi=(1,i,j,-k)$ \cite[Problem~5.3.1, 1995]{B95}.
+\end{remark}
+
+\begin{problem}\label{b95-5-5-1}
+Give a geometric characterization of positive probability measures $\mu$ on $\overline{\mathbb B^n}$ satisfying
+$\int f\,d\mu=f(0)$ for every $f\in A(\mathbb B^n)$.
+\end{problem}
+
+
+\begin{problem}\label{b95-5-5-2}
+Is every compact totally disconnected set $K\subset\mathbb C^n$ with finite one-dimensional Hausdorff measure polynomially convex?
+\end{problem}
+
+
+\begin{problem}\label{b95-5-6-1}
+Let $D$ be smooth, bounded and pseudoconvex, with Shilov boundary $\Sigma_D$ for $A(D)$. If an effective divisor $Z$ in $D$ satisfies $\overline{|Z|}\cap\Sigma_D=\varnothing$, must its support be contained in the zero set of some nonzero $f\in H^\infty(D)$?
+\end{problem}
+\begin{remark}
+S. G. Krantz remarks that Rudin proved the affirmative result for the polydisc \cite[Problem~5.6.1, 1995]{B95}.
+\end{remark}
+
+\begin{problem}\label{b95-5-6-2}
+For $0<p<\infty$ and a smoothly bounded strongly pseudoconvex domain $D$, characterize the effective divisors that are zero divisors of nonzero functions in the Hardy space $H^p(D)$.
+\end{problem}
+
+
+\begin{problem}\label{b95-7-3-2}
+Does there exist a smooth bounded pseudoconvex domain $D$ for which no constant $C>0$ satisfies
+\[
+ \kappa_D(z;v)\leq C\gamma_D(z;v)
+ \qquad(z\in D,\ v\in\mathbb C^n)?
+\]
+\end{problem}
+
+
+\begin{problem}\label{b95-7-4-1}
+At a point of a smooth pseudoconvex hypersurface, does the maximal order of contact with nonsingular holomorphic curve germs equal the commutator type obtained by using one complex tangential vector field, nonzero at that point, and its conjugate at a time? In the latter type, measure the least bracket length that produces a direction transverse to the complex tangent space, then take the supremum over the initial fields.
+\end{problem}
+
+
+\begin{problem}\label{b95-7-4-2}
+Let $D\subset\mathbb C^2$ have smooth pseudoconvex finite-type boundary. For each $p\in\partial D$, does a neighbourhood $U$ exist such that $D\cap U$ is biholomorphic to a convex domain by a map extending continuously to $\partial D\cap U$?
+\end{problem}
+
+
+\begin{problem}\label{b95-8-2-1}
+Let $V$ be an irreducible analytic germ at $0\in\mathbb C^n$ and $E=V\cap\mathbb R^n\cap B_\epsilon$. Classify the germs for which the extremal function $U_E$ satisfies
+$U_E(z)\leq A|\operatorname{Im}z|$ near $0$. The printed ambient-ball envelope uses functions between $0$ and $1$ vanishing on $E$, but its omitted admissible function class must be fixed without silently replacing it by an intrinsic envelope on $V$.
+\end{problem}
+
+
+\begin{problem}\label{b95-14-1}
+For every smooth bounded strongly pseudoconvex domain $D$, does there exist an integer $N_D$ such that, for every $z,w\in D$, $k_D(z,w)$ is attained by a chain of at most $N_D$ analytic discs? Attainment means that the sum of the Poincar\'e distances between the paired preimages equals $k_D(z,w)$.
+\end{problem}
+\begin{remark}
+S. G. Krantz remarks that $N_D=1$ for convex domains \cite[Prize Problem~1, 1995]{B95}.
+\end{remark}
+
+\begin{problem}\label{FS-3.22}
+Let $p$ be a finite-type real-analytic boundary point of a domain $\Omega\subset\mathbb C^n$, and suppose $p$ is not in the image of its envelope of holomorphy under the natural projection to $\mathbb C^n$. Do there exist $\epsilon,C>0$ and a neighbourhood $U$ of $p$ such that
+\[
+ \kappa_\Omega(q;v)\geq
+ \frac{C\|v\|}{\|p-q\|^\epsilon}
+ \qquad(q\in\Omega\cap U,\ v\in\mathbb C^n)?
+\]
+\end{problem}
+\begin{remark}
+Forn\ae ss and Sibony (2001) remark that such a lower bound would be useful for proving continuous boundary extension of proper holomorphic maps \cite[Question~3.22]{FS2001}.
+\end{remark}
+
+\section{Holomorphic mappings and hyperbolicity}
+
+Mapping rigidity asks how algebraic, intrinsic, or boundary geometry constrains holomorphic maps. A complex manifold is \emph{Kobayashi hyperbolic} when its Kobayashi pseudodistance separates points; its infinitesimal pseudometric is denoted by $\kappa_X$. We write $\operatorname{Aut}(D)$ for the holomorphic automorphism group of a domain $D$. A \emph{general} hypersurface is chosen outside a proper algebraic subset of its parameter space; \emph{very general} allows a countable union of proper algebraic subsets.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Kobayashi conjecture]\label{Siu-3.2-analytic}
+For every $n\geq2$, does there exist $d_0(n)$ such that a general hypersurface $X_d\subset\mathbb P^n$ of degree $d$ is Kobayashi hyperbolic whenever $d\geq d_0(n)$?
+\end{problem}
+\begin{proof}
+Brotbek (2017) proved the assertion \cite{SIU-Bro17}. Wronskians produce global jet differentials on suitable families of high-degree hypersurfaces. Positivity and base-locus control force an entire curve to satisfy sufficiently many differential equations, excluding nonconstant entire curves on a general member. Brody's criterion then gives Kobayashi hyperbolicity because the hypersurface is compact.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}\label{b95-9-2-2}
+Determine the minimum of $\deg F:=\max(\deg F_1,\deg F_2)$ among noninjective polynomial maps $F:\mathbb R^2\to\mathbb R^2$ satisfying $\det DF(x)\neq0$ for all $x\in\mathbb R^2$.
+\end{problem}
+\begin{proof}[Partial proof]
+Fernandes (2022) constructed a polynomial local diffeomorphism with coordinate degrees $10$ and $15$ which is not injective \cite{B95-Fernandes}. Its Jacobian never vanishes, whereas distinct points have the same image. Therefore the least possible value of $\max(\deg F_1,\deg F_2)$ is at most $15$.
+\end{proof}
+
+\begin{problem}\label{FS-3.23}
+For each $n\geq1$ and $d\geq2n+1$, is $\mathbb P^n\setminus D$ Kobayashi hyperbolic for a general degree-$d$ hypersurface $D\subset\mathbb P^n$?
+\end{problem}
+\begin{proof}[Partial proof]
+Brotbek and Deng (2019) proved hyperbolicity of complements of general hypersurfaces of sufficiently large degree, using logarithmic Wronskians and logarithmic jet differentials \cite{FS-BrotbekDeng}. Hou, Huynh, Merker, and Xie (September 2026 preprint revision) obtain the bound $d\geq12$ for complements of very generic plane curves by vanishing results for negatively twisted invariant $2$-jet differentials \cite{FS-HHMX}. The latter is a preprint result; the proposed threshold in the plane is $d=5$.
+\end{proof}
+
+\begin{problem}\label{b95-9-1-1}\label{FS-3.17}
+Classify smoothly bounded domains $D\Subset\mathbb C^n$ with noncompact $\operatorname{Aut}(D)$. If $D$ is pseudoconvex, must $\operatorname{Aut}(D)$ contain a subgroup topologically isomorphic to $(\mathbb R,+)$?
+\end{problem}
+\begin{proof}[Partial proof]
+Bedford and Pinchuk (1988; English translation 1989) proved that a bounded pseudoconvex domain in $\mathbb C^2$ with real-analytic boundary and noncompact automorphism group is biholomorphic to
+\[
+ E_m=\{(z,w)\in\mathbb C^2:|z|^2+|w|^{2m}<1\},\qquad m\geq1
+\]
+for an integer $m$ \cite{B95-BedfordPinchuk}. They rescale near an orbit-accumulation point and classify the resulting polynomial model. The maps
+\[
+ \Phi_t(z,w)=\left(
+ \frac{z\cosh t+\sinh t}{z\sinh t+\cosh t},
+ \frac{w}{(z\sinh t+\cosh t)^{1/m}}
+ \right),\qquad t\in\mathbb R,
+\]
+form a subgroup of $\operatorname{Aut}(E_m)$: direct substitution gives $\Phi_t(E_m)=E_m$ and $\Phi_s\circ\Phi_t=\Phi_{s+t}$. The holomorphic root is chosen positive at $z=0$. Since $\Phi_t(0,0)=(\tanh t,0)$, this subgroup is topologically isomorphic to $(\mathbb R,+)$ and noncompact. Thus the subgroup question also has an affirmative answer in this class.
+\end{proof}
+
+\begin{problem}\label{b95-9-3-1}
+Classify irreducible analytic curves $\Gamma\subset\Delta\times\Delta$ for which both coordinate projections $\pi_j:\Gamma\to\Delta$, $j=1,2$, are proper and finite-to-one.
+\end{problem}
+\begin{proof}[Partial proof]
+For the disc-normalization case of the question recorded by Buzzard, Forn\ae ss, Gavosto, and Krantz (1995) \cite[Problem~9.3.1]{B95}, an elementary argument applies. Let the normalization be $\Delta$, and let its two proper projections be $f,g:\Delta\to\Delta$. A proper disc map has finitely many zeros and modulus tending uniformly to $1$ at the boundary. Dividing $f$ by the finite Blaschke product with its zeros leaves a zero-free holomorphic function of boundary modulus $1$; the maximum principle for it and its reciprocal makes it a unimodular constant. The same holds for $g$. Thus the correspondence is parametrized by a pair of finite Blaschke products.
+\end{proof}
+
+\begin{problem}\label{FS-3.19}
+Classify pairs $(\Sigma,X)$, where $\Sigma\subset\mathbb C^n$ is a real-analytic finite-type hypersurface and $X$ is a holomorphic vector field near $\Sigma$ satisfying $\operatorname{Re}X|_\Sigma\in T\Sigma$.
+\end{problem}
+\begin{proof}[Partial proof]
+Bedford and Pinchuk (1994; English translation 1995) studied holomorphic vector fields tangent to the boundaries of weighted-homogeneous model domains and applied the resulting restrictions to classify bounded smooth convex finite-type domains with noncompact automorphism groups \cite{FS-BedfordPinchuk}. The method decomposes a tangent field into homogeneous terms and uses tangency to constrain the defining polynomial.
+\end{proof}
+
+\begin{problem}\label{FS-3.20}\label{b95-9-4-1}
+Let $F:D\to D'$ be a biholomorphism between bounded domains in $\mathbb C^n$. If $\partial D$ and $\partial D'$ are real analytic, must $F$ extend continuously to $\overline D$? Does the same hold for $C^\infty$ boundaries? If $D$ and $D'$ are smoothly bounded and pseudoconvex, must $F\in C^\infty(\overline D)$?
+\end{problem}
+\begin{proof}[Partial proof]
+Fefferman (1974) proved that a biholomorphism between bounded $C^\infty$ strongly pseudoconvex domains extends to a $C^\infty$ diffeomorphism of their closures \cite{FS-Fefferman}. The transformation law and boundary asymptotics of the Bergman kernel control the map and its derivatives at the boundary.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}[Jacobian conjecture]\label{b95-9-2-1}\label{FS-3.21}
+Let $F\in\mathbb C[z_1,z_2]^2$ satisfy $\det DF\equiv c\in\mathbb C^*$. Must $F:\mathbb C^2\to\mathbb C^2$ be a polynomial automorphism?
+\end{problem}
+
+\begin{problem}\label{b95-7-5-4}
+Let $D\subset\mathbb P^n$ be a hypersurface of degree at least $n+2$ with only normal-crossing singularities. Does there exist a hypersurface $E\subset\mathbb P^n$ such that
+\[
+ \kappa_{\mathbb P^n\setminus D}(x;v)>0
+ \quad\text{for every }x\in\mathbb P^n\setminus(D\cup E),\quad
+ 0\neq v\in T_x\mathbb P^n?
+\]
+\end{problem}
+
+\begin{problem}\label{b95-9-3-2}
+Let $D\Subset\mathbb C^n$, $n>1$, have smooth boundary. Must every proper holomorphic map $F:D\to D$ be biholomorphic?
+\end{problem}
+
+\begin{problem}\label{FS-3.18}
+Let $\Sigma,\Sigma'\subset\mathbb C^n$ be real-analytic hypersurfaces, with $\Sigma'$ strictly pseudoconvex and either nonspherical or simply connected. Let $p\in\Sigma$ be strictly pseudoconvex and let $f:(\mathbb C^n,p)\to\mathbb C^n$ be a holomorphic germ with $f(\Sigma)\subset\Sigma'$. Must $f$ admit analytic continuation along every path in $\Sigma$ starting at $p$?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) attribute the question to S.~Pinchuk and refer to special cases studied by Pinchuk, Shafikov, and Bedford--Pinchuk \cite[Question~3.18]{FS2001}. In particular, Shafikov's continuation results appeared in 2000 \cite{FS-ShafikovCont}.
+\end{remark}
+
+\section{Complex dynamics and foliations}
+
+Iteration connects the geometry of Fatou components with invariant currents, hyperbolicity, and holomorphic foliations. The questions below concern polynomial automorphisms, projective endomorphisms, and several related conservative systems.
+
+For a holomorphic endomorphism $f:\mathbb P^k\to\mathbb P^k$ of algebraic degree $d\geq2$, write
+\[
+ T=\lim_{m\to\infty}d^{-m}(f^m)^*\omega_{\mathrm{FS}},\qquad
+ \mu=T^k,\qquad J_j=\operatorname{supp}(T^j),
+\]
+where $\int_{\mathbb P^k}\omega_{\mathrm{FS}}^k=1$. The Fatou set is the normality locus of $(f^m)$, and $\Omega(f)$ denotes the nonwandering set. A Fatou component is \emph{wandering} if its forward images are not eventually periodic. On a Siegel or rotation domain, the iterates of a return map have compact closure in the automorphism group. Write $\operatorname{End}_d(\mathbb P^k)$ for the coefficient parameter space of degree-$d$ endomorphisms; Lebesgue-null subsets are defined in its local coordinates.
+
+For a generalized H\'enon map $f$ of $\mathbb C^2$, let $K^\pm$ be the sets of bounded forward and backward orbits, $J^\pm=\partial K^\pm$, $J=J^+\cap J^-$, and $J^*=\operatorname{supp}\mu_H$. With $d=\deg f>1$, set
+\[
+ G^\pm(z)=\lim_{m\to\infty}d^{-m}\log^+\|f^{\pm m}(z)\|,
+ \qquad T^\pm=dd^cG^\pm,\qquad \mu_H=T^+\wedge T^-,
+\]
+where $dd^c=(i/\pi)\partial\bar\partial$.
+An attracting set is a compact set $A=\bigcap_{n\geq0}f^n(U)$ for an open trapping region $f(U)\Subset U$; it is an attractor if it has a dense forward orbit, and is nontrivial if it is neither a periodic orbit nor the whole space. A real hypersurface is \emph{Levi-flat} if its complex tangent bundle is integrable. Hausdorff dimension is denoted by $\dim_H$, with $\dim_H\mu=\inf\{\dim_HE:\mu(E)=1\}$ over Borel sets $E$.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Bedford's stable-manifold conjecture]\label{FS-2.5b}
+Let $f:X\to X$ be a holomorphic automorphism of a complex manifold, uniformly hyperbolic on a compact invariant set $\Lambda$. For $p\in\Lambda$ with $\dim_{\mathbb C}E_p^s=r$, is $W^s(p)$ biholomorphic to $\mathbb C^r$?
+\end{problem}
+\begin{proof}
+S.~Bera and K.~Verma (2024) prove that every uniformly attracting non-autonomous basin in $\mathbb C^r$ is biholomorphic to $\mathbb C^r$ \cite{FS-BV}. Local stable charts along the orbit identify the stable manifold with such a basin; uniform hyperbolicity supplies uniform contraction bounds. Applying their basin theorem gives the required biholomorphism. The theorem is obtained by conjugating the sequence to controlled polynomial models and constructing a convergent sequence of biholomorphic approximations.
+\end{proof}
+
+\begin{problem}\label{b95-10-1-1}
+Does there exist a non-Runge domain $D\subsetneq\mathbb C^2$ biholomorphic to $\mathbb C^2$?
+\end{problem}
+\begin{proof}
+E.~F.~Wold (2008) constructs a Fatou--Bieberbach embedding by successive automorphism approximations, while arranging that its image $D$ contains a compact set $K$ with $\widehat K\not\subset D$ \cite{B95-Wold08}. Here $\widehat K$ denotes the polynomial hull in $\mathbb C^2$. A Runge domain would contain the polynomial hull of each of its compact subsets, so this $D$ is not Runge.
+\end{proof}
+
+\begin{problem}\label{b95-10-2-1}\label{b95-10-3-4}\label{FS-2.2}
+Do wandering Fatou components occur for polynomial H\'enon maps of $\mathbb C^2$, and for holomorphic endomorphisms of $\mathbb P^2$ of degree at least two?
+\end{problem}
+\begin{proof}
+P.~Berger and S.~Biebler (2023) construct degree-six polynomial automorphisms with wandering Fatou components using homoclinic tangencies and renormalization \cite{B95-BB}. M.~Astorg, X.~Buff, R.~Dujardin, H.~Peters, and J.~Raissy (2016) construct skew products
+\[
+ F(z,w)=\bigl(p(z)+\tfrac{\pi^2}{4}w,q(w)\bigr),\qquad
+ p(z)=z+z^2+O(z^3),\quad q(w)=w-w^2+O(w^3),
+\]
+whose parabolic transition has an attracting Lavaurs fixed point \cite{B95-ABDPR}. Increasing return times yield a wandering component. Their choices permit $\deg p=\deg q$, so $F$ extends holomorphically to $\mathbb P^2$.
+\end{proof}
+
+\begin{problem}\label{b95-10-3-2}\label{b95-10-3-8}
+Does every holomorphic endomorphism $f:\mathbb P^k\to\mathbb P^k$ of degree $d\geq2$ have repelling periodic points? Are all Lyapunov exponents of $\mu$ positive?
+\end{problem}
+\begin{proof}
+J.-Y.~Briend and J.~Duval (1999) prove that all equilibrium Lyapunov exponents satisfy $\lambda_j\geq\tfrac12\log d$ \cite{B95-BD}. Pluripotential estimates provide many inverse branches with exponential contraction. Fixed points of these inverse branches give repelling periodic points of $f$, and counting the branches yields equidistribution toward $\mu$.
+\end{proof}
+
+\begin{problem}\label{b95-10-3-3}
+Is $J_k$ the closure of all repelling periodic points of a projective endomorphism?
+\end{problem}
+\begin{proof}
+J.~E.~Forn\ae ss and N.~Sibony (2001) construct projective endomorphisms with isolated repelling periodic orbits outside $\operatorname{supp}\mu$ by perturbing generalized H\'enon maps \cite{B95-FSExamples}. Such an orbit belongs to the closure of the repelling periodic points but not to $J_k$, disproving the equality. The equidistribution theorem of J.-Y.~Briend and J.~Duval (1999) allows exceptional repelling orbits whose normalized counting mass tends to zero \cite{B95-BD}.
+\end{proof}
+
+\begin{problem}\label{FS-2.3}
+Can the basin $B$ of an attracting periodic point of a generalized H\'enon map have $C^1$ boundary?
+\end{problem}
+\begin{proof}
+E.~Bedford and K.~Kim (2017) prove that $J^+$ is not a $C^1$ manifold, even allowing a manifold boundary \cite{FS-BK}. The basin-boundary identity of E.~Bedford and J.~Smillie (1991), recalled in that paper, gives $\partial B=J^+$. Thus $\partial B$ cannot be $C^1$. The nonsmoothness proof derives a Levi foliation and restrictions on unstable multipliers, then contradicts those restrictions using the algebra of periodic points.
+\end{proof}
+
+\begin{problem}\label{FS-2.17ac}\label{FS-2.21ac}
+Which holomorphic endomorphisms of $\mathbb P^k$ have an equilibrium measure absolutely continuous with respect to volume?
+\end{problem}
+\begin{proof}
+F.~Berteloot and C.~Dupont (2005) prove that absolute continuity of $\mu$ forces $f$ to be a Latt\`es endomorphism \cite{FS-BD}. They linearize inverse dynamics at typical points, derive regularity of the Green current, and obtain the torus-quotient structure. Conversely, for a Latt\`es endomorphism, $\mu$ is the pushforward of Haar measure under the finite holomorphic quotient from a complex torus; this measure is absolutely continuous with respect to projective volume.
+\end{proof}
+
+\begin{problem}\label{FS-2.14}
+Let $f\in\operatorname{Aut}(\mathbb C^k)$ have an attracting fixed point $p$ with basin $B$, and set
+\[
+ B_\delta^*=\{z\in B:\operatorname{dist}(z,\partial B)\geq\delta,
+ \ \|z-p\|\geq\delta\}.
+\]
+For each $\delta>0$, must there be $N=N(f,p,\delta)$ such that no orbit segment $z,f(z),\ldots,f^N(z)$ is contained in $B_\delta^*$?
+\end{problem}
+\begin{proof}
+The unrestricted affine formulation recorded by J.~E.~Forn\ae ss and N.~Sibony (2001) admits a direct counterexample \cite[Question~2.14]{FS2001}. Take $f(z)=z/2$, $p=0$, and $B=\mathbb C^k$. For any proposed bound $N$, choose $\|z\|>2^N\delta$. Then $\|f^n(z)\|>\delta$ for $0\leq n\leq N$, while the boundary-distance condition is vacuous because $\partial B=\varnothing$. Thus no bound independent of the initial point exists.
+\end{proof}
+
+\begin{problem}\label{FS-2.12a}
+For the standard map
+\[
+ p_{n+1}=p_n+K\sin\theta_n,\qquad
+ \theta_{n+1}=\theta_n+p_{n+1}\pmod{2\pi},
+\]
+does $K>1$ imply that Lebesgue-almost every initial point in $S^1\times\mathbb R$ has unbounded forward momentum?
+\end{problem}
+\begin{proof}
+At $(\theta,p)=(\pi,0)$ the derivative has determinant one and trace $2-K$, so the fixed point is elliptic for $0<K<4$. For suitable nonresonant $K\in(1,4)$ its Birkhoff twist is nonzero. J.~Moser's invariant-curve theorem (1962) then gives invariant Jordan curves surrounding the fixed point \cite{FS-Moser62}; this standard-map mechanism is discussed by J.~D.~Meiss (1992) \cite{FS-Meiss}. The interior of such a curve is invariant and has positive area and bounded momentum, contradicting the asserted almost-everywhere escape.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}\label{b95-10-2-2}\label{FS-2.9}
+Classify periodic Fatou components of generalized H\'enon maps and projective endomorphisms. Can a H\'enon map have a Herman-ring basin? For $f\in\operatorname{End}_d(\mathbb P^k)$ and an invariant Fatou component $U$, does $\operatorname{dist}(f^n(z),\partial U)\to0$ locally uniformly on $U$ force $\partial U$ to contain a parabolic fixed point?
+\end{problem}
+\begin{proof}[Partial proof]
+J.~E.~Forn\ae ss and N.~Sibony (1995) classify recurrent domains in their two-dimensional setting by studying holomorphic limits of iterates and the rank of the resulting retractions \cite{FS-Recurrent}. M.~Lyubich and H.~Peters (2014) treat nonrecurrent periodic components of H\'enon maps with $|\operatorname{Jac}f|<d^{-2}$, proving that they are semi-parabolic basins \cite{B95-LP}. Their analysis of limit maps and boundary convergence supplies the missing nonrecurrent case under this dissipativity hypothesis; the recurrent possibilities still include the Herman-ring alternative.
+\end{proof}
+
+\begin{problem}\label{FS-2.4}
+For a generalized H\'enon map, determine the inclusions among $J$, $J^*$, and $\Omega(f)$. When does hyperbolicity on $J^*$ imply $J=J^*$ and hyperbolicity on $\Omega(f)$?
+\end{problem}
+\begin{proof}[Partial proof]
+L.~Guerini and H.~Peters (2018) prove $J=J^*$ when $|\operatorname{Jac}f|<d^{-2}$ and $f$ is hyperbolic on $J^*$ \cite{FS-GP}. They control stable and unstable parametrizations, using substantial dissipativity to exclude additional points of $J\setminus J^*$. Their paper also treats quasi-hyperbolicity and dominated splitting under its stated hypotheses.
+\end{proof}
+
+\begin{problem}\label{FS-2.17}\label{FS-2.18}
+For a projective endomorphism, set $J_0=\Omega(f|_{J_1})$. Determine $\dim_H\mu$, $\dim_HJ_1$, $\dim_HJ_0$, and $\dim_H(J_1\setminus J_0)$, and describe $J_0\setminus J_k$. For a polynomial endomorphism of $\mathbb C^k$ extending holomorphically to $\mathbb P^k$, is $\operatorname{supp}\mu$ relatively open in $\Omega(f|_{\mathbb C^k})$?
+\end{problem}
+\begin{proof}[Partial proof]
+I.~Binder and L.~DeMarco (2003) prove $\dim_H\mu\leq2k-1$ for regular polynomial endomorphisms of $\mathbb C^k$ \cite{FS-Binder}. Their inverse-branch and volume estimates produce a full-measure set with this Hausdorff-dimension bound. J.~E.~Forn\ae ss and N.~Sibony (2001) also record relative openness of $\operatorname{supp}\mu$ in $\Omega(f)$ when that support is hyperbolic \cite[Question~2.17]{FS2001}.
+\end{proof}
+
+\begin{problem}\label{b95-10-3-7}\label{FS-2.1}
+For fixed $d\geq2$ and $k\geq2$, can the locus of maps in $\operatorname{End}_d(\mathbb P^k)$ with infinitely many attracting cycles have nonempty interior or positive Lebesgue measure? In particular, is this locus null when $k=2$?
+\end{problem}
+\begin{proof}[Partial proof]
+G.~T.~Buzzard (1997) constructs holomorphic maps of two variables with infinitely many attracting cycles by a complex Newhouse construction \cite{FS-Buzzard}. Persistent homoclinic tangencies permit successive perturbations creating new attracting cycles while retaining previous ones. Nested parameter choices then give infinitely many sinks. J.~E.~Forn\ae ss and N.~Sibony (2001) discuss this construction in their projective parameter-space question \cite[Question~2.1]{FS2001}. This is an existence result in the holomorphic two-variable setting; no conclusion about the measure of the stated projective locus is inferred.
+\end{proof}
+
+\begin{problem}\label{b95-10-3-5}\label{FS-2.26}
+Classify holomorphic germs $f:(\mathbb C^k,0)\to(\mathbb C^k,0)$ up to local holomorphic conjugacy. In dimension two, determine the dynamics when
+\[
+ f(z,w)=(e^{i\theta}z,e^{i\psi}w)+O(\|(z,w)\|^2),
+\]
+including resonant and non-linearizable cases.
+\end{problem}
+\begin{proof}[Partial proof]
+For the tangent-to-identity special case, M.~Hakim (1998) constructs parabolic curves associated with nondegenerate characteristic directions \cite{FS-Hakim}. Blowing up the fixed point separates these directions; invariant sectors and a functional equation then produce holomorphic curves on which the iterates converge to the origin tangentially to the prescribed direction.
+\end{proof}
+
+\begin{problem}\label{b95-10-3-9}\label{FS-2.20}
+For fixed degree $d\geq2$, construct and describe families of endomorphisms of $\mathbb P^2$ whose critical hypersurface components are all preperiodic. Classify such endomorphisms of $\mathbb P^3$ up to projective conjugacy.
+\end{problem}
+\begin{proof}[Partial proof]
+The coordinate power maps $[z_0:\cdots:z_k]\mapsto[z_0^d:\cdots:z_k^d]$ give examples: each critical coordinate hyperplane is invariant. For the stronger class of maps that are $2$-critically finite in his sense, M.~Jonsson (1998) proves that $\mathbb P^2$ has no proper nonempty closed backward-invariant subset \cite{FS-PCF}. Applying this to $J_2=\operatorname{supp}\mu$ gives $J_2=\mathbb P^2$; he also proves density of repelling periodic points. His argument uses hyperbolicity of postcritical complements and normal inverse branches. The coordinate power maps do not satisfy his stronger hypothesis.
+\end{proof}
+
+\begin{problem}\label{FS-2.12b}
+For a kicked-rotor unitary operator $U$ on $L^2(S^1,d\theta/2\pi)$, find nonresonance hypotheses ensuring that every $\psi$ with $\|\psi\|_2=1$ admits $M=M(U,\psi)<\infty$ such that
+\[
+ \sum_{|j|\leq M}|\widehat{U^n\psi}(j)|^2>\tfrac12
+ \qquad(n\geq0).
+\]
+\end{problem}
+\begin{proof}[Partial proof]
+J.~Bourgain (2002) proves pure-point localization in the small-coupling parameter regimes specified in his kicked-rotor theorem, using Green-function estimates and multiscale analysis \cite{FS-Bourgain}. For any such operator, approximate $\psi$ by a finite linear combination of eigenvectors. Its orbit is contained in a finite-dimensional compact torus, and the approximation error remains unchanged under every $U^n$. Hence the orbit of $\psi$ is precompact in $L^2$. Fourier projections $P_M$ converge uniformly to the identity on its compact closure, so $\sup_n\|(I-P_M)U^n\psi\|_2^2<1/2$ for some $M$, proving the asserted bound in these localization regimes.
+\end{proof}
+
+\begin{problem}\label{FS-2.21}
+Characterize degree-$d$ endomorphisms of $\mathbb P^k$ for which $J_k=\mathbb P^k$, and determine the Hausdorff dimension of their parameter locus.
+\end{problem}
+\begin{proof}[Partial proof]
+For a Latt\`es endomorphism, F.~Berteloot and C.~Dupont (2005) identify the equilibrium measure with the pushforward of Haar measure on the covering complex torus \cite{FS-BD}. Every nonempty open subset of $\mathbb P^k$ has nonempty open inverse image under the quotient map, hence positive Haar measure. Therefore $\operatorname{supp}\mu=\mathbb P^k$.
+\end{proof}
+
+\begin{problem}\label{FS-2.22}
+For some fixed $d\geq2$, does the set of maps in $\operatorname{End}_d(\mathbb P^2)$ admitting a nontrivial attractor have positive Lebesgue measure? Determine the possible Hausdorff dimensions of these attractors.
+\end{problem}
+\begin{proof}[Partial proof]
+J.~Taflin (2021) constructs open sets of projective endomorphisms with attracting sets of nonempty interior, and constructs a transitive attractor with nonempty interior \cite{FS-Taflin}. Saddle blenders give robust intersections with families of holomorphic disks; trapping regions convert these intersections into attracting sets. Any example with nonempty interior in $\mathbb P^2$ has Hausdorff dimension four. The open-family statement for attracting sets and the transitive example are separate conclusions of the construction.
+\end{proof}
+
+\begin{problem}\label{FS-2.29}
+Can $\mathbb P^2$ contain a compact set laminated by nonsingular holomorphic curves that is not a compact complex curve? For a singular holomorphic foliation $\mathcal F$ of $\mathbb P^2$, must every leaf $L$ satisfy $\overline L\cap\operatorname{Sing}\mathcal F\ne\varnothing$?
+\end{problem}
+\begin{proof}[Partial proof]
+Assume additionally that there are no compact leaves, that the lamination extends to a $C^1$ foliation near its compact support, and that it carries a nonzero locally finite holonomy-invariant transverse measure. The measure is nonatomic, so the intersection theorem of S.~Hurder and Y.~Mitsumatsu (1991) gives $[S]^2=0$ for its positive closed directed current $S$ \cite{FS-HM91}. But on $\mathbb P^2$, $[S]=a[\omega_{\mathrm{FS}}]$ with $a>0$, so $[S]^2=a^2>0$. This excludes the measured $C^1$ case, not arbitrary transversely continuous laminations. J.~E.~Forn\ae ss and N.~Sibony (2001) record this obstruction \cite[Question~2.29]{FS2001}; R.~Shafikov (2025) discusses the connection with exceptional minimal sets \cite{FS-Shafikov}.
+\end{proof}
+
+\begin{problem}\label{FS-2.28}
+For a hyperbolic solenoid with complex stable dimension two, construct a nonzero positive closed current directed by the stable lamination. When is such a current, after normalization, canonical?
+\end{problem}
+\begin{proof}[Partial proof]
+Assume that the stable lamination has closed support in an ambient complex $n$-manifold and carries a nonzero locally finite holonomy-invariant transverse measure $\nu$. The construction of D.~Ruelle and D.~Sullivan (1975) defines, in each flow box with holomorphic plaques $L_t$,
+\[
+ S=\int [L_t]\,d\nu(t).
+\]
+The flow-box construction has locally finite mass, holonomy invariance makes it independent of charts, and Stokes' theorem gives $dS=0$ \cite{FS-RS75}. Thus $S$ is a nonzero positive current of bidimension $(2,2)$. A uniquely normalized transverse measure gives a unique current by this construction. Separately, S.~Bera and K.~Verma (2024) prove the stable-leaf uniformization requested in the original question for uniformly hyperbolic automorphisms \cite{FS-BV}; see \cite[Question~2.28]{FS2001}.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}\label{FS-3.10a}
+Does $\mathbb P^2$ contain a compact nonsingular $C^2$ Levi-flat hypersurface? More generally, can a compact topological hypersurface in $\mathbb P^2$ be locally laminated by disjoint holomorphic discs?
+\end{problem}
+
+
+\begin{problem}\label{b95-10-2-3}\label{FS-2.7}\label{FS-2.24}
+Does some conservative quadratic H\'enon map
+\[
+ F_c(z,w)=(z^2+c-w,z)
+\]
+have a Siegel domain containing a periodic point? More generally, can a nonlinear entire $g$, with $g(0)=0$, make $(z,w)\mapsto(g(z)-w,z)$ have a Siegel domain at the origin? For a H\'enon germ with multipliers $e^{i\theta},e^{-i\theta}$, find arithmetic conditions ensuring two invariant Siegel discs tangent to its eigenlines and contained in $J$.
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001), recording M.~Herman's question, remark that the reciprocal multipliers $e^{i\theta}$ and $e^{-i\theta}$ are resonant and that formal linearization imposes infinitely many compatibility conditions \cite[Question~2.7]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{b95-10-3-1}
+Must every holomorphic endomorphism of $\mathbb P^2$ of degree at least two have a repelling fixed point?
+\end{problem}
+
+
+\begin{problem}\label{b95-10-3-6}
+Let $f\in\operatorname{End}_d(\mathbb P^2)$ and let $K$ be a nonempty compact set with $f^{-1}(K)=K=f(K)$. Does
+\[
+ K\cap\overline{\bigcup_{n\geq1}f^n(C_f)}=\varnothing
+\]
+imply uniform hyperbolicity on $K$, where $C_f$ is the critical set? Does avoidance of the unclosed postcritical set suffice?
+\end{problem}
+
+
+\begin{problem}\label{FS-2.8}\label{FS-2.11}
+Can a Siegel domain of a H\'enon map, or of an arbitrary automorphism of $\mathbb C^2$, have strongly pseudoconvex boundary? What restrictions follow if the boundary of a H\'enon Fatou component has a smooth relatively open hypersurface piece?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) contrast this question with R.~P\'erez-Marco's one-variable Siegel discs with smooth boundary, citing that construction as a preprint \cite[Question~2.8]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{FS-2.10}
+Which Reinhardt domains occur, up to biholomorphism, as Siegel domains of automorphisms of $\mathbb C^k$? Which occur for endomorphisms of $\mathbb P^k$?
+\end{problem}
+
+
+\begin{problem}\label{FS-2.15}
+For a projective endomorphism $f$, call $A$ a Siegel analytic set if it is closed analytic in some open set $V$ and $f^{n_j}|_A\to\operatorname{id}_A$ locally uniformly for a sequence $n_j\to\infty$. Is $\Omega(f)$ the closure of the union of periodic points and all Siegel analytic sets? Can the analogous assertion fail for entire maps of $\mathbb C^2$?
+\end{problem}
+
+
+\begin{problem}\label{FS-2.16}
+Is the closure of the repelling periodic points of a projective endomorphism relatively open in $\Omega(f)$? For an entire map of $\mathbb C^k$, can a repelling periodic point be a limit of saddle periodic points, or of points whose forward orbits have both bounded and unbounded subsequences?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) remark that saddle periodic points cannot accumulate at a repelling periodic point of a biholomorphism: for a suitable iterate of the inverse map, the repelling point is attracting and has a neighborhood containing no other periodic orbit \cite[Question~2.16]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{FS-2.19}
+Characterize the projective endomorphisms whose Green current $T$ spans an extremal ray in the cone of positive closed $(1,1)$-currents on $\mathbb P^k$.
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) record extremality for homogeneous polynomial examples and attribute to M.~Jonsson the observation that the Green current of the Ueda-type map $[z:w:t]\mapsto[z^2:w^2-2zt:t^2]$ is not extremal \cite[Question~2.19]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{FS-2.23}
+Writing $f^n=(g_n,h_n)$, can a H\'enon map admit $p\in J^*$ such that
+\[
+ \inf_{n\geq0}|g_n(p)-g_n(q)|=0\qquad\text{for every }q\in J^*?
+\]
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) remark that replacing the first-coordinate distance by $\|f^n(p)-f^n(q)\|$ makes the asserted property impossible, and attribute this obstruction to the then-preprint of A.~M.~Bonifant and J.~E.~Forn\ae ss on collision attractors \cite[Question~2.23]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{FS-2.25}
+In the Whitney fine topology on holomorphic symplectomorphisms of $\mathbb C^{2k}$ preserving $\mathbb R^{2k}$, do maps for which
+\[
+ K_f^{\mathbb R}=\{x\in\mathbb R^{2k}:\sup_{n\geq0}\|f^n(x)\|<\infty\}
+\]
+has empty interior in $\mathbb R^{2k}$ form a dense $G_\delta$?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony (2001) note that the real-preserving holomorphic symplectomorphisms form a Baire space in the Whitney fine topology used in the question \cite[Question~2.25]{FS2001}.
+\end{remark}
+
+\begin{problem}\label{FS-2.30}
+Fix $N\geq2$ and $k\geq2$. Let $\Phi_H^t(z)$ be the maximal real-time flow of the holomorphic Hamiltonian vector field $X_H$, defined for $t\in I_H(z)\subset\mathbb R$. For Lebesgue-almost every polynomial $H$ of degree at most $N$ and almost every $z\in\mathbb C^{2k}$, is
+\[
+ \sup_{t\in I_H(z)}\|\Phi_H^t(z)\|=\infty?
+\]
+\end{problem}
+
+
+\begin{problem}\label{FS-3.10b}
+Classify smooth compact Levi-flat hypersurfaces in complex tori.
+\end{problem}
+
+
+\begin{problem}\label{FS-2.13}
+For holomorphic self-maps of a specified complex Banach or Hilbert space, formulate a notion of chaotic dynamics compatible with finite-dimensional holomorphic dynamics and with quantum localization.
+\end{problem}
+
+
+\section{Complex geometry and algebraic cycles}
+The questions in this section concern the passage from analytic positivity to algebraic structure, and the behaviour of complex structures under deformation. Unless stated otherwise, $X$ is a smooth projective complex variety of dimension $n$, $K_X=\bigwedge^n T_X^*$ is its canonical bundle, and $P_m(X)=h^0(X,K_X^{\otimes m})$ is its $m$th plurigenus. We write $mK_X$ for $K_X^{\otimes m}$. A line bundle is positive if it admits a smooth Hermitian metric with positive curvature, and pseudoeffective if it admits a singular Hermitian metric with nonnegative curvature current. A variety is uniruled if a general point lies on a rational curve.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Kodaira embedding theorem]\label{Z-Kodaira}
+Is a compact complex manifold $M$ projective if and only if there exist a holomorphic line bundle $L\to M$ and a smooth Hermitian metric $h$ with $i\Theta_h(L)>0$?
+\end{problem}
+\begin{proof}
+Kodaira (1954) proved the assertion \cite{Z-Kodaira1954}. Positivity gives enough sections of sufficiently large tensor powers to separate points and tangent directions, hence a projective embedding. Conversely, the restriction of the Fubini--Study metric makes the hyperplane bundle positive.
+\end{proof}
+
+\begin{problem}\label{Siu-1.4-fg}
+Is the canonical ring
+\[
+R(X,K_X)=\bigoplus_{m\geq0}H^0(X,mK_X)
+\]
+finitely generated as a $\mathbb C$-algebra?
+\end{problem}
+\begin{proof}
+Birkar, Cascini, Hacon, and McKernan (2010) proved finite generation \cite{SIU-BCHM10}. Their minimal model program establishes existence and finiteness of suitable birational models, from which finite generation of the canonical ring follows.
+\end{proof}
+
+\begin{problem}[Invariance of plurigenera]\label{Z-plurigenera}
+Let $\pi:\mathcal X\to\Delta$ be a smooth projective family and $X_t=\pi^{-1}(t)$. Must
+\[
+P_m(X_t)=P_m(X_0)\qquad(t\in\Delta,\ m\geq1)?
+\]
+\end{problem}
+\begin{proof}
+Siu proved invariance for families of general type in 1998 and for arbitrary smooth projective families in 2002 \cite{Z-Siu1998,Z-Siu2002}. Extension of pluricanonical sections, using singular metrics and multiplier ideals, gives one inequality for the dimensions of the spaces of sections; upper semicontinuity gives the reverse inequality.
+\end{proof}
+
+\begin{problem}\label{b95-11-3-1}
+Let $(M,g)$ be a K\"ahler manifold with $-b\leq\sec_g\leq-a<0$. Must
+\[
+H^\infty(M):=\{f\in\mathcal O(M):\sup_M|f|<\infty\}\ne\mathbb C?
+\]
+\end{problem}
+\begin{proof}
+For N.~Sibony's formulation in the 1995 problem list \cite[Problem~11.3.1]{B95}, take a compact Riemann surface of genus at least two with a metric of constant curvature $-1$. Every holomorphic function on it is constant by the maximum principle. Thus the displayed curvature condition alone is insufficient.
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}[Hartshorne conjecture]\label{Siu-1.1}
+Is every smooth subvariety $Y^d\subset\mathbb P^N$ with $3d>2N$ a complete intersection? For a rank-two holomorphic vector bundle $E\to\mathbb P^N$, must
+\[
+E\simeq\mathcal O(a)\oplus\mathcal O(b)\quad\text{for some }a,b\in\mathbb Z
+\]
+hold if $N\geq5$, or if $N\geq4$ and $E$ is not slope-stable with respect to $\mathcal O(1)$?
+\end{problem}
+\begin{proof}[Partial proof]
+Ellia and Franco (2002) proved the complete-intersection property for smooth codimension-two subvarieties of $\mathbb P^6$ of degree less than $74$ or lying on a quintic, and for subcanonical threefolds in $\mathbb P^5$ lying on a quartic \cite{SIU-EF99}. Horrocks and Mumford (1973) constructed an indecomposable rank-two bundle on $\mathbb P^4$ \cite{SIU-HM73}. Benoist and Voisin (2025 volume, published 2026) discuss gaps in earlier unstable-splitting arguments \cite[\S2.3]{SIU-BV25}. Even the weaker assertion that every non-stable rank-two bundle splits for all sufficiently large $N$ remains conjectural in their account.
+\end{proof}
+
+\begin{problem}\label{Siu-1.6}
+Let $\pi:\mathcal X\to\Delta$ be a proper holomorphic submersion, $X_t=\pi^{-1}(t)$, and $S$ an irreducible Hermitian symmetric space of compact type. Does
+\[
+X_t\cong S\quad(0<|t|<1)\quad\Longrightarrow\quad X_0\cong S
+\]
+hold without assuming that $X_0$ is K\"ahler?
+\end{problem}
+\begin{proof}[Partial proof]
+Hwang and Mok (1998) proved the assertion when $X_0$ is K\"ahler \cite{SIU-HM98}. They control varieties of minimal rational tangents and the resulting holomorphic $G$-structures under deformation, thereby identifying the central fibre with $S$.
+\end{proof}
+
+\begin{problem}\label{Siu-1.2}
+Does the standard smooth sphere $S^6$ admit $J\in C^\infty(\operatorname{End}(TS^6))$ such that
+\[
+J^2=-\Id,\qquad N_J=0,
+\]
+where $N_J$ is the Nijenhuis tensor?
+\end{problem}
+\begin{proof}[Partial proof]
+Bryant (2021) discusses obstructions under additional compatibility conditions on an almost-complex structure \cite{SIU-Bry21}. Engel's September 2026 preprint describes an affirmative construction, and Viaclovsky's September and October 2026 preprints describe further families and unbounded local deformation dimensions \cite{SIU-Eng26,SIU-Via26a,SIU-Via26b}. These last statements are recorded as preprint claims, not as independently verified proofs in this survey.
+\end{proof}
+
+\begin{problem}\label{Siu-1.4}
+Assume that $K_X$ is not pseudoeffective. Can one construct, by direct complex-analytic methods, a dominant rational map
+\[
+\mathbb P^1\times Y\dashrightarrow X,\qquad \dim Y=n-1,
+\]
+and hence rational curves through general points of $X$? More generally, can the positive, numerically trivial, and negative contributions of $K_X$ be described by canonical fibrations?
+\end{problem}
+\begin{proof}[Partial proof]
+Boucksom, Demailly, P\u aun, and Peternell (2013) proved that a smooth projective variety has non-pseudoeffective canonical bundle if and only if it is uniruled \cite{SIU-BDPP13}. Their cone duality argument uses the numerical uniruledness criterion of Miyaoka and Mori (1986) \cite{SIU-MM86}. This establishes the existence of rational curves under the stated negativity hypothesis; the direct analytic construction and canonical factorization are the further program proposed by Siu (2025) \cite{Siu2025}.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}[Hodge conjecture]\label{Siu-1.5}
+For $0\leq p\leq n$, is
+\[
+H^{2p}(X,\mathbb Q)\cap H^{p,p}(X)
+=\operatorname{span}_{\mathbb Q}\{[Z]:Z\subset X\text{ algebraic},\ \operatorname{codim}_X Z=p\}?
+\]
+Here the intersection is taken in $H^{2p}(X,\mathbb C)$ and $[Z]$ denotes the cycle class.
+\end{problem}
+\begin{remark}
+Y.-T.~Siu remarks that an energy-minimization approach requires a parametrization of a representative of the Hodge class by a compact K\"ahler manifold. He proposes using multivalued harmonic maps from $\mathbb P^{n-p}$ to address this difficulty, and identifies the technical problems caused by multivaluedness \cite[\S1.5]{Siu2025}.
+\end{remark}
+
+\begin{problem}\label{FS-3.12}
+For every $N>2$ and $M>0$, does there exist a smooth hypersurface $Y\subset\mathbb P^N$ such that
+\[
+\operatorname{diam}(Y,g_{\mathrm{FS}}|_Y)>M,
+\]
+where the diameter is computed using the intrinsic Riemannian distance?
+\end{problem}
+\begin{remark}
+J.~E.~Forn\ae ss and N.~Sibony remark that Bogomolov proved the plane-curve case, motivating their question in higher dimension \cite[Question~3.12]{FS2001}. Bogomolov's construction is published in 1994 \cite{FS-Bogomolov}.
+\end{remark}
+
+\section{Period maps and arithmetic geometry}
+Period maps encode complex varieties by the Hodge structures on their cohomology. Their images lead to recognition problems, while algebraic varieties defined over number fields lead to questions about rational points and transcendence. Write $\mathcal A_g$ for the moduli space of principally polarized complex abelian varieties of dimension $g$, $\mathcal J_g$ for its locus of Jacobians of smooth curves, and $\theta(z,\tau)$ for the Riemann theta function. For a number field $K\subset\mathbb C$, $X(K)$ denotes the set of $K$-rational points; $\overline{\mathbb Q}\subset\mathbb C$ denotes the field of algebraic numbers.
+
+\subsection{Closed problems with complete solutions}
+
+\begin{problem}[Schottky problem]\label{Siu-4.1}
+Characterize the indecomposable principally polarized abelian varieties that are Jacobians of smooth curves.
+\end{problem}
+\begin{proof}
+Shiota (1986) proved the following criterion \cite{SIU-Shi86}. An indecomposable principally polarized abelian variety with period matrix $\tau$ is a Jacobian if and only if there exist $U,V,W\in\mathbb C^g$, $U\ne0$, and $c\in\mathbb C$ such that, for every $z\in\mathbb C^g$,
+\[
+u(x,y,t)=2\partial_x^2\log\theta(Ux+Vy+Wt+z,\tau)+c
+\]
+satisfies the Kadomtsev--Petviashvili equation
+\[
+(4u_t-6uu_x-u_{xxx})_x=3u_{yy}.
+\]
+These are meromorphic identities. The proof reconstructs a spectral curve from the associated commuting differential operators.
+\end{proof}
+
+\begin{problem}[Hilbert's seventh problem]\label{Siu-4.7}
+For $a\in\overline{\mathbb Q}\setminus\{0,1\}$ and $b\in\overline{\mathbb Q}\setminus\mathbb Q$, does every value of $a^b$ lie in $\mathbb C\setminus\overline{\mathbb Q}$?
+\end{problem}
+\begin{proof}
+Gelfond and Schneider independently proved the assertion in 1934 \cite{SIU-Gel34,SIU-Sch34}; Schneider's cited journal volume is dated 1935. Their arguments construct auxiliary functions with controlled arithmetic coefficients and high-order zeros, then compare analytic upper bounds with arithmetic lower bounds to contradict algebraicity of $a^b$.
+\end{proof}
+
+\begin{problem}\label{FS-2.27}
+Let $f:X\to X$ be an endomorphism of a projective variety over a number field $K\subset\mathbb C$. Is
+\[
+h_{\mathrm{top}}(f_{\mathbb C})>0\quad\Longrightarrow\quad
+\overline{X(K)}^{\mathrm{Zar}}=X?
+\]
+\end{problem}
+\begin{proof}
+Faltings (1983) proved finiteness of $C(K)$ for every smooth projective curve $C/K$ of genus at least two \cite{FS-Faltings}. Set $X=C\times\mathbb P^1$ and $f=\mathrm{id}_C\times(z\mapsto z^2)$. Then $h_{\mathrm{top}}(f_{\mathbb C})=\log2$, whereas
+\[
+\overline{X(K)}^{\mathrm{Zar}}\subset C(K)\times\mathbb P^1\subsetneq X.
+\]
+\end{proof}
+
+\subsection{Open problems with partial results}
+
+\begin{problem}\label{Siu-4.2}
+For every $g\geq5$, choose a level cover $\mathcal A_g^{\ell}\to\mathcal A_g$ on which theta constants define projective coordinates, and let $\mathcal J_g^{\ell}$ be the inverse image of $\mathcal J_g$. Find explicit homogeneous polynomials $F_1,\ldots,F_r$ in these coordinates such that
+\[
+\{F_1=\cdots=F_r=0\}\cap\mathcal A_g^{\ell}
+=\overline{\mathcal J_g^{\ell}}^{\,\mathcal A_g^{\ell}}.
+\]
+\end{problem}
+\begin{proof}[Partial proof]
+Farkas, Grushevsky, and Salvati Manni (2021) construct explicit equations whose zero set has the Jacobian locus as an irreducible component \cite{SIU-FGS21}. Their construction applies Schottky--Jung proportionalities to quartic theta identities. Grushevsky's 2004 elimination construction and Grushevsky and Xie's 2026 account explain the distinction between this weak solution and equations excluding all extraneous components \cite{SIU-Gru04,SIU-GX26}.
+\end{proof}
+
+\begin{problem}[Lang's radius conjecture]\label{Siu-4.9}
+Let $C/\overline{\mathbb Q}$ be a smooth projective curve with $g(C)>1$, and let $\varphi:D_r\to C^{\mathrm{an}}$ be a universal covering, where $D_r=\{z\in\mathbb C:|z|<r\}$ and $r>0$. If
+\[
+p:=\varphi(0)\in C(\overline{\mathbb Q}),\qquad
+d\varphi_0(\partial/\partial z)\in T_pC(\overline{\mathbb Q})\setminus\{0\},
+\]
+must $r\notin\overline{\mathbb Q}$?
+\end{problem}
+\begin{proof}[Partial proof]
+Cohen and Wolfart (1990) proved the assertion for Shimura curves with a CM base point. Gao, Ullmo, and Yafaev (2026) give another proof of this case \cite[\S8.1 and Proposition~8.1]{SIU-GUY26}: the normalized covering derivative is expressed using CM periods, and transcendence of the resulting period quotient forces the covering radius to be transcendental.
+\end{proof}
+
+\subsection{Wide-open problems}
+
+\begin{problem}\label{Siu-3.2-arithmetic}
+Let $X\subset\mathbb P^N_K$ be a smooth hypersurface over a number field $K\subset\mathbb C$, of degree sufficiently large relative to $N$. Does
+\[
+X_{\mathbb C}\text{ Kobayashi hyperbolic}\quad\Longrightarrow\quad \#X(K)<\infty?
+\]
+\end{problem}
+\begin{remark}
+Y.-T.~Siu remarks on the Lang--Vojta parallelism between the absence of entire curves and finiteness of rational points. Motivated by jet-differential proofs of hyperbolicity, he proposes a difference-operator analogue of holomorphic jet differentials vanishing on an ample divisor as an approach to arithmetic finiteness \cite[\S\S3.1--3.2]{Siu2025}.
+\end{remark}
+
+\begin{problem}\label{Siu-4.5}
+For a family of smooth projective varieties with fixed numerical invariants and period map
+\[
+\Phi:S\longrightarrow\Gamma\backslash D,
+\]
+where $D$ is the corresponding period domain and $\Gamma$ the monodromy group, characterize $\Phi(S)$ by explicit differential or algebraic conditions, including any necessary open conditions. For fibres defined over $\overline{\mathbb Q}$, determine which algebraic relations among their periods follow from algebraic correspondences.
+\end{problem}
+\begin{remark}
+Y.-T.~Siu remarks that polarized Hodge structures provide the higher-dimensional counterpart of period matrices and suggests a Schottky-type characterization by differential or algebraic equations. He points to Griffiths' work on period mappings and connects this discussion with questions about transcendence of periods \cite[\S\S4.5--4.6]{Siu2025}.
+\end{remark}
+
+\clearpage
+\begin{thebibliography}{199}
+\small\raggedright
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+
+\bibitem{B95} G. Buzzard, J. E. Forn\ae ss, E. A. Gavosto and S. G. Krantz, \emph{The Several Complex Variables Problem List}, September 1995 edition, arXiv version 1, submitted 4 November 1995. \url{https://arxiv.org/abs/math/9509202v1}.
+
+\bibitem{FS2001} J. E. Forn\ae ss and N. Sibony, Some open problems in higher dimensional complex analysis and complex dynamics, \emph{Publ. Mat.} 45 (2001), 529--547.
+
+\bibitem{Zhou2019} X. Zhou, A brief introduction of several complex variables: connections with one complex variable (in Chinese; dedicated to Professor Yang Le on his 80th birthday), \emph{Sci. Sin. Math.} 49 (2019), 1347--1358. \url{https://doi.org/10.1360/SSM-2019-0196}.
+
+\bibitem{Siu2025} Y.-T. Siu, \emph{Some Problems in Several Complex Variables and Complex Geometry}, supplied 10-page report based on the Tianyuan conference, Kunming, 28 July--1 August 2025. The supplied report is treated as an informal source; no journal publication is asserted.
+
+\bibitem{B95-Wold08} E. F. Wold, A Fatou--Bieberbach domain in $\mathbb C^2$ which is not Runge, \emph{Math. Ann.} \textbf{340} (2008), 775--780. \url{https://doi.org/10.1007/s00208-007-0168-1}.
+
+\bibitem{B95-Wold10} E. F. Wold, A long $\mathbb C^2$ which is not Stein, \emph{Ark. Mat.} \textbf{48} (2010), 207--210. \url{https://doi.org/10.1007/s11512-008-0084-y}.
+
+\bibitem{B95-Gompf} R. E. Gompf, Smooth embeddings with Stein surface images, \emph{J. Topol.} \textbf{6} (2013), 915--944. \url{https://arxiv.org/abs/1110.1865}.
+
+\bibitem{B95-AY} J. Agler and N. J. Young, The hyperbolic geometry of the symmetrized bidisc, \emph{J. Geom. Anal.} \textbf{14} (2004), 375--403. \url{https://doi.org/10.1007/BF02922097}.
+
+\bibitem{B95-Costara} C. Costara, The symmetrized bidisc and Lempert's theorem, \emph{Bull. London Math. Soc.} \textbf{36} (2004), 656--662. \url{https://doi.org/10.1112/S0024609304003200}.
+
+\bibitem{B95-BB} P. Berger and S. Biebler, Emergence of wandering stable components, \emph{J. Amer. Math. Soc.} \textbf{36} (2023), 397--482. \url{https://doi.org/10.1090/jams/1005}; \url{https://arxiv.org/abs/2001.08649}.
+
+\bibitem{B95-ABDPR} M. Astorg, X. Buff, R. Dujardin, H. Peters, and J. Raissy, A two-dimensional polynomial mapping with a wandering Fatou component, \emph{Ann. of Math.} \textbf{184} (2016), 263--313. \url{https://doi.org/10.4007/annals.2016.184.1.2}.
+
+\bibitem{B95-BD} J.-Y. Briend and J. Duval, Exposants de Liapounoff et distribution des points p\'eriodiques d'un endomorphisme de $\mathbb{CP}^k$, \emph{Acta Math.} \textbf{182} (1999), 143--157. \url{https://doi.org/10.1007/BF02392572}.
+
+\bibitem{B95-FSExamples} J. E. Forn\ae ss and N. Sibony, Dynamics of $\mathbb P^2$ (examples), in \emph{Laminations and Foliations in Dynamics, Geometry and Topology}, Contemp. Math. \textbf{269} (2001), 47--85, especially Section~4. \url{https://doi.org/10.1090/conm/269/04329}.
+
+\bibitem{B95-BP} Z. B\l ocki and P. Pflug, Hyperconvexity and Bergman completeness, \emph{Nagoya Math. J.} \textbf{151} (1998), 221--225. \url{https://doi.org/10.1017/S0027763000025265}.
+
+\bibitem{B95-Edigarian26} A. Edigarian, A smoothly bounded pseudoconvex domain with incomplete Kobayashi distance, arXiv:2610.28833v1, 20 October 2026, Theorems~1.1--1.2. \textbf{New preprint.} \url{https://arxiv.org/abs/2610.28833v1}.
+
+\bibitem{B95-EdigarianBalanced26} A. Edigarian, A two-dimensional counterexample for Kobayashi completeness of balanced domains, arXiv:2609.07697v1, 7 September 2026, Theorem~1.1. \textbf{Preprint.} \url{https://arxiv.org/abs/2609.07697v1}.
+
+\bibitem{B95-Hazra} S. Hazra, Some open problems on the envelope of holomorphy, \emph{Concrete Operators} \textbf{13} (2026), article 20250014, 1--4. \url{https://doi.org/10.1515/conop-2025-0014}.
+
+\bibitem{B95-Zhang} J. Zhang, Levi problem: Complement of a closed subspace in a Stein space and its applications, \emph{C. R. Math.} \textbf{359} (2021), 1023--1046. \url{https://doi.org/10.5802/crmath.244}.
+
+\bibitem{B95-Vijitu} V. V\^ij\^iitu, Domains of holomorphy in Stein spaces, \emph{Rend. Lincei Mat. Appl.} \textbf{34} (2023), 145--158. \url{https://doi.org/10.4171/RLM/1001}.
+
+\bibitem{B95-CSW} \c S. Costea, E. T. Sawyer, and B. D. Wick, BMO estimates for the $H^\infty(\mathbb B_n)$ corona problem, \emph{J. Funct. Anal.} \textbf{258} (2010), 3818--3840. \url{https://doi.org/10.1016/j.jfa.2009.12.015}; \url{https://arxiv.org/abs/0905.1476}.
+
+\bibitem{B95-BF} E. Bedford and J. E. Forn\ae ss, A construction of peak functions on weakly pseudoconvex domains, \emph{Ann. of Math.} \textbf{107} (1978), 555--568. \url{https://doi.org/10.2307/1971128}.
+
+\bibitem{B95-FLZ} J. E. Forn\ae ss, L. Lee, and Y. Zhang, On supnorm estimates for $\bar\partial$ on infinite type convex domains in $\mathbb C^2$, arXiv:0911.2277 (2009), published in \emph{J. Geom. Anal.} \textbf{21} (2011), 495--512. \url{https://arxiv.org/abs/0911.2277}.
+
+\bibitem{B95-Khanh} T. V. Khanh, Supnorm and $f$-H\"older estimates for $\bar\partial$ on convex domains of general type in $\mathbb C^2$, arXiv:1206.3702 (2012). \url{https://arxiv.org/abs/1206.3702}.
+
+\bibitem{B95-BCW} H. Bass, E. H. Connell, and D. Wright, The Jacobian conjecture: Reduction of degree and formal expansion of the inverse, \emph{Bull. Amer. Math. Soc. (N.S.)} \textbf{7} (1982), 287--330. \url{https://doi.org/10.1090/S0273-0979-1982-15032-7}.
+
+\bibitem{B95-Gao26} S. Gao, Counterexamples to the Jacobian conjecture in dimensions greater than two, arXiv:2608.00222v1, 31 July 2026. \textbf{Preprint.} \url{https://arxiv.org/abs/2608.00222}.
+
+\bibitem{B95-Essen26} A. van den Essen, An elementary way to find a counterexample to the Jacobian conjecture, arXiv:2609.17795v1, 15 September 2026. \textbf{Preprint.} \url{https://arxiv.org/abs/2609.17795}.
+
+\bibitem{B95-Fernandes} F. Fernandes, A new class of non-injective polynomial local diffeomorphisms on the plane, \emph{J. Math. Anal. Appl.} \textbf{507} (2022), article 125736. \url{https://doi.org/10.1016/j.jmaa.2021.125736}; \url{https://arxiv.org/abs/2003.10226}.
+
+\bibitem{B95-Forstneric} F. Forstneri\v c, Noncritical holomorphic functions on Stein manifolds, \emph{Acta Math.} \textbf{191} (2003), 143--189. \url{https://doi.org/10.1007/BF02392963}; \url{https://arxiv.org/abs/math/0211112}.
+
+\bibitem{B95-LP} M. Lyubich and H. Peters, Classification of invariant Fatou components for dissipative H\'enon maps, \emph{Geom. Funct. Anal.} \textbf{24} (2014), 887--915. \url{https://doi.org/10.1007/s00039-014-0280-9}.
+
+\bibitem{B95-Nicoara} A. C. Nicoara, The Kohn algorithm on Denjoy--Carleman classes, \emph{J. Geom. Anal.} \textbf{35} (2025), article 399. \url{https://doi.org/10.1007/s12220-025-02237-4}; \url{https://arxiv.org/abs/0806.1917}.
+
+\bibitem{B95-Siu} Y.-T. Siu, Effective Kohn algorithm for special domain defined by functions depending on all variables, \emph{Pure Appl. Math. Q.} \textbf{21} (2025), 1283--1316. \url{https://arxiv.org/abs/2306.16494}.
+
+\bibitem{B95-NicoaraWithdrawn} A. C. Nicoara, Equivalence of types and Catlin boundary systems, arXiv:0711.0429. \textbf{Withdrawn by the author; not a proof of the smooth Kohn conjecture.} \url{https://arxiv.org/abs/0711.0429}.
+
+\bibitem{B95-Trepreau} J.-M. Tr\'epreau, Sur le prolongement holomorphe des fonctions CR d\'efinies sur une hypersurface r\'eelle de classe $C^2$ dans $\mathbb C^n$, \emph{Invent. Math.} \textbf{83} (1986), 583--592. \url{https://doi.org/10.1007/BF01394424}.
+
+\bibitem{B95-Christ} M. Christ, Global $C^\infty$ irregularity of the $\bar\partial$-Neumann problem for worm domains, \emph{J. Amer. Math. Soc.} \textbf{9} (1996), 1171--1185. \url{https://doi.org/10.1090/S0894-0347-96-00213-5}.
+
+\bibitem{B95-ChristSurvey} M. Christ, Remarks on global irregularity in the $\bar\partial$-Neumann problem, in \emph{Several Complex Variables}, MSRI Publications \textbf{37} (1999), 161--198. \url{https://library.slmath.org/books/Book37/files/christ.pdf}.
+
+\bibitem{B95-BFS} H. P. Boas, S. Fu, and E. J. Straube, The Bergman kernel function: Explicit formulas and zeroes, \emph{Proc. Amer. Math. Soc.} \textbf{127} (1999), 805--811. \url{https://arxiv.org/abs/math/9706202}.
+
+\bibitem{B95-Herbort} G. Herbort, On the invariant differential metrics near pseudoconvex boundary points where the Levi form has corank one, \emph{Nagoya Math. J.} \textbf{130} (1993), 25--54. \url{https://doi.org/10.1017/S0027763000004414}. Erratum, \textbf{135} (1994), 149--152, \url{https://doi.org/10.1017/S0027763000004992}.
+
+\bibitem{B95-BT} E. Bedford and B. A. Taylor, A new capacity for plurisubharmonic functions, \emph{Acta Math.} \textbf{149} (1982), 1--40. \url{https://doi.org/10.1007/BF02392348}.
+
+\bibitem{B95-BedfordPinchuk} E. Bedford and S. I. Pinchuk, Domains in $\mathbb C^2$ with noncompact holomorphic automorphism groups, \emph{Math. USSR-Sb.} \textbf{63} (1989), 141--151; Russian original, \emph{Mat. Sb.} \textbf{135} (1988), 147--157. \url{https://doi.org/10.1070/SM1989v063n01ABEH003264}.
+
+\bibitem{B95-Webster} S. M. Webster, On the proof of Kuranishi's embedding theorem, \emph{Ann. Inst. H. Poincar\'e Anal. Non Lin\'eaire} \textbf{6} (1989), 183--207. \url{https://www.numdam.org/item/AIHPC_1989__6_3_183_0/}.
+
+\bibitem{FS-BK} E.~Bedford and K.~Kim, \emph{No smooth Julia sets for polynomial diffeomorphisms of $\mathbb C^2$ with positive entropy}, J. Geom. Anal. \textbf{27} (2017), 3085--3098. \url{https://doi.org/10.1007/s12220-017-9796-1}.
+
+\bibitem{FS-Short} J.~E.~Forn\ae ss, \emph{Short $\mathbb C^k$}, in Complex Analysis in Several Variables---Memorial Conference of Kiyoshi Oka's Centennial Birthday, Adv. Stud. Pure Math. \textbf{42}, Math. Soc. Japan, 2004, 95--108. Construction also discussed in \cite{FS-ShortNotes}.
+
+\bibitem{FS-ShortNotes} J.~E.~Forn\ae ss and R.~Pal, \emph{Notes on short $\mathbb C^k$'s}, 2021 preprint. \url{https://arxiv.org/abs/2104.12413}.
+
+\bibitem{FS-BV} S.~Bera and K.~Verma, \emph{Uniform non-autonomous basins of attraction}, Invent. Math. \textbf{238} (2024), 995--1040. \url{https://doi.org/10.1007/s00222-024-01295-9}; accepted manuscript: \url{https://arxiv.org/abs/2211.15169v4}.
+
+\bibitem{FS-BTF} L.~Boc Thaler and F.~Forstneri\v c, \emph{A long $\mathbb C^2$ without holomorphic functions}, Anal. PDE \textbf{9} (2016), 2031--2050. \url{https://doi.org/10.2140/apde.2016.9.2031}.
+
+\bibitem{FS-BD} F.~Berteloot and C.~Dupont, \emph{Une caract\'erisation des endomorphismes de Latt\`es par leur mesure de Green}, Comment. Math. Helv. \textbf{80} (2005), 433--454. \url{https://doi.org/10.4171/CMH/21}.
+
+\bibitem{FS-Faltings} G.~Faltings, \emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern}, Invent. Math. \textbf{73} (1983), 349--366; erratum \textbf{75} (1984), 381. \url{https://doi.org/10.1007/BF01388432}.
+
+\bibitem{FS-Meiss} J.~D.~Meiss, \emph{Symplectic maps, variational principles, and transport}, Rev. Mod. Phys. \textbf{64} (1992), 795--848, especially \S II. \url{https://chaosbook.org/library/Meiss92.pdf}.
+
+\bibitem{FS-GP} L.~Guerini and H.~Peters, \emph{Julia sets of complex H\'enon maps}, Int. J. Math. \textbf{29} (2018), article 1850047. \url{https://arxiv.org/abs/1706.00220}.
+
+\bibitem{FS-Binder} I.~Binder and L.~DeMarco, \emph{Dimension of pluriharmonic measure and polynomial endomorphisms of $\mathbb C^n$}, Int. Math. Res. Not. \textbf{2003}, no.~11, 613--625. \url{https://arxiv.org/abs/math/0206086}.
+
+\bibitem{FS-Shaw} M.-C.~Shaw, \emph{Estimates for $\bar\partial$ on domains in $\mathbb C^n$ and $\mathbb{CP}^n$}, author's 2023 manuscript, especially \S\S3.3,4.2. \url{https://sites.nd.edu/meichi/files/2023/05/SibonyIssue2023.pdf}.
+
+\bibitem{FS-OR} N.~\O vrelid and S.~Vassiliadou, \emph{$L^2$ $\bar\partial$ cohomology groups of some singular complex spaces}, 2011 preprint. \url{https://arxiv.org/abs/1101.1860}.
+
+\bibitem{FS-OR2} N.~\O vrelid and J.~Ruppenthal, \emph{$L^2$-properties of the $\bar\partial$ and the $\bar\partial$-Neumann operator on spaces with isolated singularities}, 2012 preprint. \url{https://arxiv.org/abs/1212.1777}.
+
+\bibitem{FS-Coltoiu} M.~Col\c toiu, \emph{The Levi problem on Stein spaces with singularities: a survey}, Rend. Mat. Appl. (7) \textbf{29} (2009), 341--353. \url{https://www1.mat.uniroma1.it/ricerca/rendiconti/ARCHIVIO/2009(3-4)/341-353.pdf}.
+
+\bibitem{FS-Shafikov} R.~Shafikov, \emph{Levi-flats in $\mathbb{CP}^n$: a survey for nonexperts}, J. Geom. Anal. \textbf{35} (2025), article 181. \url{https://doi.org/10.1007/s12220-025-02017-0}.
+
+\bibitem{FS-BrotbekDeng} D.~Brotbek and Y.~Deng, \emph{Kobayashi hyperbolicity of the complements of general hypersurfaces of high degree}, Geom. Funct. Anal. \textbf{29} (2019), 690--750. \url{https://arxiv.org/abs/1804.01719}.
+
+\bibitem{FS-HHMX} L.~Hou, D.~T.~Huynh, J.~Merker, and S.-Y.~Xie, \emph{Vanishing of invariant 2-jet differentials and improved hyperbolicity degree bounds in dimension two}, preprint, version 4, 30 September 2026. \url{https://arxiv.org/abs/2603.14881v4}.
+
+\bibitem{FS-Buzzard} G.~T.~Buzzard, \emph{Infinitely many periodic attractors for holomorphic maps of 2 variables}, Ann. of Math. \textbf{145} (1997), 389--417.
+
+\bibitem{FS-Recurrent} J.~E.~Forn\ae ss and N.~Sibony, \emph{Classification of recurrent domains for some holomorphic maps}, Math. Ann. \textbf{301} (1995), 813--820.
+
+\bibitem{FS-Bourgain} J.~Bourgain, \emph{Estimates on Green's functions, localization and the quantum kicked rotor model}, Ann. of Math. \textbf{156} (2002), 249--294. \url{https://annals.math.princeton.edu/2002/156-1/p08}.
+
+\bibitem{FS-Infinite} J.~E.~Forn\ae ss, \emph{Infinite dimensional complex dynamics: quasiconjugacies, localization and quantum chaos}, Discrete Contin. Dyn. Syst. \textbf{6} (2000), 51--60.
+
+\bibitem{FS-PCF} M.~Jonsson, \emph{Some properties of 2-critically finite holomorphic maps of $\mathbb P^2$}, Ergodic Theory Dynam. Systems \textbf{18} (1998), 171--187.
+
+\bibitem{FS-Taflin} J.~Taflin, \emph{Blenders near polynomial product maps of $\mathbb C^2$}, J. Eur. Math. Soc. \textbf{23} (2021), 3555--3589. \url{https://doi.org/10.4171/JEMS/1076}.
+
+\bibitem{FS-Symplectic} J.~E.~Forn\ae ss and N.~Sibony, \emph{Holomorphic symplectomorphisms in $\mathbb C^{2p}$}, Duke Math. J. \textbf{82} (1996), 309--317.
+
+\bibitem{FS-Hakim} M.~Hakim, \emph{Analytic transformations of $(\mathbb C^p,0)$ tangent to the identity}, Duke Math. J. \textbf{92} (1998), 403--428.
+
+\bibitem{FS-AS} M.~Andersson and H.~Samuelsson, \emph{A Dolbeault--Grothendieck lemma on complex spaces via Koppelman formulas}, Invent. Math. \textbf{190} (2012), 261--297. \url{https://doi.org/10.1007/s00222-012-0380-9}.
+
+\bibitem{FS-Lempert} L.~Lempert, \emph{The Dolbeault complex in infinite dimension. II}, J. Amer. Math. Soc. \textbf{12} (1999), 775--793.
+
+\bibitem{FS-Berndtsson} B.~Berndtsson, \emph{Uniform estimates with weights for the $\bar\partial$ equation}, J. Geom. Anal. \textbf{7} (1997), 195--215.
+
+\bibitem{FS-Demailly} J.-P.~Demailly, \emph{Pseudoconvex-concave duality and regularization of currents}, in Several Complex Variables (Berkeley, 1995--1996), MSRI Publ. \textbf{37}, Cambridge Univ. Press, 1999, 233--271.
+
+\bibitem{FS-FN} J.~E.~Forn\ae ss and R.~Narasimhan, \emph{The Levi problem on complex spaces with singularities}, Math. Ann. \textbf{248} (1980), 47--72.
+
+\bibitem{FS-Bogomolov} F.~A.~Bogomolov, \emph{On the diameter of plane algebraic curves}, Math. Res. Lett. \textbf{1} (1994), 95--98.
+
+\bibitem{FS-Gromov} M.~Gromov, \emph{Pseudoholomorphic curves in symplectic manifolds}, Invent. Math. \textbf{82} (1985), 307--347.
+
+\bibitem{FS-SiuLevi} Y.-T.~Siu, \emph{Pseudoconvexity and the problem of Levi}, Bull. Amer. Math. Soc. \textbf{84} (1978), 481--512.
+
+\bibitem{FS-Nirenberg} L.~Nirenberg, \emph{A certain problem of Hans Lewy}, Uspekhi Mat. Nauk \textbf{29} (1974), no.~2, 241--251 (Russian).
+
+\bibitem{FS-Frankel} S.~Frankel, \emph{Complex geometry of convex domains that cover varieties}, Acta Math. \textbf{163} (1989), 109--149.
+
+\bibitem{FS-ShafikovCont} R.~Shafikov, \emph{Analytic continuation of germs of holomorphic mappings between real hypersurfaces in $\mathbb C^n$}, Michigan Math. J. \textbf{47} (2000), 133--149.
+
+\bibitem{FS-BedfordPinchuk} E.~Bedford and S.~I.~Pinchuk, \emph{Convex domains with noncompact groups of automorphisms}, Mat. Sb. \textbf{185} (1994), no.~5, 3--26 (Russian).
+
+\bibitem{FS-Fefferman} C.~Fefferman, \emph{The Bergman kernel and biholomorphic mappings of pseudoconvex domains}, Invent. Math. \textbf{26} (1974), 1--65.
+
+\bibitem{FS-SibonyBarrier} N.~Sibony, \emph{Une classe de domaines pseudoconvexes}, Duke Math. J. \textbf{55} (1987), 299--319.
+
+\bibitem{SIU-HM73} G.~Horrocks and D.~Mumford, \emph{A rank 2 vector bundle on $\mathbb P^4$ with 15,000 symmetries}, Topology \textbf{12} (1973), 63--81. \url{https://doi.org/10.1016/0040-9383(73)90022-0}.
+
+\bibitem{SIU-EF99} P.~Ellia and D.~Franco, \emph{On codimension two subvarieties of $\mathbb P^6$}, arXiv:math/9909137 (1999); published as \emph{On codimension two subvarieties of $\mathbb P^5$ and $\mathbb P^6$}, J. Algebraic Geom. \textbf{11} (2002), 513--533. \url{https://arxiv.org/abs/math/9909137}.
+
+\bibitem{SIU-BV25} O.~Benoist and C.~Voisin, \emph{On the smoothability problem with rational coefficients}, Rend. Lincei Mat. Appl. \textbf{36} (2025), 393--408 (published 26 January 2026), especially \S2.3. \url{https://doi.org/10.4171/RLM/1076}.
+
+\bibitem{SIU-Bry21} R.~L.~Bryant, \emph{S.-S. Chern's study of almost-complex structures on the six-sphere}, Internat. J. Math. \textbf{32} (2021), no.~12, 2140006. \url{https://arxiv.org/abs/1405.3405}.
+
+\bibitem{SIU-Voi06} C.~Voisin, \emph{On integral Hodge classes on uniruled or Calabi--Yau threefolds}, Adv. Stud. Pure Math. \textbf{45} (2006), 43--73. \url{https://doi.org/10.2969/aspm/04510043}.
+
+\bibitem{SIU-HM98} J.-M.~Hwang and N.~Mok, \emph{Rigidity of irreducible Hermitian symmetric spaces of the compact type under K\"ahler deformation}, Invent. Math. \textbf{131} (1998), 393--418. \url{https://doi.org/10.1007/s002220050209}.
+
+\bibitem{SIU-Fal91} G.~Faltings, \emph{Diophantine approximation on abelian varieties}, Ann. of Math. \textbf{133} (1991), 549--576. \url{https://annals.math.princeton.edu/1991/133-3/p04}.
+
+\bibitem{SIU-Bro17} D.~Brotbek, \emph{On the hyperbolicity of general hypersurfaces}, Publ. Math. IHES \textbf{126} (2017), 1--34. \url{https://doi.org/10.1007/s10240-017-0090-3}.
+
+\bibitem{SIU-FGS21} H.~M.~Farkas, S.~Grushevsky and R.~Salvati Manni, \emph{An explicit solution to the weak Schottky problem}, Algebraic Geometry \textbf{8} (2021), 358--373. \url{https://doi.org/10.14231/AG-2021-009}.
+
+\bibitem{SIU-Gru04} S.~Grushevsky, \emph{The degree of the Jacobian locus and the Schottky problem}, arXiv:math/0403009 (2004). \url{https://arxiv.org/abs/math/0403009}.
+
+\bibitem{SIU-GX26} S.~Grushevsky and Y.~Xie, \emph{Integrable systems approach to the Schottky problem and related questions}, lecture notes, arXiv:2504.20243v2 (9 March 2026), especially \S3.3. \url{https://arxiv.org/abs/2504.20243}.
+
+\bibitem{SIU-GUY26} Z.~Gao, E.~Ullmo and A.~Yafaev, \emph{Bi-$\overline{\mathbb Q}$-structures on Hermitian symmetric spaces and quadratic relations between CM periods}, Doc. Math. \textbf{31} (2026), 935--981. \url{https://doi.org/10.4171/DM/1061}.
+
+\bibitem{SIU-For10} F.~Forstneri\v c, \emph{The Oka principle for sections of stratified fiber bundles}, Pure Appl. Math. Q. \textbf{6} (2010), 843--874. \url{https://arxiv.org/abs/0705.0591}.
+
+\bibitem{SIU-For26} F.~Forstneri\v c, \emph{The Oka principle for holomorphic fibre bundles of H\"older--Zygmund classes on strongly pseudoconvex domains}, to appear in Acta Math. Sinica (English Series); final preprint arXiv:2602.12598v3 (14 September 2026). \url{https://arxiv.org/abs/2602.12598}.
+
+\bibitem{SIU-BCHM10} C.~Birkar, P.~Cascini, C.~D.~Hacon and J.~McKernan, \emph{Existence of minimal models for varieties of log general type}, J. Amer. Math. Soc. \textbf{23} (2010), 405--468. \url{https://doi.org/10.1090/S0894-0347-09-00649-3}.
+
+\bibitem{SIU-BDPP13} S.~Boucksom, J.-P.~Demailly, M.~P\u aun and T.~Peternell, \emph{The pseudo-effective cone of a compact K\"ahler manifold and varieties of negative Kodaira dimension}, J. Algebraic Geom. \textbf{22} (2013), 201--248. \url{https://arxiv.org/abs/math/0405285}.
+
+\bibitem{SIU-MM86} Y.~Miyaoka and S.~Mori, \emph{A numerical criterion for uniruledness}, Ann. of Math. \textbf{124} (1986), 65--69. \url{https://annals.math.princeton.edu/1986/124/p03}.
+
+\bibitem{SIU-Kur57} M.~Kuranishi, \emph{On E. Cartan's prolongation theorem of exterior differential systems}, Amer. J. Math. \textbf{79} (1957), 1--47. See also \cite{SIU-Gol68} for the precise prolongation framework.
+
+\bibitem{SIU-Gol68} H.~Goldschmidt, \emph{Prolongations of linear partial differential equations. I. A conjecture of Elie Cartan}, Ann. Sci. Ecole Norm. Sup. (4) \textbf{1} (1968), 417--444. \url{https://doi.org/10.24033/asens.1168}.
+
+\bibitem{SIU-Den06} N.~Dencker, \emph{The resolution of the Nirenberg--Treves conjecture}, Ann. of Math. \textbf{163} (2006), 405--444. \url{https://annals.math.princeton.edu/2006/163-2/p02}.
+
+\bibitem{SIU-Lew57} H.~Lewy, \emph{An example of a smooth linear partial differential equation without solution}, Ann. of Math. \textbf{66} (1957), 155--158. The obstruction is discussed in \cite{SIU-Den06}.
+
+\bibitem{SIU-BBT23} B.~Bakker, Y.~Brunebarbe and J.~Tsimerman, \emph{o-minimal GAGA and a conjecture of Griffiths}, Invent. Math. \textbf{232} (2023), 163--228. \url{https://arxiv.org/abs/1811.12230}.
+
+\bibitem{SIU-Shi86} T.~Shiota, \emph{Characterization of Jacobian varieties in terms of soliton equations}, Invent. Math. \textbf{83} (1986), 333--382. \url{https://doi.org/10.1007/BF01388967}.
+
+\bibitem{SIU-Gel34} A.~O.~Gelfond, \emph{Sur le septi\`eme probl\`eme de D. Hilbert}, C. R. Acad. Sci. URSS \textbf{2} (1934), 1--6.
+
+\bibitem{SIU-Sch34} T.~Schneider, \emph{Transzendenzuntersuchungen periodischer Funktionen. I. Transzendenz von Potenzen}, J. Reine Angew. Math. \textbf{172}, 65--69 (result of 1934; publisher volume dated 1935). \url{https://doi.org/10.1515/crll.1935.172.65}.
+
+\bibitem{Z-Grauert} H. Grauert, On Levi's problem and the imbedding of real-analytic manifolds, \emph{Ann. of Math.} 68 (1958), 460--472. \url{https://doi.org/10.2307/1970257}.
+
+\bibitem{Z-GR} H. Grauert and R. Remmert, \emph{Theory of Stein Spaces}, Grundlehren 236, Springer, 1979.
+
+\bibitem{Z-Berg} G. Berg, Steinness and the vanishing of cohomology, \emph{Studia Sci. Math. Hungar.} 20 (1985), 193--195. \url{https://fileserver-az.core.ac.uk/download/35157945.pdf}.
+
+\bibitem{Z-Kodaira1954} K. Kodaira, On K\"ahler varieties of restricted type (an intrinsic characterization of algebraic varieties), \emph{Ann. of Math.} 60 (1954), 28--48. \url{https://doi.org/10.2307/1969701}.
+
+\bibitem{Z-GZextension} Q. Guan and X. Zhou, A solution of an $L^2$ extension problem with an optimal estimate and applications, \emph{Ann. of Math.} 181 (2015), 1139--1208. \url{https://doi.org/10.4007/annals.2015.181.3.6}; \url{https://arxiv.org/abs/1310.7169}.
+
+\bibitem{Z-Blocki} Z. B\l ocki, Suita conjecture and the Ohsawa--Takegoshi extension theorem, \emph{Invent. Math.} 193 (2013), 149--158. \url{https://doi.org/10.1007/s00222-012-0423-2}.
+
+\bibitem{Z-GZopen} Q. Guan and X. Zhou, A proof of Demailly's strong openness conjecture, \emph{Ann. of Math.} 182 (2015), 605--616. \url{https://doi.org/10.4007/annals.2015.182.2.5}.
+
+\bibitem{Z-BFJ2008} S. Boucksom, C. Favre and M. Jonsson, Valuations and plurisubharmonic singularities, \emph{Publ. Res. Inst. Math. Sci.} 44 (2008), 449--494. \url{https://doi.org/10.2977/prims/1210167334}.
+
+\bibitem{Z-ZZ2018} X. Zhou and L. Zhu, An optimal $L^2$ extension theorem on weakly pseudoconvex K\"ahler manifolds, \emph{J. Differential Geom.} 110 (2018), 135--186.
+
+\bibitem{Z-ZZ2020} X. Zhou and L. Zhu, Siu's lemma, optimal $L^2$ extension and applications to twisted pluricanonical sheaves, \emph{Math. Ann.} 377 (2020), 675--722 (online 2018). \url{https://doi.org/10.1007/s00208-018-1783-8}.
+
+\bibitem{Z-ZZsurvey} X. Zhou and L. Zhu, Siu's lemma: Generalizations and applications, \emph{European Congress of Mathematics}, EMS Press, 2023, 947--967. \url{https://doi.org/10.4171/8ECM/29}.
+
+\bibitem{Z-Siu1998} Y.-T. Siu, Invariance of plurigenera, \emph{Invent. Math.} 134 (1998), 661--673.
+
+\bibitem{Z-Siu2002} Y.-T. Siu, Extension of twisted pluricanonical sections with plurisubharmonic weight and invariance of semipositively twisted plurigenera for manifolds not necessarily of general type, in \emph{Complex Geometry}, Springer, 2002, 223--277.
+
+\bibitem{Z-FW2009} F. Forstneri\v c and E. F. Wold, Bordered Riemann surfaces in $\mathbb C^2$, \emph{J. Math. Pures Appl.} 91 (2009), 100--114. \url{https://arxiv.org/abs/0708.2887}.
+
+\bibitem{Z-FW2013} F. Forstneri\v c and E. F. Wold, Embeddings of infinitely connected planar domains into $\mathbb C^2$, \emph{Anal. PDE} 6 (2013), 499--514. \url{https://arxiv.org/abs/1110.5354}.
+
+\bibitem{Z-AF2024} A. Alarc\'on and F. Forstneri\v c, Embedded complex curves in the affine plane, \emph{Ann. Mat. Pura Appl.} 203 (2024), 1673--1701. \url{https://doi.org/10.1007/s10231-023-01418-8}; \url{https://arxiv.org/abs/2301.10304}.
+
+\bibitem{Z-Zhang} J. Zhang, Threefolds with vanishing Hodge cohomology, preprint (2003). \url{https://arxiv.org/abs/math/0312239}.
+
+\bibitem{SIU-Eng26} P.~Engel, \emph{Complex structures on $S^6$}, preprint, 29 September 2026, arXiv:2609.38442v1, especially Theorem~4.1. \url{https://arxiv.org/abs/2609.38442}.
+
+\bibitem{SIU-Via26a} J.~Viaclovsky, \emph{A two-parameter family of complex structures on $S^6$}, preprint, 27 September 2026, arXiv:2609.33785v1, especially Theorem~1.1. \url{https://arxiv.org/abs/2609.33785}.
+
+\bibitem{SIU-Via26b} J.~Viaclovsky, \emph{Combs and complex structures on the six-sphere}, preprint, 7 October 2026, arXiv:2610.10451v1. \url{https://arxiv.org/abs/2610.10451}.
+
+\bibitem{SIU-Mar25} E.~Markman, \emph{Cycles on abelian $2n$-folds of Weil type from secant sheaves on abelian $n$-folds}, preprint, first submitted 5 February 2025, arXiv:2502.03415v2 (8 June 2025), especially \S1.6. \url{https://arxiv.org/abs/2502.03415}.
+\bibitem{AN-Range90} R. M. Range, Integral kernels and H\"older estimates for $\bar\partial$ on pseudoconvex domains of finite type in $\mathbb C^2$, \emph{Math. Ann.} \textbf{288} (1990), 63--74. \url{https://doi.org/10.1007/BF01444521}.
+
+\bibitem{AN-DFF99} K. Diederich, B. Fischer and J. E. Forn\ae ss, H\"older estimates on convex domains of finite type, \emph{Math. Z.} \textbf{232} (1999), 43--61. \url{https://doi.org/10.1007/PL00004758}.
+
+\bibitem{AN-DT76} M. Derridj and D. S. Tartakoff, On the global real analyticity of solutions to the $\bar\partial$-Neumann problem, \emph{Comm. Partial Differential Equations} \textbf{1} (1976), 401--435. \url{https://doi.org/10.1080/03605307608820016}. See also the authors' 1975--1976 seminar account: \url{https://www.numdam.org/item/SEDP_1975-1976____A5_0/}.
+
+\bibitem{AN-Tartakoff76} D. S. Tartakoff, On the global real analyticity of solutions to $\Box_b$ on compact manifolds, \emph{Comm. Partial Differential Equations} \textbf{1} (1976), 283--311. Author's publication list: \url{https://www.math.uic.edu/persisting_utilities/people/publications?netid=dst}.
+
+\bibitem{FS-Moser62} J.~Moser, On invariant curves of area-preserving mappings of an annulus, \emph{Nachr. Akad. Wiss. G\"ottingen Math.-Phys. Kl. II} (1962), 1--20.
+
+\bibitem{FS-HM91} S.~Hurder and Y.~Mitsumatsu, The intersection product of transverse invariant measures, \emph{Indiana Univ. Math. J.} \textbf{40} (1991), 1169--1183. \url{https://doi.org/10.1512/iumj.1991.40.40051}.
+
+\bibitem{FS-RS75} D.~Ruelle and D.~Sullivan, Currents, flows and diffeomorphisms, \emph{Topology} \textbf{14} (1975), 319--327. \url{https://doi.org/10.1016/0040-9383(75)90016-6}.
+
+\bibitem{SM-Oka53} K.~Oka, Sur les fonctions analytiques de plusieurs variables. IX. Domaines finis sans point critique int\'erieur, \emph{Japan. J. Math.} \textbf{23} (1953), 97--155. \url{https://doi.org/10.4099/jjm1924.23.0_97}.
+
+\bibitem{SM-Cartan52} H.~Cartan, Faisceaux analytiques sur les vari\'et\'es de Stein: d\'emonstration des th\'eor\`emes fondamentaux, \emph{S\'eminaire Henri Cartan} \textbf{4} (1951--1952), Expos\'e~19, 1--15; lecture of 9 June 1952, written October 1952. \url{https://www.numdam.org/item/SHC_1951-1952__4__A19_0/}.
+
+\bibitem{SM-GN67} R.~C.~Gunning and R.~Narasimhan, Immersion of open Riemann surfaces, \emph{Math. Ann.} \textbf{174} (1967), 103--108. \url{https://doi.org/10.1007/BF01360812}.
+
+\bibitem{SM-Takeuchi64} A.~Takeuchi, Domaines pseudoconvexes infinis et la m\'etrique riemannienne dans un espace projectif, \emph{J. Math. Soc. Japan} \textbf{16} (1964), 159--181. \url{https://doi.org/10.2969/jmsj/01620159}.
+
+\bibitem{SM-Sarkis03} F.~Sarkis, Hartogs--Bochner type theorem in projective space, \emph{Ark. Mat.} \textbf{41} (2003), 151--163. \url{https://doi.org/10.1007/BF02384573}. Preprint first submitted in 2000: \url{https://arxiv.org/abs/math/0011095}. The published theorem includes the hypothesis of at most one open CR orbit.
+
+\end{thebibliography}
+\end{document}

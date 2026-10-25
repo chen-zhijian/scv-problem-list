@@ -1,0 +1,30 @@
+# LaTeX build products; the publication PDF is deliberately tracked.
+/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.pdf.tmp
+
+# Python and editor cache files.
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
