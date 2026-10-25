@@ -45,7 +45,7 @@ We classify the problems into three categories: wide-open problems, partially re
 
 \medskip
 \noindent\textbf{Reading guide.}
-Each subject is divided into closed problems with complete solutions, open problems with partial results, and wide-open problems, in that order. Problem numbers $i.j$ are fixed identifiers within Section~$i$, independent of subsections, and are retained when an entry moves between categories. Proofs may be sketches; partial proofs specify the hypotheses of the known results, and remarks are attributed to their sources. Dates refer to cited publications unless otherwise stated, and recent preprint claims are identified explicitly.
+Each subject is divided into closed problems with complete solutions, open problems with partial results, and wide-open problems, in that order. Problem $i.j$ is the $j$th problem of Section~$i$, independently of its subsection. Proofs may be sketches; partial proofs specify the hypotheses of the known results, and remarks are attributed to their sources. Dates refer to cited publications unless otherwise stated, and recent preprint claims are identified explicitly.
 
 Throughout, $\Delta=\{z\in\mathbb C:|z|<1\}$, $\mathbb B^n=\{z\in\mathbb C^n:\|z\|<1\}$, and $\mathbb P^n$ is complex projective space. The notation $A\Subset B$ means that $\overline A$ is compact and contained in $B$, and $\mathcal O(X)$ denotes the holomorphic functions on $X$. Smooth means $C^\infty$ unless otherwise specified. In algebraic parameter spaces, generic means outside a proper Zariski-closed subset; very general means outside a countable union of such subsets. Other notions of genericity are specified where used.
 
@@ -1104,8 +1104,6 @@ H^\infty(M):=\{f\in\mathcal O(M):\sup_M|f|<\infty\}\ne\mathbb C?
 For N.~Sibony's formulation in the 1995 problem list \cite[Problem~11.3.1]{B95}, take a compact Riemann surface of genus at least two with a metric of constant curvature $-1$. Every holomorphic function on it is constant by the maximum principle. Thus the displayed curvature condition alone is insufficient.
 \end{proof}
 
-% Retain Problem 6.7's identifier when its resolution category changes.
-\setcounter{problem}{6}
 \begin{problem}\label{Siu-1.2}
 Does the standard smooth sphere $S^6$ admit $J\in C^\infty(\operatorname{End}(TS^6))$ such that
 \[
@@ -1123,7 +1121,6 @@ J=(df)^{-1}J_Ydf,\qquad J^2=-\Id,\qquad N_J=0.
 P.~Engel explains that Claude produced the original manuscript under L.~Alp\"oge's direction. He discloses ChatGPT's assistance with exploration, drafting, and computations, while stating that he independently verified the mathematics and accepts responsibility \cite[\S\S1.3--1.4]{SIU-Eng26}. J.~Viaclovsky (2026) constructs further families and examples with arbitrarily large local deformation dimensions, also disclosing ChatGPT assistance \cite{SIU-Via26a,SIU-Via26b}.
 \end{remark}
 
-\setcounter{problem}{4}
 \subsection{Open problems with partial results}
 
 \begin{problem}[Hartshorne conjecture]\label{Siu-1.1}
@@ -1147,9 +1144,6 @@ hold without assuming that $X_0$ is K\"ahler?
 \begin{proof}[Partial proof]
 Hwang and Mok (1998) proved the assertion when $X_0$ is K\"ahler \cite{SIU-HM98}. They control varieties of minimal rational tangents and the resulting holomorphic $G$-structures under deformation, thereby identifying the central fibre with $S$.
 \end{proof}
-
-% Retain Problem 6.8 after moving Problem 6.7 to the closed subsection.
-\setcounter{problem}{7}
 
 \begin{problem}\label{Siu-1.4}
 Assume that $K_X$ is not pseudoeffective. Can one construct, by direct complex-analytic methods, a dominant rational map

@@ -1,7 +1,7 @@
 # Some problems in complex variables
 
 **Zhijian Chen** · Survey and problem collection  
-**Supplied manuscript:** 25 October 2026 · 35 pages
+**Updated manuscript:** 25 October 2026 · 35 pages
 
 [Read the survey](papers/scv-problem-list.pdf) · [LaTeX source](papers/src/scv-problem-list.tex) · [Problem statistics](statistics.md) · [Personal website](https://chen-zhijian.github.io/)
 
@@ -51,7 +51,7 @@ See [the detailed statistics](statistics.md) for the subject-by-status table and
 | `scripts/build.py` | Rebuild the PDF with an existing local LaTeX installation |
 | `.github/workflows/validate.yml` | Lightweight validation of the recorded statistics |
 
-The initial source and PDF are preserved byte for byte. Their filenames were normalized for stable links. The initial PDF's title, author, seven sections, and all 139 problem numbers were checked against the source.
+The initial import preserved the supplied source and PDF byte for byte. Their filenames were normalized for stable links. The initial PDF's title, author, seven sections, and all 139 problem numbers were checked against the source.
 
 ## Update the manuscript
 
