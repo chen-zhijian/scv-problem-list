@@ -38,9 +38,21 @@ Each independently numbered **Problem** is counted once. Several subquestions wi
 
 See [the detailed statistics](statistics.md) for the subject-by-status table and numbering ranges. [Machine-readable counts](data/problem-counts.json) are generated from the LaTeX source.
 
-## Literature update — 25 October 2026
+## Substantive updates — 25 October 2026
 
-The survey adds the Oka-manifold results of An–Du–Guo–Wang–Xie to Problem 1.14, Kähler-family extensions of plurigenera invariance to Problem 6.3, and the analytic Fano case of Du–Guo–Xie to Problem 6.8. The Griffiths-positivity remark after Problem 6.1 distinguishes surface counterexamples from Problem 6.6. Original papers, precise hypotheses, authors’ remarks, and disclosed AI contributions are cited. The companion OpenAI Iitaka theorem supplies the abundance paper's stated assumption, so the two manuscripts together claim an unconditional abundance theorem. Independent specialist verification of these proofs remains a separate issue; none was located in the sources checked. Recent preprint results are identified as such. Recounting leaves all 139 problem numbers and the 36/52/51 classification totals unchanged.
+Compared with the former manuscript, all **139 problem statements are retained**. Answers and remarks are updated for seven entries:
+
+- **1.14 — Oka–Grauert principle:** adds An–Du–Guo–Wang–Xie’s results on rationally connected projective manifolds and hypersurface complements, with credit to OpenAI’s K3 work. The broader problem remains partially resolved.
+- **4.8 — Jacobian conjecture:** adds Tao’s account and formal verification of the Claude-assisted counterexample in $\mathbb C^3$. The survey’s question in $\mathbb C^2$ remains open.
+- **6.1 — Kodaira embedding:** adds Du–Xie, OpenAI, and Liu–Wan counterexamples to distinct vector-bundle positivity claims, explaining why they do not settle Hartshorne splitting.
+- **6.3 — Invariance of plurigenera:** adds Kähler and logarithmic extensions by Li–Păun–Wang–Zhou and Liu–Wan, with the stated hypotheses and Liu–Wan’s AI-use disclosure.
+- **6.5 (formerly 6.7) — Complex structure on $S^6$:** moves from partial results to closed in the survey, with a proof outline, credit to Claude, Alpöge, and Engel, and Viaclovsky’s non-biholomorphic families demonstrating nonuniqueness.
+- **6.8 — Analytic uniruledness and canonical fibrations:** adds Ou’s compact Kähler criterion, Du–Guo–Xie’s analytic Fano result, and the combined OpenAI Iitaka/abundance claim. The companion Iitaka theorem supplies the abundance paper’s assumption; independent specialist verification of those AI-generated proofs was not located in the sources checked. The full problem remains partially resolved.
+- **6.9 — Hodge conjecture:** moves from wide-open to partial results, adding the reported CM-abelian case, van Hoften–Sempliner’s variant proof, Milne’s assessment, and AI attribution. The general conjecture remains open.
+
+The classifications change from **35 closed / 52 with partial results / 52 wide-open** to **36 / 52 / 51**, with **139 problems across 7 subjects** throughout. The current section-by-section counts appear above. The $S^6$ move also renumbers Hartshorne’s problem from 6.5 to 6.6 and Hermitian-symmetric-space rigidity from 6.6 to 6.7, without changing their content.
+
+The bibliography grows from **137 to 155 entries**. Original papers, precise hypotheses, mathematicians’ remarks, and disclosed AI contributions are documented in the [manuscript](papers/scv-problem-list.pdf); recent preprint claims are identified as such.
 
 ## Files
 
