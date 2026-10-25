@@ -15,7 +15,7 @@ The principal starting points, as recorded in the manuscript's bibliography, are
 
 <!-- problem-counts:start -->
 
-**139 numbered problems across 7 subject areas:** 35 closed, 52 with partial results, and 52 wide-open.
+**139 numbered problems across 7 subject areas:** 36 closed, 52 with partial results, and 51 wide-open.
 
 | Section | Subject | Closed | Partial results | Wide-open | Total |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -24,9 +24,9 @@ The principal starting points, as recorded in the manuscript's bibliography, are
 | 3 | Function theory and pluripotential theory | 3 | 8 | 13 | 24 |
 | 4 | Holomorphic mappings and hyperbolicity | 1 | 6 | 4 | 11 |
 | 5 | Complex dynamics and foliations | 9 | 11 | 14 | 34 |
-| 6 | Complex geometry and algebraic cycles | 4 | 4 | 2 | 10 |
+| 6 | Complex geometry and algebraic cycles | 5 | 4 | 1 | 10 |
 | 7 | Period maps and arithmetic geometry | 3 | 2 | 2 | 7 |
-| **Total** | | **35** | **52** | **52** | **139** |
+| **Total** | | **36** | **52** | **51** | **139** |
 
 <!-- problem-counts:end -->
 

@@ -4,7 +4,7 @@ Generated from [the LaTeX source](papers/src/scv-problem-list.tex) by [`scripts/
 
 ## Counting convention
 
-Each independently numbered `problem` environment counts as one problem. Subquestions within one environment are not split. Multiple source labels attached to one problem do not increase the count. References in remarks and TeX comments are excluded.
+Each independently numbered `problem` environment counts as one problem. Subquestions within one environment are not split. Multiple source labels attached to one problem do not increase the count. References in remarks and TeX comments are excluded. Explicit problem-counter assignments preserve the identifiers of entries moved between categories.
 
 Status categories follow the manuscript: closed problems have been resolved affirmatively or negatively; partial-results problems have substantial known cases or weaker results; wide-open problems have a central question that remains largely unresolved. The statistics describe the manuscript's classification and do not independently reassess the literature.
 
@@ -12,12 +12,12 @@ Status categories follow the manuscript: closed problems have been resolved affi
 
 | Status | Count | Share |
 | --- | ---: | ---: |
-| Closed | 35 | 25.18% |
+| Closed | 36 | 25.90% |
 | Partial results | 52 | 37.41% |
-| Wide-open | 52 | 37.41% |
+| Wide-open | 51 | 36.69% |
 | **Total** | **139** | **100%** |
 
-The two unresolved categories together contain **104** problems.
+The two unresolved categories together contain **103** problems.
 
 ## By subject and status
 
@@ -28,9 +28,9 @@ The two unresolved categories together contain **104** problems.
 | 3 | Function theory and pluripotential theory | 3 | 8 | 13 | 24 |
 | 4 | Holomorphic mappings and hyperbolicity | 1 | 6 | 4 | 11 |
 | 5 | Complex dynamics and foliations | 9 | 11 | 14 | 34 |
-| 6 | Complex geometry and algebraic cycles | 4 | 4 | 2 | 10 |
+| 6 | Complex geometry and algebraic cycles | 5 | 4 | 1 | 10 |
 | 7 | Period maps and arithmetic geometry | 3 | 2 | 2 | 7 |
-| **Total** | | **35** | **52** | **52** | **139** |
+| **Total** | | **36** | **52** | **51** | **139** |
 
 ## Problem-number ranges
 
@@ -41,7 +41,7 @@ The two unresolved categories together contain **104** problems.
 | 3 | 3.1–3.3 | 3.4–3.11 | 3.12–3.24 |
 | 4 | 4.1 | 4.2–4.7 | 4.8–4.11 |
 | 5 | 5.1–5.9 | 5.10–5.20 | 5.21–5.34 |
-| 6 | 6.1–6.4 | 6.5–6.8 | 6.9–6.10 |
+| 6 | 6.1–6.4, 6.7 | 6.5–6.6, 6.8–6.9 | 6.10 |
 | 7 | 7.1–7.3 | 7.4–7.5 | 7.6–7.7 |
 
 ## Refresh or verify

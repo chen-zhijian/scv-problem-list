@@ -84,20 +84,34 @@ def collect_counts() -> dict:
     if document is None:
         raise ValueError("The source must contain a complete document environment")
     text = document.group(1)
-    if re.search(r"\\(?:setcounter|addtocounter)\s*\{problem\}", text):
-        raise ValueError("Manual problem-counter changes require a parser review")
+    if re.search(
+        r"\\(?:addtocounter|stepcounter|refstepcounter|newcounter)\s*\{\s*problem\s*\}",
+        text,
+    ):
+        raise ValueError("Only explicit setcounter{problem}{N} changes are supported")
     if re.search(r"\\(?:input|include)\s*\{", text):
         raise ValueError("External TeX inputs require a parser review")
 
     token = re.compile(
         r"\\(?P<heading>section|subsection)(?P<star>\*)?\s*(?=\{)"
         r"|\\(?P<environment>begin|end)\s*\{problem\}"
+        r"|\\(?P<counter>setcounter)\s*\{\s*problem\s*\}"
     )
     sections = []
     section = None
     category = None
     inside_problem = False
+    problem_counter = 0
+    seen_numbers = set()
     for match in token.finditer(text):
+        if match.group("counter"):
+            if inside_problem or section is None:
+                raise ValueError("Problem-counter changes must be between problems in a numbered section")
+            value, _ = braced_argument(text, match.end())
+            if re.fullmatch(r"[0-9]+", value.strip()) is None:
+                raise ValueError("The problem counter must be an explicit nonnegative integer")
+            problem_counter = int(value.strip())
+            continue
         if match.group("heading"):
             title, _ = braced_argument(text, match.end())
             if inside_problem:
@@ -115,6 +129,8 @@ def collect_counts() -> dict:
                 }
                 sections.append(section)
                 category = None
+                problem_counter = 0
+                seen_numbers = set()
             else:
                 if title not in CATEGORIES:
                     raise ValueError(f"Unknown problem category: {title}")
@@ -127,11 +143,14 @@ def collect_counts() -> dict:
             if section is None or category is None:
                 raise ValueError("A problem has no numbered section or known category")
             inside_problem = True
+            problem_counter += 1
+            number = f"{section['section']}.{problem_counter}"
+            if number in seen_numbers:
+                raise ValueError(f"Duplicate problem number: {number}")
+            seen_numbers.add(number)
             section["total"] += 1
             section["counts"][category] += 1
-            section["problem_numbers"][category].append(
-                f"{section['section']}.{section['total']}"
-            )
+            section["problem_numbers"][category].append(number)
         else:
             if not inside_problem:
                 raise ValueError("An end{problem} has no matching begin{problem}")
@@ -186,6 +205,26 @@ def readme_summary(data: dict) -> str:
     )
 
 
+def number_ranges(numbers: list[str]) -> str:
+    """Compress consecutive identifiers without spanning missing problem numbers."""
+    if not numbers:
+        return "None"
+    ordered = sorted(tuple(map(int, number.split("."))) for number in numbers)
+    start = previous = ordered[0]
+    ranges = []
+    for current in ordered[1:]:
+        if current[0] != previous[0] or current[1] != previous[1] + 1:
+            first = ".".join(map(str, start))
+            last = ".".join(map(str, previous))
+            ranges.append(first if start == previous else f"{first}–{last}")
+            start = current
+        previous = current
+    first = ".".join(map(str, start))
+    last = ".".join(map(str, previous))
+    ranges.append(first if start == previous else f"{first}–{last}")
+    return ", ".join(ranges)
+
+
 def statistics_document(data: dict) -> str:
     total = data["total"]
     totals = data["totals_by_status"]
@@ -200,7 +239,8 @@ def statistics_document(data: dict) -> str:
         "Each independently numbered `problem` environment counts as one problem. "
         "Subquestions within one environment are not split. Multiple source labels "
         "attached to one problem do not increase the count. References in remarks "
-        "and TeX comments are excluded.",
+        "and TeX comments are excluded. Explicit problem-counter assignments preserve "
+        "the identifiers of entries moved between categories.",
         "",
         "Status categories follow the manuscript: closed problems have been resolved "
         "affirmatively or negatively; partial-results problems have substantial known "
@@ -232,11 +272,7 @@ def statistics_document(data: dict) -> str:
     for section in data["sections"]:
         ranges = []
         for key in CATEGORY_LABELS:
-            numbers = section["problem_numbers"][key]
-            ranges.append(
-                "None" if not numbers else numbers[0] if len(numbers) == 1
-                else f"{numbers[0]}–{numbers[-1]}"
-            )
+            ranges.append(number_ranges(section["problem_numbers"][key]))
         lines.append(f"| {section['section']} | " + " | ".join(ranges) + " |")
     lines.extend([
         "",
@@ -311,3 +347,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

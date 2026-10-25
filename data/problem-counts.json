@@ -10,9 +10,9 @@
   "total": 139,
   "subject_count": 7,
   "totals_by_status": {
-    "closed": 35,
+    "closed": 36,
     "partial_results": 52,
-    "wide_open": 52
+    "wide_open": 51
   },
   "sections": [
     {
@@ -232,25 +232,25 @@
       "title": "Complex geometry and algebraic cycles",
       "total": 10,
       "counts": {
-        "closed": 4,
+        "closed": 5,
         "partial_results": 4,
-        "wide_open": 2
+        "wide_open": 1
       },
       "problem_numbers": {
         "closed": [
           "6.1",
           "6.2",
           "6.3",
-          "6.4"
+          "6.4",
+          "6.7"
         ],
         "partial_results": [
           "6.5",
           "6.6",
-          "6.7",
-          "6.8"
+          "6.8",
+          "6.9"
         ],
         "wide_open": [
-          "6.9",
           "6.10"
         ]
       }

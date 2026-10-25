@@ -45,7 +45,7 @@ We classify the problems into three categories: wide-open problems, partially re
 
 \medskip
 \noindent\textbf{Reading guide.}
-Each subject is divided into closed problems with complete solutions, open problems with partial results, and wide-open problems, in that order. Problem $i.j$ is the $j$th problem of Section~$i$, independently of its subsection. Proofs may be sketches; partial proofs specify the hypotheses of the known results, and remarks are attributed to their sources. Dates refer to cited publications unless otherwise stated, and recent preprint claims are identified explicitly.
+Each subject is divided into closed problems with complete solutions, open problems with partial results, and wide-open problems, in that order. Problem numbers $i.j$ are fixed identifiers within Section~$i$, independent of subsections, and are retained when an entry moves between categories. Proofs may be sketches; partial proofs specify the hypotheses of the known results, and remarks are attributed to their sources. Dates refer to cited publications unless otherwise stated, and recent preprint claims are identified explicitly.
 
 Throughout, $\Delta=\{z\in\mathbb C:|z|<1\}$, $\mathbb B^n=\{z\in\mathbb C^n:\|z\|<1\}$, and $\mathbb P^n$ is complex projective space. The notation $A\Subset B$ means that $\overline A$ is compact and contained in $B$, and $\mathcal O(X)$ denotes the holomorphic functions on $X$. Smooth means $C^\infty$ unless otherwise specified. In algebraic parameter spaces, generic means outside a proper Zariski-closed subset; very general means outside a countable union of such subsets. Other notions of genericity are specified where used.
 
@@ -1104,6 +1104,26 @@ H^\infty(M):=\{f\in\mathcal O(M):\sup_M|f|<\infty\}\ne\mathbb C?
 For N.~Sibony's formulation in the 1995 problem list \cite[Problem~11.3.1]{B95}, take a compact Riemann surface of genus at least two with a metric of constant curvature $-1$. Every holomorphic function on it is constant by the maximum principle. Thus the displayed curvature condition alone is insufficient.
 \end{proof}
 
+% Retain Problem 6.7's identifier when its resolution category changes.
+\setcounter{problem}{6}
+\begin{problem}\label{Siu-1.2}
+Does the standard smooth sphere $S^6$ admit $J\in C^\infty(\operatorname{End}(TS^6))$ such that
+\[
+J^2=-\Id,\qquad N_J=0,
+\]
+where $N_J$ is the Nijenhuis tensor?
+\end{problem}
+\begin{proof}
+Claude and L.~Alp\"oge (2026) construct a compact complex threefold $Y$ by completing a family of complex $2$-tori over $\mathbb P^1\setminus\{0,1,\infty\}$ using logarithmic transforms and a Mumford degeneration \cite{SIU-AC26}. P.~Engel (2026) gives a self-contained geometric proof that $\pi_1(Y)=0$ and $H_*(Y;\mathbb Z)\cong H_*(S^6;\mathbb Z)$ \cite[Theorem~4.1]{SIU-Eng26}. Hence $Y$ is a homotopy $6$-sphere; the Kervaire--Milnor calculation $\Theta_6=0$ gives a diffeomorphism $f:S^6\to Y$. Pulling back the complex structure $J_Y$ gives
+\[
+J=(df)^{-1}J_Ydf,\qquad J^2=-\Id,\qquad N_J=0.
+\]
+\end{proof}
+\begin{remark}
+P.~Engel explains that Claude produced the original manuscript under L.~Alp\"oge's direction. He discloses ChatGPT's assistance with exploration, drafting, and computations, while stating that he independently verified the mathematics and accepts responsibility \cite[\S\S1.3--1.4]{SIU-Eng26}. J.~Viaclovsky (2026) constructs further families and examples with arbitrarily large local deformation dimensions, also disclosing ChatGPT assistance \cite{SIU-Via26a,SIU-Via26b}.
+\end{remark}
+
+\setcounter{problem}{4}
 \subsection{Open problems with partial results}
 
 \begin{problem}[Hartshorne conjecture]\label{Siu-1.1}
@@ -1128,16 +1148,8 @@ hold without assuming that $X_0$ is K\"ahler?
 Hwang and Mok (1998) proved the assertion when $X_0$ is K\"ahler \cite{SIU-HM98}. They control varieties of minimal rational tangents and the resulting holomorphic $G$-structures under deformation, thereby identifying the central fibre with $S$.
 \end{proof}
 
-\begin{problem}\label{Siu-1.2}
-Does the standard smooth sphere $S^6$ admit $J\in C^\infty(\operatorname{End}(TS^6))$ such that
-\[
-J^2=-\Id,\qquad N_J=0,
-\]
-where $N_J$ is the Nijenhuis tensor?
-\end{problem}
-\begin{proof}[Partial proof]
-Bryant (2021) discusses obstructions under additional compatibility conditions on an almost-complex structure \cite{SIU-Bry21}. Engel's September 2026 preprint describes an affirmative construction, and Viaclovsky's September and October 2026 preprints describe further families and unbounded local deformation dimensions \cite{SIU-Eng26,SIU-Via26a,SIU-Via26b}. These last statements are recorded as preprint claims, not as independently verified proofs in this survey.
-\end{proof}
+% Retain Problem 6.8 after moving Problem 6.7 to the closed subsection.
+\setcounter{problem}{7}
 
 \begin{problem}\label{Siu-1.4}
 Assume that $K_X$ is not pseudoeffective. Can one construct, by direct complex-analytic methods, a dominant rational map
@@ -1150,8 +1162,6 @@ and hence rational curves through general points of $X$? More generally, can the
 Boucksom, Demailly, P\u aun, and Peternell (2013) proved that a smooth projective variety has non-pseudoeffective canonical bundle if and only if it is uniruled \cite{SIU-BDPP13}. Their cone duality argument uses the numerical uniruledness criterion of Miyaoka and Mori (1986) \cite{SIU-MM86}. This establishes the existence of rational curves under the stated negativity hypothesis; the direct analytic construction and canonical factorization are the further program proposed by Siu (2025) \cite{Siu2025}.
 \end{proof}
 
-\subsection{Wide-open problems}
-
 \begin{problem}[Hodge conjecture]\label{Siu-1.5}
 For $0\leq p\leq n$, is
 \[
@@ -1160,9 +1170,22 @@ H^{2p}(X,\mathbb Q)\cap H^{p,p}(X)
 \]
 Here the intersection is taken in $H^{2p}(X,\mathbb C)$ and $[Z]$ denotes the cycle class.
 \end{problem}
+\begin{proof}[Partial proof]
+OpenAI (2026) establishes the conjecture for every complex abelian variety $A$ of CM type \cite[\S1]{SIU-OAI26}. Here CM type means that $\operatorname{End}(A)\otimes_{\mathbb Z}\mathbb Q$ contains a commutative semisimple $\mathbb Q$-algebra of dimension $2\dim A$. For every $p\geq0$, the cycle-class map is surjective:
+\[
+\operatorname{cl}:\operatorname{CH}^p(A)\otimes_{\mathbb Z}\mathbb Q
+\twoheadrightarrow H^{2p}(A,\mathbb Q)\cap H^{p,p}(A).
+\]
+P.~van Hoften and J.~Sempliner (2026) give a variant proof, reducing to codimension two and constructing algebraic representatives using nonzero cup products of theta classes on Picard modular surfaces \cite[Theorem~I and \S1.2]{SIU-vHS26}. The general Hodge conjecture remains open.
+\end{proof}
+\begin{remark}
+The original OpenAI manuscript was produced using an unreleased internal model \cite{SIU-OAI26,SIU-OAIRepo26}. P.~van Hoften and J.~Sempliner disclose extensive ChatGPT Pro assistance with their human-written proof and distinguish their variant argument from a detailed verification of the original manuscript \cite[\S\S1.3--1.4]{SIU-vHS26}. J.~S.~Milne remarks, in an update dated 14 October 2026, that their exposition confirms that the CM case has been proved \cite{SIU-Milne26}.
+\end{remark}
 \begin{remark}
 Y.-T.~Siu remarks that an energy-minimization approach requires a parametrization of a representative of the Hodge class by a compact K\"ahler manifold. He proposes using multivalued harmonic maps from $\mathbb P^{n-p}$ to address this difficulty, and identifies the technical problems caused by multivaluedness \cite[\S1.5]{Siu2025}.
 \end{remark}
+
+\subsection{Wide-open problems}
 
 \begin{problem}\label{FS-3.12}
 For every $N>2$ and $M>0$, does there exist a smooth hypersurface $Y\subset\mathbb P^N$ such that
@@ -1512,7 +1535,7 @@ Y.-T.~Siu remarks that polarized Hodge structures provide the higher-dimensional
 
 \bibitem{Z-Zhang} J. Zhang, Threefolds with vanishing Hodge cohomology, preprint (2003). \url{https://arxiv.org/abs/math/0312239}.
 
-\bibitem{SIU-Eng26} P.~Engel, \emph{Complex structures on $S^6$}, preprint, 29 September 2026, arXiv:2609.38442v1, especially Theorem~4.1. \url{https://arxiv.org/abs/2609.38442}.
+\bibitem{SIU-Eng26} P.~Engel, \emph{Complex structures on $S^6$}, preprint, 29 September 2026, arXiv:2609.38442v1, especially Theorem~4.1 and \S1.4 (author's manuscript dated 13 September 2026). \url{https://arxiv.org/abs/2609.38442}.
 
 \bibitem{SIU-Via26a} J.~Viaclovsky, \emph{A two-parameter family of complex structures on $S^6$}, preprint, 27 September 2026, arXiv:2609.33785v1, especially Theorem~1.1. \url{https://arxiv.org/abs/2609.33785}.
 
@@ -1546,6 +1569,16 @@ Y.-T.~Siu remarks that polarized Hodge structures provide the higher-dimensional
 \bibitem{SM-TaoJac26} T.~Tao, \emph{A digestion of the Jacobian conjecture counterexample}, What's New, 21 July 2026. \url{https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/}.
 
 \bibitem{SM-AFPJac26} A.~F.~Ramos, D.~B.~Hulak, and R.~J.~G.~Barretto de Queiroz, \emph{Formal Verification of an Explicit Counterexample to the Jacobian Conjecture}, Archive of Formal Proofs, 20 July 2026. \url{https://isa-afp.org/entries/Jacobian_Counterexample.html}.
+
+\bibitem{SIU-AC26} Claude and L.~Alp\"oge, \emph{The $(3,4,\infty)$ modular family of 2-tori, completed at its three special points, is a complex structure on $S^6$}, manuscript, 2026. Attribution follows \cite{SIU-Eng26}. \url{https://alpo.ge/s6.pdf}.
+
+\bibitem{SIU-OAI26} OpenAI, \emph{The rational Hodge conjecture for CM abelian varieties}, preprint, 6 October 2026 (previous version 30 September 2026). \url{https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-October-6-2026/paper.pdf}.
+
+\bibitem{SIU-vHS26} P.~van Hoften and J.~Sempliner, \emph{The Hodge conjecture for CM abelian varieties}, Hexagon preprint 2610.00259v2, 18 October 2026 (first version 15 October 2026). \url{https://hexagonmath.org/2610.00259}.
+
+\bibitem{SIU-Milne26} J.~S.~Milne, \emph{Mathematical articles (with abstracts)}, updates of 14 October 2026 to entries 1999b and 2002a, accessed 25 October 2026. \url{https://www.jmilne.org/math/articles/abstracts.html}.
+
+\bibitem{SIU-OAIRepo26} OpenAI, \emph{Math release: repository documentation}, section \emph{How the results were produced}, accessed 25 October 2026. \url{https://github.com/openai/math/blob/main/README.md}.
 
 \end{thebibliography}
 \end{document}
