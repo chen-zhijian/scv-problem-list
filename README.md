@@ -1,7 +1,7 @@
 # Some problems in complex variables
 
 **Zhijian Chen** · Survey and problem collection  
-**Updated manuscript:** 25 October 2026 · 35 pages
+**Updated manuscript:** 25 October 2026 · 37 pages
 
 [Read the survey](papers/scv-problem-list.pdf) · [LaTeX source](papers/src/scv-problem-list.tex) · [Problem statistics](statistics.md) · [Personal website](https://chen-zhijian.github.io/)
 
@@ -30,7 +30,7 @@ The principal starting points, as recorded in the manuscript's bibliography, are
 
 <!-- problem-counts:end -->
 
-Each independently numbered **Problem** is counted once. Several subquestions within one numbered entry remain one entry; multiple source labels attached to a consolidated problem do not increase the count. The classifications follow the supplied manuscript:
+Each independently numbered **Problem** is counted once. Several subquestions within one numbered entry remain one entry; multiple source labels attached to a consolidated problem do not increase the count. The classifications follow the current manuscript:
 
 - **Closed:** completely resolved, with either an affirmative or a negative answer.
 - **Partial results:** significant special cases or weaker forms are known, while the full formulation remains open.
@@ -38,11 +38,15 @@ Each independently numbered **Problem** is counted once. Several subquestions wi
 
 See [the detailed statistics](statistics.md) for the subject-by-status table and numbering ranges. [Machine-readable counts](data/problem-counts.json) are generated from the LaTeX source.
 
+## Literature update — 25 October 2026
+
+The survey adds the Oka-manifold results of An–Du–Guo–Wang–Xie to Problem 1.14, Kähler-family extensions of plurigenera invariance to Problem 6.3, and the analytic Fano case of Du–Guo–Xie to Problem 6.8. The Griffiths-positivity remark after Problem 6.1 distinguishes surface counterexamples from Problem 6.6. Original papers, precise hypotheses, authors’ remarks, and disclosed AI contributions are cited. The OpenAI log-abundance implication is recorded conditionally; no independent specialist verification of that proof was located. Recent preprint results are identified as such. Recounting leaves all 139 problem numbers and the 36/52/51 classification totals unchanged.
+
 ## Files
 
 | Path | Contents |
 | --- | --- |
-| `papers/scv-problem-list.pdf` | Supplied PDF; the stable manuscript link used by the homepage |
+| `papers/scv-problem-list.pdf` | Current PDF; the stable manuscript link used by the homepage |
 | `papers/src/scv-problem-list.tex` | Self-contained LaTeX source, including the bibliography |
 | `statistics.md` | Problem counts by subject, resolution status, and numbering range |
 | `data/problem-counts.json` | Machine-readable problem counts |
@@ -74,6 +78,6 @@ The GitHub validation workflow checks the statistics with Python. It does not in
 
 ## Homepage link
 
-The [personal homepage](https://chen-zhijian.github.io/) links to `papers/scv-problem-list.pdf` in this repository. Keep that path stable when updating the paper. After a new PDF is committed and pushed, the homepage's paper link reaches that version without a separate PDF copy in the website repository.
+The [personal homepage](https://chen-zhijian.github.io/) links to `papers/scv-problem-list.pdf` in this repository. Keep that path stable when updating the paper. The homepage's main survey link reaches this repository; its direct PDF link serves a synchronized copy from the website repository. Update that copy and its `papers/manifest.json` provenance when publishing a revised PDF.
 
 If the title, author credit, problem counts, or summary changes, update the corresponding project entry in [`chen-zhijian.github.io`](https://github.com/chen-zhijian/chen-zhijian.github.io) as well.

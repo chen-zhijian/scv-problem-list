@@ -164,8 +164,17 @@ Gromov (1985) proved the existence of nonconstant attached holomorphic discs for
 Develop quantitative and singular versions of the Oka--Grauert principle: specify hypotheses on a holomorphic family $\pi:Z\to X$ over a Stein space under which continuous sections can be deformed through sections to holomorphic sections with prescribed growth, boundary regularity, or singularity conditions.
 \end{problem}
 \begin{proof}[Partial proof]
-Forstneri\v c (2010) proved the parametric Oka principle with approximation and jet interpolation for sections of stratified holomorphic fibre bundles over reduced Stein spaces whose fibres satisfy the convex approximation property \cite{SIU-For10}. Forstneri\v c (2026, final preprint accepted for publication) proved that, on a smoothly bounded strongly pseudoconvex Stein domain, a continuous section of a bundle of H\"older--Zygmund class $\Lambda^r$, $r>0$, with Oka fibre is homotopic to a section of that class holomorphic in the interior \cite{SIU-For26}. These theorems address approximation and boundary regularity within the broader research program.
+Forstneri\v c (2010) proved the parametric Oka principle with approximation and jet interpolation for sections of stratified holomorphic fibre bundles over reduced Stein spaces whose fibres satisfy the convex approximation property \cite{SIU-For10}. Forstneri\v c (2026, final preprint accepted for publication) proved that, on a smoothly bounded strongly pseudoconvex Stein domain, a continuous section of a bundle of H\"older--Zygmund class $\Lambda^r$, $r>0$, with Oka fibre is homotopic to a section of that class holomorphic in the interior \cite{SIU-For26}.
+
+In their 2026 preprint, An, Du, Guo, Wang, and Xie prove that every smooth projective rationally connected manifold is Oka. For a smooth hypersurface $D\subset\mathbb P^n$ of degree $d\geq1$, they also prove
+\[
+\mathbb P^n\setminus D\text{ is Oka}\quad\Longleftrightarrow\quad d\leq n+1
+\]
+\cite[Theorems~1.10--1.11]{SIU-ADGWX26}. Combined with the section theorems above, these results supply further admissible fibres; they do not remove the bundle hypotheses or give arbitrary prescribed growth.
 \end{proof}
+\begin{remark}
+An, Du, Guo, Wang, and Xie explain that their local-to-global approximation argument builds on OpenAI's K3 manuscript \cite{SIU-OAIK326}, while their contributions include a criterion in arbitrary dimension and additional analytic refinements \cite[\S1, ``Relation to the work of OpenAI'']{SIU-ADGWX26}.
+\end{remark}
 
 \begin{problem}\label{Z-Serre}
 Let $X$ be a complex manifold satisfying
@@ -1072,6 +1081,9 @@ Is a compact complex manifold $M$ projective if and only if there exist a holomo
 \begin{proof}
 Kodaira (1954) proved the assertion \cite{Z-Kodaira1954}. Positivity gives enough sections of sufficiently large tensor powers to separate points and tangent directions, hence a projective embedding. Conversely, the restriction of the Fubini--Study metric makes the hyperplane bundle positive.
 \end{proof}
+\begin{remark}
+In their 2026 preprint, Du and Xie construct an ample rank-two bundle on an abelian surface with no smooth Griffiths-semipositive Hermitian metric \cite[Theorem~1.1]{SIU-DX26}; they disclose generative-AI assistance and state that they independently verified the final arguments. OpenAI reports a different family on $\mathbb P^1\times\mathbb P^1$ excluding smooth strictly Griffiths-positive metrics \cite[Theorem~1.1]{SIU-OAIGriff26}. Liu and Wan remark that excluding Hermitian metrics does not by itself exclude Finsler metrics; their Hirzebruch-surface examples exclude smooth strongly pseudoconvex Finsler metrics of semipositive Kobayashi curvature, with ChatGPT acknowledged as an auxiliary tool \cite[Theorem~1.1 and AI Declaration]{SIU-LWGriff26}. These surface examples do not settle the higher-dimensional splitting question in Problem~\ref{Siu-1.1}.
+\end{remark}
 
 \begin{problem}\label{Siu-1.4-fg}
 Is the canonical ring
@@ -1093,6 +1105,16 @@ P_m(X_t)=P_m(X_0)\qquad(t\in\Delta,\ m\geq1)?
 \begin{proof}
 Siu proved invariance for families of general type in 1998 and for arbitrary smooth projective families in 2002 \cite{Z-Siu1998,Z-Siu2002}. Extension of pluricanonical sections, using singular metrics and multiplier ideals, gives one inequality for the dimensions of the spaces of sections; upper semicontinuity gives the reverse inequality.
 \end{proof}
+\begin{remark}
+Li, P\u aun, Wang, and Zhou (2026) extend invariance to proper holomorphic submersions with K\"ahler total space \cite[Theorem~1.2]{SIU-LPWZ26}. Liu and Wan's 2026 preprint gives a logarithmic extension: if $\pi:\mathcal X\to\Delta$ is a proper holomorphic submersion with connected compact fibres and K\"ahler total space, and $B=\sum b_iD_i$ is relative simple normal crossings with $b_i\in\mathbb Q\cap[0,1)$, then
+\[
+\begin{gathered}
+t\longmapsto h^0\!\left(X_t,m(K_{X_t}+B_t)\right)\text{ is constant}\\
+\text{for every }m\in\mathbb Z_{>0}\text{ with }mB\text{ integral}
+\end{gathered}
+\]
+\cite[Theorem~1.1]{SIU-LWPluri26}. Liu and Wan credit ChatGPT as an auxiliary tool and state that they verified and completed the arguments. They remark that, for twisted extension, semipositivity separately on the fibres cannot replace semipositivity on the total space \cite[Remark~8.5]{SIU-LWPluri26}.
+\end{remark}
 
 \begin{problem}\label{b95-11-3-1}
 Let $(M,g)$ be a K\"ahler manifold with $-b\leq\sec_g\leq-a<0$. Must
@@ -1160,8 +1182,29 @@ Assume that $K_X$ is not pseudoeffective. Can one construct, by direct complex-a
 and hence rational curves through general points of $X$? More generally, can the positive, numerically trivial, and negative contributions of $K_X$ be described by canonical fibrations?
 \end{problem}
 \begin{proof}[Partial proof]
-Boucksom, Demailly, P\u aun, and Peternell (2013) proved that a smooth projective variety has non-pseudoeffective canonical bundle if and only if it is uniruled \cite{SIU-BDPP13}. Their cone duality argument uses the numerical uniruledness criterion of Miyaoka and Mori (1986) \cite{SIU-MM86}. This establishes the existence of rational curves under the stated negativity hypothesis; the direct analytic construction and canonical factorization are the further program proposed by Siu (2025) \cite{Siu2025}.
+Boucksom, Demailly, P\u aun, and Peternell (2013) proved that a smooth projective variety has non-pseudoeffective canonical bundle if and only if it is uniruled \cite{SIU-BDPP13}. Their cone duality argument uses the numerical uniruledness criterion of Miyaoka and Mori (1986) \cite{SIU-MM86}. Siu (2025) asks for a direct analytic construction and canonical factorization \cite{Siu2025}.
+
+Ou (2025) extends this uniruledness criterion to compact K\"ahler manifolds \cite[Theorem~1.1]{SIU-Ou25}; his proof retains the projective theorem as an input. For the stronger hypothesis that $-K_X$ is ample, Du, Guo, and Xie (2026 preprint) give an analytic construction. Choose a K\"ahler metric with $\operatorname{Ric}(\omega)\geq\kappa\omega$, $\kappa>0$, as is possible on every Fano manifold. Then
+\[
+\begin{gathered}
+\forall x\in X\quad\exists u_x\in\operatorname{Hol}(\mathbb P^1,X)\text{ nonconstant},\\
+x\in u_x(\mathbb P^1),\qquad
+\int_{\mathbb P^1}u_x^*\omega\leq\frac{2\pi(n+1)}{\kappa}.
+\end{gathered}
+\]
+Their proof alternates area-decreasing deformations of holomorphic discs with enlargement of their domains, then applies compactness and removal of singularities \cite[Theorem~1.2]{SIU-DGX26}.
 \end{proof}
+\begin{remark}
+Du, Guo, and Xie attribute the mathematical ideas and overall approach to the authors, and disclose AI assistance with exploration and language editing; they reviewed all mathematical statements \cite[AI use disclosure]{SIU-DGX26}.
+\end{remark}
+\begin{remark}
+OpenAI's 2026 abundance preprint asserts, assuming logarithmic Iitaka subadditivity, that a compact K\"ahler log canonical pair $(X,\Delta)$ with effective rational boundary satisfies
+\[
+K_X+\Delta\text{ analytically nef and }\mathbb Q\text{-Cartier}
+\quad\Longrightarrow\quad K_X+\Delta\text{ semiample}
+\]
+\cite[Assumption~1.1 and Theorem~1.2]{SIU-OAIAb26}. For smooth $X$, $\Delta=0$, and nef $K_X$, this would yield an Iitaka morphism $f:X\to Z$ with connected fibres and $mK_X\simeq f^*A$ for an ample $A$; a general smooth fibre $F$ would satisfy $mK_F\simeq\mathcal O_F$. The required subadditivity is claimed in a companion OpenAI manuscript \cite{SIU-OAIIit26}. This addresses the nef canonical-fibration component, rather than the non-pseudoeffective hypothesis. These AI-generated claims are recorded conditionally: no independent specialist verification was located in the literature checked through 25 October 2026.
+\end{remark}
 
 \begin{problem}[Hodge conjecture]\label{Siu-1.5}
 For $0\leq p\leq n$, is
@@ -1580,6 +1623,28 @@ Y.-T.~Siu remarks that polarized Hodge structures provide the higher-dimensional
 \bibitem{SIU-Milne26} J.~S.~Milne, \emph{Mathematical articles (with abstracts)}, updates of 14 October 2026 to entries 1999b and 2002a, accessed 25 October 2026. \url{https://www.jmilne.org/math/articles/abstracts.html}.
 
 \bibitem{SIU-OAIRepo26} OpenAI, \emph{Math release: repository documentation}, section \emph{How the results were produced}, accessed 25 October 2026. \url{https://github.com/openai/math/blob/main/README.md}.
+
+\bibitem{SIU-ADGWX26} S.~An, Y.-H.~Du, B.~Guo, P.-C.~Wang, and S.-Y.~Xie, \emph{A local approximation characterization of Oka manifolds}, preprint, arXiv:2610.10475v3, 19 October 2026. \url{https://arxiv.org/abs/2610.10475v3}.
+
+\bibitem{SIU-OAIK326} OpenAI, \emph{Every complex K3 surface is Oka}, preprint dated 23 September 2026, released 6 October 2026. \href{https://github.com/openai/math/blob/main/preprints/Every-complex-K3-surface-is-Oka-September-23-2026/paper.pdf}{Original manuscript}.
+
+\bibitem{SIU-DX26} Y.-H.~Du and S.-Y.~Xie, \emph{Ample vector bundles without Griffiths-semipositive metrics}, preprint, arXiv:2609.26504v1, 22 September 2026. \url{https://arxiv.org/abs/2609.26504v1}.
+
+\bibitem{SIU-OAIGriff26} OpenAI, \emph{Ample rank-two bundles on the quadric surface without Griffiths-positive metrics}, preprint dated 24 September 2026, released 6 October 2026. \href{https://github.com/openai/math/blob/main/preprints/ample-rank-two-bundles-on-the-quadric-surface-without-griffiths-positive-metrics-September-24-2026/paper.pdf}{Original manuscript}.
+
+\bibitem{SIU-LWGriff26} K.~Liu and X.~Wan, \emph{Stable ample vector bundles without semipositive Kobayashi curvature}, preprint, arXiv:2609.37309v1, 29 September 2026. \url{https://arxiv.org/abs/2609.37309v1}.
+
+\bibitem{SIU-LPWZ26} Y.~Li, M.~P\u aun, Z.~Wang, and X.~Zhou, \emph{Psh variation of singular K\"ahler--Einstein metrics and invariance of plurigenera for smooth K\"ahler families}, preprint, arXiv:2610.07826v1, 6 October 2026. \url{https://arxiv.org/abs/2610.07826v1}.
+
+\bibitem{SIU-LWPluri26} K.~Liu and X.~Wan, \emph{Invariance of logarithmic plurigenera and adjoint volumes in K\"ahler families}, preprint, arXiv:2610.26519v1, 19 October 2026. \url{https://arxiv.org/abs/2610.26519v1}.
+
+\bibitem{SIU-Ou25} W.~Ou, \emph{A characterization of uniruled compact K\"ahler manifolds}, preprint, arXiv:2501.18088v1, 30 January 2025. \url{https://arxiv.org/abs/2501.18088v1}.
+
+\bibitem{SIU-DGX26} Y.-H.~Du, B.~Guo, and S.-Y.~Xie, \emph{Analytic construction of rational curves on Fano manifolds}, preprint, arXiv:2609.11612v2, 30 September 2026. \url{https://arxiv.org/abs/2609.11612v2}.
+
+\bibitem{SIU-OAIAb26} OpenAI, \emph{Log abundance for compact K\"ahler spaces under logarithmic Iitaka subadditivity}, preprint, 6 October 2026. \href{https://github.com/openai/math/tree/main/preprints/Log-abundance-for-compact-Kahler-spaces-under-logarithmic-Iitaka-subadditivity-October-6-2026}{Original manuscript and source}.
+
+\bibitem{SIU-OAIIit26} OpenAI, \emph{Orbifold and logarithmic Iitaka subadditivity}, preprint, 26 September 2026. \href{https://github.com/openai/math/tree/main/preprints/Orbifold-and-logarithmic-Iitaka-subadditivity-September-26-2026}{Original manuscript and source}.
 
 \end{thebibliography}
 \end{document}
