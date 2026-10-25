@@ -40,7 +40,7 @@ See [the detailed statistics](statistics.md) for the subject-by-status table and
 
 ## Literature update — 25 October 2026
 
-The survey adds the Oka-manifold results of An–Du–Guo–Wang–Xie to Problem 1.14, Kähler-family extensions of plurigenera invariance to Problem 6.3, and the analytic Fano case of Du–Guo–Xie to Problem 6.8. The Griffiths-positivity remark after Problem 6.1 distinguishes surface counterexamples from Problem 6.6. Original papers, precise hypotheses, authors’ remarks, and disclosed AI contributions are cited. The OpenAI log-abundance implication is recorded conditionally; no independent specialist verification of that proof was located. Recent preprint results are identified as such. Recounting leaves all 139 problem numbers and the 36/52/51 classification totals unchanged.
+The survey adds the Oka-manifold results of An–Du–Guo–Wang–Xie to Problem 1.14, Kähler-family extensions of plurigenera invariance to Problem 6.3, and the analytic Fano case of Du–Guo–Xie to Problem 6.8. The Griffiths-positivity remark after Problem 6.1 distinguishes surface counterexamples from Problem 6.6. Original papers, precise hypotheses, authors’ remarks, and disclosed AI contributions are cited. The companion OpenAI Iitaka theorem supplies the abundance paper's stated assumption, so the two manuscripts together claim an unconditional abundance theorem. Independent specialist verification of these proofs remains a separate issue; none was located in the sources checked. Recent preprint results are identified as such. Recounting leaves all 139 problem numbers and the 36/52/51 classification totals unchanged.
 
 ## Files
 
