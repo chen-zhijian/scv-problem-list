@@ -1,7 +1,7 @@
 # Some problems in complex variables
 
 **Zhijian Chen** · Survey and problem collection  
-**Updated manuscript:** 25 October 2026 · 37 pages
+**Updated manuscript:** 27 October 2026 · 37 pages
 
 [Read the survey](papers/scv-problem-list.pdf) · [LaTeX source](papers/src/scv-problem-list.tex) · [Problem statistics](statistics.md) · [Personal website](https://chen-zhijian.github.io/)
 
@@ -37,6 +37,10 @@ Each independently numbered **Problem** is counted once. Several subquestions wi
 - **Wide-open:** the central question remains largely unresolved, although related results or proposed approaches may exist.
 
 See [the detailed statistics](statistics.md) for the subject-by-status table and numbering ranges. [Machine-readable counts](data/problem-counts.json) are generated from the LaTeX source.
+
+## Suita conjecture attribution — 27 October 2026
+
+The inequality is now attributed separately to Błocki for bounded planar domains and to Guan–Zhou for arbitrary open Riemann surfaces admitting a Green function. Guan–Zhou’s 2012 paper is added to the bibliography, bringing the current total to **156 references**; their 2015 paper remains the reference for the equality characterization. The problem counts and classifications are unchanged.
 
 ## Substantive updates — 25 October 2026
 
