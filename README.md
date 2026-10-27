@@ -40,7 +40,7 @@ See [the detailed statistics](statistics.md) for the subject-by-status table and
 
 ## Suita conjecture attribution — 27 October 2026
 
-The inequality is attributed first to Błocki (online 2012; print 2013) for bounded planar domains, followed by Guan–Zhou (2012) for arbitrary open Riemann surfaces admitting a Green function. A brief remark explains Błocki’s capacity-dependent sharp extension theorem and proof methods, with a citation to Guan–Zhou’s acknowledgment of his planar result. Guan–Zhou’s 2012 paper is added to the bibliography, bringing the current total to **156 references**; their 2015 paper remains the reference for the equality characterization. The problem counts and classifications are unchanged.
+The inequality is attributed first to Błocki (online 2012; print 2013) for bounded planar domains, followed by Guan–Zhou (2012) for arbitrary open Riemann surfaces admitting a Green function. A brief remark explains Błocki’s capacity-dependent extension estimate and proof methods, with a citation to Guan–Zhou’s acknowledgment of his planar result. Guan–Zhou’s 2012 paper is added to the bibliography, bringing the current total to **156 references**; their 2015 paper remains the reference for the equality characterization. The problem counts and classifications are unchanged.
 
 ## Substantive updates — 25 October 2026
 
