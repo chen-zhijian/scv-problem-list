@@ -1,7 +1,7 @@
 # Some problems in complex variables
 
 **Zhijian Chen** · Survey and problem collection  
-**Updated manuscript:** 27 October 2026 · 37 pages
+**Updated manuscript:** 27 October 2026 · 39 pages
 
 [Read the survey](papers/scv-problem-list.pdf) · [LaTeX source](papers/src/scv-problem-list.tex) · [Problem statistics](statistics.md) · [Personal website](https://chen-zhijian.github.io/)
 
@@ -38,9 +38,20 @@ Each independently numbered **Problem** is counted once. Several subquestions wi
 
 See [the detailed statistics](statistics.md) for the subject-by-status table and numbering ranges. [Machine-readable counts](data/problem-counts.json) are generated from the LaTeX source.
 
+## Source comparison and restorations — 27 October 2026
+
+The revised manuscript compares its coverage with all four principal sources, cited as **[1]–[4]** in the bibliography. Omitted subquestions and broader formulations are selectively restored within existing entries; source-specific qualifications and known answers are retained. New and revised statements use concise mathematical formulations and precise problem, question, or section citations.
+
+- **[1] Buzzard–Fornæss–Gavosto–Krantz:** restores selected immersion, spectral, Bergman, and dynamics formulations, records the historical McNeal and Krantz prize attributions, and clarifies scope where a restricted formulation was intended.
+- **[2] Fornæss–Sibony:** checks all 54 questions and subquestions, restoring selected dynamics, boundary-extension, hyperbolicity, and dimension-independent $\bar\partial$ formulations and test families.
+- **[3] Zhou:** checks the full survey, adding the general weighted $L^2$-extension framework and the Fuchsian-group formulation of the Suita inequality as remarks.
+- **[4] Siu:** checks all 27 subsections of the supplied conference report, refining the coherent-sheaf, pluricanonical–Albanese, rational-homogeneous, and arithmetic remarks and formulations.
+
+Five references are added: Kawaguchi–Silverman, Krantz, B.-Y. Chen, Forster–Ramspott, and Pommerenke–Suita. The manuscript now has **161 references**. Its **139 numbered problems** and classifications (**36 closed / 52 partial / 51 wide-open**) are unchanged; consolidating source questions does not create additional numbered entries.
+
 ## Suita conjecture attribution — 27 October 2026
 
-The inequality is attributed first to Błocki (online 2012; print 2013) for bounded planar domains, followed by Guan–Zhou (2012) for arbitrary open Riemann surfaces admitting a Green function. A brief remark explains Błocki’s capacity-dependent extension estimate and proof methods, and notes that Guan–Zhou cite his planar result in their 2012 paper. Guan–Zhou’s 2012 paper is added to the bibliography, bringing the current total to **156 references**; their 2015 paper remains the reference for the equality characterization. The problem counts and classifications are unchanged.
+The inequality is attributed first to Błocki (online 2012; print 2013) for bounded planar domains, followed by Guan–Zhou (2012) for arbitrary open Riemann surfaces admitting a Green function. A brief remark explains Błocki’s capacity-dependent extension estimate and proof methods, and notes that Guan–Zhou cite his planar result in their 2012 paper. The bibliography includes Guan–Zhou’s 2012 paper; their 2015 paper remains the reference for the equality characterization. The problem counts and classifications are unchanged.
 
 ## Substantive updates — 25 October 2026
 
